@@ -9,14 +9,18 @@
 /* Begin PBXBuildFile section */
 		1512FD6826E608E900FF4E75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1512FD6726E608E900FF4E75 /* AppDelegate.swift */; };
 		1512FD6A26E608E900FF4E75 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1512FD6926E608E900FF4E75 /* SceneDelegate.swift */; };
-		1512FD6C26E608E900FF4E75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1512FD6B26E608E900FF4E75 /* ViewController.swift */; };
-		1512FD6F26E608E900FF4E75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1512FD6D26E608E900FF4E75 /* Main.storyboard */; };
 		1512FD7126E608EC00FF4E75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1512FD7026E608EC00FF4E75 /* Assets.xcassets */; };
 		1512FD7426E608EC00FF4E75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1512FD7226E608EC00FF4E75 /* LaunchScreen.storyboard */; };
 		1512FD7F26E608ED00FF4E75 /* PourPourTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1512FD7E26E608ED00FF4E75 /* PourPourTests.swift */; };
 		1512FD8A26E608ED00FF4E75 /* PourPourUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1512FD8926E608ED00FF4E75 /* PourPourUITests.swift */; };
 		1512FD9A26E6177A00FF4E75 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 1512FD9926E6177A00FF4E75 /* Podfile */; };
 		1512FD9D26E6197800FF4E75 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1512FD9C26E6197800FF4E75 /* R.generated.swift */; };
+		15DAC62126E637E3003C88E2 /* RecipeListController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15DAC62026E637E3003C88E2 /* RecipeListController.storyboard */; };
+		15DAC62326E63A92003C88E2 /* RecipeListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DAC62226E63A92003C88E2 /* RecipeListPresenter.swift */; };
+		15DAC62526E63C6B003C88E2 /* RecipeListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DAC62426E63C6B003C88E2 /* RecipeListConfigurator.swift */; };
+		15DAC62726E63C76003C88E2 /* RecipeListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DAC62626E63C76003C88E2 /* RecipeListRouter.swift */; };
+		15DAC62926E63D41003C88E2 /* RecipeListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DAC62826E63D41003C88E2 /* RecipeListController.swift */; };
+		15DAC62D26E63ED2003C88E2 /* RecipeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DAC62C26E63ED2003C88E2 /* RecipeEntity.swift */; };
 		340BAA46DAF931CF6D2C03FE /* Pods_PourPour.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EAEB2E860F5013EA6E61C6F /* Pods_PourPour.framework */; };
 		562C09DD45FBB29D600825D2 /* Pods_PourPourTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01A8491BA35EA1966381F67 /* Pods_PourPourTests.framework */; };
 		A14486D61F38BE81DA696D89 /* Pods_PourPourUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB310F7ADA5E48A813B7E08 /* Pods_PourPourUITests.framework */; };
@@ -43,8 +47,6 @@
 		1512FD6426E608E900FF4E75 /* PourPour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PourPour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1512FD6726E608E900FF4E75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1512FD6926E608E900FF4E75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1512FD6B26E608E900FF4E75 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1512FD6E26E608E900FF4E75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1512FD7026E608EC00FF4E75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1512FD7326E608EC00FF4E75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1512FD7526E608EC00FF4E75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +58,12 @@
 		1512FD8B26E608ED00FF4E75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1512FD9926E6177A00FF4E75 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1512FD9C26E6197800FF4E75 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		15DAC62026E637E3003C88E2 /* RecipeListController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecipeListController.storyboard; sourceTree = "<group>"; };
+		15DAC62226E63A92003C88E2 /* RecipeListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListPresenter.swift; sourceTree = "<group>"; };
+		15DAC62426E63C6B003C88E2 /* RecipeListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListConfigurator.swift; sourceTree = "<group>"; };
+		15DAC62626E63C76003C88E2 /* RecipeListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListRouter.swift; sourceTree = "<group>"; };
+		15DAC62826E63D41003C88E2 /* RecipeListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListController.swift; sourceTree = "<group>"; };
+		15DAC62C26E63ED2003C88E2 /* RecipeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEntity.swift; sourceTree = "<group>"; };
 		1EAEB2E860F5013EA6E61C6F /* Pods_PourPour.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PourPour.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49D401B9352C8339400E9441 /* Pods-PourPourTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PourPourTests.release.xcconfig"; path = "Target Support Files/Pods-PourPourTests/Pods-PourPourTests.release.xcconfig"; sourceTree = "<group>"; };
 		4DB310F7ADA5E48A813B7E08 /* Pods_PourPourUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PourPourUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,10 +157,9 @@
 		1512FD9E26E61B1600FF4E75 /* Src */ = {
 			isa = PBXGroup;
 			children = (
+				15DAC62A26E63EBA003C88E2 /* Core */,
 				1512FDA126E61BB900FF4E75 /* View */,
 				1512FDA026E61BA000FF4E75 /* Scene */,
-				1512FD6726E608E900FF4E75 /* AppDelegate.swift */,
-				1512FD6926E608E900FF4E75 /* SceneDelegate.swift */,
 			);
 			path = Src;
 			sourceTree = "<group>";
@@ -169,9 +176,10 @@
 		1512FDA026E61BA000FF4E75 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				1512FD6B26E608E900FF4E75 /* ViewController.swift */,
-				1512FD6D26E608E900FF4E75 /* Main.storyboard */,
+				15DAC62E26E64865003C88E2 /* RecipeList */,
+				1512FD6726E608E900FF4E75 /* AppDelegate.swift */,
 				1512FD7226E608EC00FF4E75 /* LaunchScreen.storyboard */,
+				1512FD6926E608E900FF4E75 /* SceneDelegate.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -181,6 +189,34 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		15DAC62A26E63EBA003C88E2 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				15DAC62B26E63EC2003C88E2 /* Entities */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		15DAC62B26E63EC2003C88E2 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				15DAC62C26E63ED2003C88E2 /* RecipeEntity.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		15DAC62E26E64865003C88E2 /* RecipeList */ = {
+			isa = PBXGroup;
+			children = (
+				15DAC62026E637E3003C88E2 /* RecipeListController.storyboard */,
+				15DAC62826E63D41003C88E2 /* RecipeListController.swift */,
+				15DAC62226E63A92003C88E2 /* RecipeListPresenter.swift */,
+				15DAC62426E63C6B003C88E2 /* RecipeListConfigurator.swift */,
+				15DAC62626E63C76003C88E2 /* RecipeListRouter.swift */,
+			);
+			path = RecipeList;
 			sourceTree = "<group>";
 		};
 		9E0DF1CCA0A8FCA54A63D919 /* Pods */ = {
@@ -314,10 +350,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15DAC62126E637E3003C88E2 /* RecipeListController.storyboard in Resources */,
 				1512FD7426E608EC00FF4E75 /* LaunchScreen.storyboard in Resources */,
 				1512FD7126E608EC00FF4E75 /* Assets.xcassets in Resources */,
 				1512FD9A26E6177A00FF4E75 /* Podfile in Resources */,
-				1512FD6F26E608E900FF4E75 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,7 +484,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1512FD6C26E608E900FF4E75 /* ViewController.swift in Sources */,
+				15DAC62726E63C76003C88E2 /* RecipeListRouter.swift in Sources */,
+				15DAC62526E63C6B003C88E2 /* RecipeListConfigurator.swift in Sources */,
+				15DAC62D26E63ED2003C88E2 /* RecipeEntity.swift in Sources */,
+				15DAC62926E63D41003C88E2 /* RecipeListController.swift in Sources */,
+				15DAC62326E63A92003C88E2 /* RecipeListPresenter.swift in Sources */,
 				1512FD6826E608E900FF4E75 /* AppDelegate.swift in Sources */,
 				1512FD6A26E608E900FF4E75 /* SceneDelegate.swift in Sources */,
 				1512FD9D26E6197800FF4E75 /* R.generated.swift in Sources */,
@@ -487,14 +527,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1512FD6D26E608E900FF4E75 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1512FD6E26E608E900FF4E75 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1512FD7226E608EC00FF4E75 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
