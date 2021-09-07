@@ -42,6 +42,19 @@ extension RecipeListController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.onRecipeSelected(indexPath.row)
     }
+    
+    //design cell
+    override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.backgroundColor = R.color.highlightCell()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.backgroundColor = nil
+        }
+    }
 }
 
 
