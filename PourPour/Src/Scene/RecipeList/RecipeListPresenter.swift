@@ -39,20 +39,21 @@ class RecipeListPresenterImp: RecipeListPresenter {
 
     func viewDidLoad() {
         loadTableData()
-//        view.reloadTable()
+        view.reloadTable()
     }
 
     func loadTableData() {
         self.recipeList = [
-            RecipeEntity(id: 0, name: "Колумбия"),
-            RecipeEntity(id: 1, name: "Коста-Рика"),
-            RecipeEntity(id: 2, name: "Бразилия"),
-            RecipeEntity(id: 3, name: "Кения"),
-            RecipeEntity(id: 4, name: "Эфиопия")]
+            RecipeEntity(id: 0, name: "Колумбия \(Int.random(in: 0..<10))"),
+            RecipeEntity(id: 1, name: "Коста-Рика \(Int.random(in: 0..<10))"),
+            RecipeEntity(id: 2, name: "Бразилия \(Int.random(in: 0..<10))"),
+            RecipeEntity(id: 3, name: "Кения \(Int.random(in: 0..<10))"),
+            RecipeEntity(id: 4, name: "Эфиопия \(Int.random(in: 0..<10))")]
     }
 
     func refreshItems() {
         self.loadTableData()
+        view.reloadTable()
     }
 
     func getTitleRecipeCell(_ index: Int) -> String {
