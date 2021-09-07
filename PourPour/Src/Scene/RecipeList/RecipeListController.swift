@@ -11,6 +11,10 @@ class RecipeListController: UITableViewController {
 
     var presenter: RecipeListPresenter!
     
+    @IBAction func touchInfo(_ sender: UIBarButtonItem) {
+        self.presenter.touchInfo()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     

@@ -9,6 +9,7 @@ import Foundation
 
 protocol RecipeListRouter {
     func openRecipe(_ index: Int)
+    func openInfoSceen()
 }
 
 class RecipeListRouterImp: RecipeListRouter {
@@ -22,5 +23,10 @@ class RecipeListRouterImp: RecipeListRouter {
     func openRecipe(_ index: Int) {
         //TODO: добавить открытие рецепта
         print("openRecipe")
+    }
+    
+    func openInfoSceen() {
+        //TODO: добавить открытие информации
+        print("openInfo")
     }
 }

@@ -15,6 +15,7 @@ protocol RecipeListPresenter {
     func refreshItems()
     func getTitleRecipeCell(_ index: Int) -> String
     func onRecipeSelected(_ index: Int)
+    func touchInfo()
 }
 
 
@@ -64,4 +65,7 @@ class RecipeListPresenterImp: RecipeListPresenter {
         self.router.openRecipe(index)
     }
 
+    func touchInfo() {
+        self.router.openInfoSceen()
+    }
 }
