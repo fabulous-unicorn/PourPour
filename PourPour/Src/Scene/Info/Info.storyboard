@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Общая информация о приготовлении кофе-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="infoVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="InfoViewController" customModule="PourPour" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rH-a3-BYn">
+                                <rect key="frame" x="16" y="60" width="382" height="130"/>
+                                <string key="text">Пуровер , что в буквальном переводе с английского pour over – лить сверху, является альтернативным методом приготовления фильтр-кофе, при котором горячая вода проходит через слой молотого кофе, находящегося в специальной воронке с бумажным фильтром.</string>
+                                <color key="textColor" name="text-basic"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="surface-primary-bg"/>
+                        <constraints>
+                            <constraint firstItem="0rH-a3-BYn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="gk9-IQ-9Wo"/>
+                            <constraint firstItem="0rH-a3-BYn" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="kSL-nK-Ur9"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="0rH-a3-BYn" secondAttribute="trailing" constant="16" id="rrW-4h-cn5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Общая информация о приготовлении кофе" largeTitleDisplayMode="always" id="kUA-Vq-QcK">
+                        <barButtonItem key="backBarButtonItem" title=" " id="JGd-qW-v5n"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="921.73913043478262" y="69.642857142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="surface-primary-bg">
+            <color red="0.98039215686274506" green="0.95686274509803926" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="text-basic">
+            <color red="0.18823529411764706" green="0.090196078431372548" blue="0.054901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

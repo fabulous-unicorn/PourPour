@@ -28,5 +28,7 @@ class RecipeListRouterImp: RecipeListRouter {
     func openInfoSceen() {
         //TODO: добавить открытие информации
         print("openInfo")
+        let infoView = R.storyboard.info.infoVC()!
+        self.view.navigationController?.pushViewController(infoView, animated: true)
     }
 }
