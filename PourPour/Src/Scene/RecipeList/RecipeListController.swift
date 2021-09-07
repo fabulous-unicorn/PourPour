@@ -16,14 +16,19 @@ class RecipeListController: UITableViewController {
     
         RecipeListConfiguratorImp().configure(view: self)
     
+        self.refreshControl?.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        self.refreshControl?.beginRefreshing()
         presenter.viewDidLoad()
+    }
+    
+    @objc func refreshData() {
+        presenter.refreshItems()
     }
 }
 
 extension RecipeListController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(presenter.numberOfRowInTable)
         return presenter.numberOfRowInTable
     }
 
@@ -43,7 +48,11 @@ extension RecipeListController {
 extension RecipeListController: RecipeListView {
     
     func reloadTable() {
-//        self.reloadTable()
+        self.endRefreshing()
+        self.tableView.reloadData()
     }
 
+    func endRefreshing() {
+        self.refreshControl?.endRefreshing()
+    }
 }
