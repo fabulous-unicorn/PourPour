@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Общая информация о приготовлении кофе-->
+        <!--Приготовление кофе-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="infoVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="InfoViewController" customModule="PourPour" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,29 +17,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rH-a3-BYn">
-                                <rect key="frame" x="16" y="60" width="382" height="130"/>
-                                <string key="text">Пуровер , что в буквальном переводе с английского pour over – лить сверху, является альтернативным методом приготовления фильтр-кофе, при котором горячая вода проходит через слой молотого кофе, находящегося в специальной воронке с бумажным фильтром.</string>
-                                <color key="textColor" name="text-basic"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kmn-wl-gV1">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2HE-Cx-hze">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rH-a3-BYn">
+                                                <rect key="frame" x="16" y="16" width="382" height="130"/>
+                                                <string key="text">Пуровер , что в буквальном переводе с английского pour over – лить сверху, является альтернативным методом приготовления фильтр-кофе, при котором горячая вода проходит через слой молотого кофе, находящегося в специальной воронке с бумажным фильтром.</string>
+                                                <color key="textColor" name="text-basic"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="0rH-a3-BYn" firstAttribute="top" secondItem="2HE-Cx-hze" secondAttribute="top" constant="16" id="1VG-Q5-XNi"/>
+                                            <constraint firstItem="0rH-a3-BYn" firstAttribute="leading" secondItem="2HE-Cx-hze" secondAttribute="leading" constant="16" id="7aR-E9-hoh"/>
+                                            <constraint firstAttribute="bottom" secondItem="0rH-a3-BYn" secondAttribute="bottom" constant="16" id="qVy-8M-7nm"/>
+                                            <constraint firstAttribute="trailing" secondItem="0rH-a3-BYn" secondAttribute="trailing" constant="16" id="tNv-8u-q9f"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="2HE-Cx-hze" secondAttribute="trailing" id="1vB-3r-0k6"/>
+                                    <constraint firstItem="2HE-Cx-hze" firstAttribute="leading" secondItem="kmn-wl-gV1" secondAttribute="leading" id="E18-6m-RZN"/>
+                                    <constraint firstItem="2HE-Cx-hze" firstAttribute="top" secondItem="kmn-wl-gV1" secondAttribute="top" id="UwB-00-ZLg"/>
+                                    <constraint firstAttribute="bottom" secondItem="2HE-Cx-hze" secondAttribute="bottom" id="VDJ-Dd-hiB"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="surface-primary-bg"/>
                         <constraints>
-                            <constraint firstItem="0rH-a3-BYn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="gk9-IQ-9Wo"/>
-                            <constraint firstItem="0rH-a3-BYn" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="kSL-nK-Ur9"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="0rH-a3-BYn" secondAttribute="trailing" constant="16" id="rrW-4h-cn5"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="kmn-wl-gV1" secondAttribute="bottom" id="1D7-j1-STQ"/>
+                            <constraint firstItem="kmn-wl-gV1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="1Lv-wn-x4V"/>
+                            <constraint firstItem="kmn-wl-gV1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="AKi-lU-smg"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="kmn-wl-gV1" secondAttribute="trailing" id="N2J-WP-okl"/>
+                            <constraint firstItem="2HE-Cx-hze" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" id="dAM-mr-99h"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Общая информация о приготовлении кофе" largeTitleDisplayMode="always" id="kUA-Vq-QcK">
+                    <navigationItem key="navigationItem" title="Приготовление кофе" id="kUA-Vq-QcK">
                         <barButtonItem key="backBarButtonItem" title=" " id="JGd-qW-v5n"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="921.73913043478262" y="69.642857142857139"/>
+            <point key="canvasLocation" x="1831.8840579710147" y="69.642857142857139"/>
         </scene>
     </scenes>
     <resources>
