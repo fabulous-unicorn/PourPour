@@ -46,6 +46,7 @@
                                                 <state key="normal" title="Старт"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="typeIBProperty" value="primary"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="primary"/>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dl8-zr-JNl" customClass="PourButton" customModule="PourPour" customModuleProvider="target">
@@ -56,6 +57,7 @@
                                                 <state key="normal" title="Редактировать"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="typeIBProperty" value="secondary"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="secondary"/>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дополнительная информация" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yc0-r7-D16">

@@ -43,9 +43,9 @@ class PourButton: UIButton {
     // MARK: - Properties
     
     @IBInspectable
-    var typeIBProperty: String = "unknown" {
+    var type: String = "unknown" {
         didSet {
-            let type = PureTypeButton(rawValue: typeIBProperty) ?? .unknown
+            let type = PureTypeButton(rawValue: type) ?? .unknown
             
             switch type {
             case .primary:
