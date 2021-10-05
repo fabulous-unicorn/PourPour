@@ -9,12 +9,7 @@ import Foundation
 import UIKit
 
 
-protocol RecipeConfigurator {
-    
-    func configure(view: RecipeController)
-}
-
-class RecipeConfiguratorImp: RecipeConfigurator {
+class RecipeConfigurator {
     
     func configure(view: RecipeController) {
     
@@ -25,7 +20,7 @@ class RecipeConfiguratorImp: RecipeConfigurator {
     
     static func open(navigationController: UINavigationController) {
         let view = R.storyboard.recipeController.recipeVC()!
-        RecipeConfiguratorImp().configure(view: view)
+        RecipeConfigurator().configure(view: view)
         navigationController.pushViewController(view, animated: true)
     }
 }
