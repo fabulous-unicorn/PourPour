@@ -9,6 +9,14 @@ import UIKit
 
 class RecipeController: UIViewController{
     
+    @IBOutlet weak var descriptionView: UITextView!
+    
+    @IBAction func onEditButtonTouched(_ sender: Any) {
+    }
+    
+    @IBAction func onStartButtonTouched(_ sender: Any) {
+    }
+    
     var presenter: RecipePresenter!
   
     override func viewDidLoad() {
