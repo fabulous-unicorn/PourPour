@@ -21,8 +21,7 @@ class RecipeListRouterImp: RecipeListRouter {
     }
     
     func openRecipe(_ index: Int) {
-        //TODO: добавить открытие рецепта
-        print("openRecipe")
+        RecipeConfigurator.open(navigationController: self.view.navigationController!)
     }
     
     func openInfoSceen() {
