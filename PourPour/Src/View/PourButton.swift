@@ -49,10 +49,10 @@ class PourButton: UIButton {
             switch type {
             case .primary:
                 self.backgroundColor = R.color.controlAccent()
-                self.tintColor = R.color.controlTypoPrimary()
+                self.tintColor = R.color.controlTintPrimary()
             case .secondary:
                 self.backgroundColor = .clear
-                self.tintColor = R.color.controlTypoSecondary()
+                self.tintColor = R.color.controlTintSecondary()
                 self.layer.borderColor =  R.color.controlAccent()?.cgColor
                 self.layer.borderWidth = 2.0
             case .unknown:
