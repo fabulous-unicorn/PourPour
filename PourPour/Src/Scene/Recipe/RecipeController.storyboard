@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -28,14 +27,14 @@
                                                 <rect key="frame" x="16" y="47" width="382" height="73"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
-                                                <color key="textColor" systemColor="labelColor"/>
+                                                <color key="textColor" name="text-basic"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Шаги" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5B-UC-vdg">
                                                 <rect key="frame" x="16" y="144" width="382" height="17"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="text-primary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seG-84-8X5" customClass="PourButton" customModule="PourPour" customModuleProvider="target">
@@ -48,6 +47,9 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="typeIBProperty" value="primary"/>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="primary"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onStartButtonTouched:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="5Zn-2E-FEA"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dl8-zr-JNl" customClass="PourButton" customModule="PourPour" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="243" width="382" height="46"/>
@@ -59,11 +61,14 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="typeIBProperty" value="secondary"/>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="secondary"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onEditButtonTouched:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="n9m-09-oFj"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дополнительная информация" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yc0-r7-D16">
                                                 <rect key="frame" x="16" y="24" width="382" height="17"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="text-primary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -112,12 +117,12 @@
                         <rightBarButtonItems>
                             <barButtonItem title="Start" image="play" catalog="system" id="gl3-vh-CGe">
                                 <connections>
-                                    <action selector="onStartButtonTouched:" destination="Y6W-OH-hqX" id="bYw-Md-Qzt"/>
+                                    <action selector="onStartBarButtonTouched:" destination="Y6W-OH-hqX" id="w5V-Oq-Ifn"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Edit" image="pencil" catalog="system" id="ljn-Jn-UW6">
                                 <connections>
-                                    <action selector="onEditButtonTouched:" destination="Y6W-OH-hqX" id="I5P-Ro-SZr"/>
+                                    <action selector="onEditBarButtonTouched:" destination="Y6W-OH-hqX" id="Twk-Kr-3bb"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -128,7 +133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="921.73913043478262" y="69.642857142857139"/>
+            <point key="canvasLocation" x="1831.8840579710147" y="69.642857142857139"/>
         </scene>
     </scenes>
     <designables>
@@ -143,10 +148,13 @@
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="play" catalog="system" width="120" height="128"/>
         <namedColor name="surface-primary-bg">
-            <color red="0.98039215686274506" green="0.95686274509803926" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.98431372549019602" green="0.95686274509803926" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="text-basic">
+            <color red="0.20392156862745098" green="0.086274509803921567" blue="0.047058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="text-primary">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

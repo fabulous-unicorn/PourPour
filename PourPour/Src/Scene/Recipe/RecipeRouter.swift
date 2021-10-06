@@ -8,8 +8,9 @@
 import Foundation
 
 protocol RecipeRouter {
-    func startRecipe()
-    func editRecipe()
+    
+    func openRunningRecipe()
+    func openEditingRecipe()
 }
 
 class RecipeRouterImp: RecipeRouter {
@@ -20,11 +21,13 @@ class RecipeRouterImp: RecipeRouter {
         self.view = view
     }
     
-    func startRecipe() {
+    func openRunningRecipe() {
         //TODO: добавить запуск рецепта
+        print("openRunningRecipe")
     }
     
-    func editRecipe() {
+    func openEditingRecipe() {
         //TODO: добавить редактирование рецепта
+        print("openEditingRecipe")
     }
 }
