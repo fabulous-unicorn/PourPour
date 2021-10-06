@@ -36,7 +36,6 @@ class PourButton: UIButton {
     
     func setupView() {
         self.layer.cornerRadius = 20
-        self.tintColor = R.color.controlTypo()
         self.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
     }
     
@@ -50,8 +49,10 @@ class PourButton: UIButton {
             switch type {
             case .primary:
                 self.backgroundColor = R.color.controlAccent()
+                self.tintColor = R.color.controlTypoPrimary()
             case .secondary:
                 self.backgroundColor = .clear
+                self.tintColor = R.color.controlTypoSecondary()
                 self.layer.borderColor =  R.color.controlAccent()?.cgColor
                 self.layer.borderWidth = 2.0
             case .unknown:
