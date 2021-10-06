@@ -11,20 +11,36 @@ class RecipeController: UIViewController{
     
     @IBOutlet weak var descriptionView: UITextView!
     
-    @IBAction func onEditButtonTouched(_ sender: Any) {
-    }
-    
-    @IBAction func onStartButtonTouched(_ sender: Any) {
-    }
-    
     var presenter: RecipePresenter!
+    
+    @IBAction func onEditBarButtonTouched(_ sender: UIBarButtonItem) {
+        presenter.editRecipe()
+    }
+    
+    @IBAction func onStartBarButtonTouched(_ sender: UIBarButtonItem) {
+        presenter.startRecipe()
+    }
+    
+    @IBAction func onStartButtonTouched(_ sender: PourButton) {
+        presenter.startRecipe()
+    }
+    
+    @IBAction func onEditButtonTouched(_ sender: PourButton) {
+        presenter.editRecipe()
+    }
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.viewDidLoad()
     }
     
 }
 
 extension RecipeController: RecipeView {
     
+    func configure(with recipe: RecipeFullEntity) {
+        
+        self.title = recipe.name
+        self.descriptionView.text = recipe.description
+    }
 }
