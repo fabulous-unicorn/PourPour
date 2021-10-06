@@ -21,10 +21,10 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dre-T9-C0G">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="321"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="363"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pcz-Ah-e6E">
-                                                <rect key="frame" x="16" y="47" width="382" height="73"/>
+                                                <rect key="frame" x="16" y="89" width="382" height="73"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
                                                 <color key="textColor" name="text-basic"/>
@@ -32,13 +32,13 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Шаги" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5B-UC-vdg">
-                                                <rect key="frame" x="16" y="144" width="382" height="17"/>
+                                                <rect key="frame" x="16" y="186" width="382" height="17"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <color key="textColor" name="text-primary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seG-84-8X5" customClass="PourButton" customModule="PourPour" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="185" width="382" height="46"/>
+                                                <rect key="frame" x="16" y="227" width="382" height="46"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="46" id="WUd-G6-CP6"/>
                                                 </constraints>
@@ -52,7 +52,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dl8-zr-JNl" customClass="PourButton" customModule="PourPour" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="243" width="382" height="46"/>
+                                                <rect key="frame" x="16" y="285" width="382" height="46"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="46" id="FPK-MY-06j"/>
                                                 </constraints>
@@ -66,11 +66,47 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дополнительная информация" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yc0-r7-D16">
-                                                <rect key="frame" x="16" y="24" width="382" height="17"/>
+                                                <rect key="frame" x="16" y="66" width="382" height="17"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <color key="textColor" name="text-primary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tmZ-8L-V2g">
+                                                <rect key="frame" x="16" y="16" width="382" height="26"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sAE-Zk-khR" customClass="RecipePropertyView" customModule="PourPour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="95.5" height="26"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="coffee"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="valueLabel" value="25"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="suffixLabel" value="гр"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Caq-Fp-FVY" customClass="RecipePropertyView" customModule="PourPour" customModuleProvider="target">
+                                                        <rect key="frame" x="95.5" y="0.0" width="95.5" height="26"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="watter"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="valueLabel" value="250"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="suffixLabel" value="гр"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zaT-vk-G9u" customClass="RecipePropertyView" customModule="PourPour" customModuleProvider="target">
+                                                        <rect key="frame" x="191" y="0.0" width="95.5" height="26"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="temperature"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="valueLabel" value="96"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="suffixLabel" value="°C"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3d-gQ-Tzl" customClass="RecipePropertyView" customModule="PourPour" customModuleProvider="target">
+                                                        <rect key="frame" x="286.5" y="0.0" width="95.5" height="26"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="timer"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="valueLabel" value="03:20"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -80,16 +116,19 @@
                                             <constraint firstItem="B5B-UC-vdg" firstAttribute="leading" secondItem="dre-T9-C0G" secondAttribute="leading" constant="16" id="76g-Mb-mKM"/>
                                             <constraint firstItem="seG-84-8X5" firstAttribute="leading" secondItem="dre-T9-C0G" secondAttribute="leading" constant="16" id="8yp-ZM-PdU"/>
                                             <constraint firstItem="Pcz-Ah-e6E" firstAttribute="top" secondItem="Yc0-r7-D16" secondAttribute="bottom" constant="6" id="MWK-GO-HpA"/>
+                                            <constraint firstAttribute="trailing" secondItem="tmZ-8L-V2g" secondAttribute="trailing" constant="16" id="N6G-bb-IjM"/>
                                             <constraint firstAttribute="trailing" secondItem="seG-84-8X5" secondAttribute="trailing" constant="16" id="NhV-x2-hXB"/>
+                                            <constraint firstItem="tmZ-8L-V2g" firstAttribute="leading" secondItem="dre-T9-C0G" secondAttribute="leading" constant="16" id="clP-nA-zgg"/>
                                             <constraint firstAttribute="trailing" secondItem="Yc0-r7-D16" secondAttribute="trailing" constant="16" id="iyA-j4-Rgk"/>
                                             <constraint firstAttribute="trailing" secondItem="B5B-UC-vdg" secondAttribute="trailing" constant="16" id="kk1-pz-ZKq"/>
                                             <constraint firstAttribute="trailing" secondItem="Pcz-Ah-e6E" secondAttribute="trailing" constant="16" id="kn3-ig-MIJ"/>
                                             <constraint firstItem="B5B-UC-vdg" firstAttribute="top" secondItem="Pcz-Ah-e6E" secondAttribute="bottom" constant="24" id="noS-7q-1AS"/>
-                                            <constraint firstItem="Yc0-r7-D16" firstAttribute="top" secondItem="dre-T9-C0G" secondAttribute="top" constant="24" id="oyB-8y-kXT"/>
+                                            <constraint firstItem="Yc0-r7-D16" firstAttribute="top" secondItem="tmZ-8L-V2g" secondAttribute="bottom" constant="24" id="oyB-8y-kXT"/>
                                             <constraint firstAttribute="trailing" secondItem="Dl8-zr-JNl" secondAttribute="trailing" constant="16" id="rIp-0z-sXY"/>
                                             <constraint firstItem="Yc0-r7-D16" firstAttribute="leading" secondItem="dre-T9-C0G" secondAttribute="leading" constant="16" id="rzS-1P-E3L"/>
                                             <constraint firstItem="Dl8-zr-JNl" firstAttribute="leading" secondItem="dre-T9-C0G" secondAttribute="leading" constant="16" id="s9K-Ct-ljZ"/>
                                             <constraint firstAttribute="bottom" secondItem="Dl8-zr-JNl" secondAttribute="bottom" constant="32" id="sjg-jA-La1"/>
+                                            <constraint firstItem="tmZ-8L-V2g" firstAttribute="top" secondItem="dre-T9-C0G" secondAttribute="top" constant="16" id="slQ-jv-h3p"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -145,8 +184,12 @@
         </designable>
     </designables>
     <resources>
+        <image name="coffee" width="24" height="24"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="play" catalog="system" width="120" height="128"/>
+        <image name="temperature" width="24" height="24"/>
+        <image name="timer" width="24" height="24"/>
+        <image name="watter" width="24" height="24"/>
         <namedColor name="surface-primary-bg">
             <color red="0.98431372549019602" green="0.95686274509803926" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
