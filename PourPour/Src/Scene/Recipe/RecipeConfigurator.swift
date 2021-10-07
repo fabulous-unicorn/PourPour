@@ -19,7 +19,7 @@ class RecipeConfigurator {
     }
     
     static func open(navigationController: UINavigationController) {
-        let view = R.storyboard.recipeController.recipeVC()!
+        let view = R.storyboard.recipe.recipeVC()!
         RecipeConfigurator().configure(view: view)
         navigationController.pushViewController(view, animated: true)
     }
