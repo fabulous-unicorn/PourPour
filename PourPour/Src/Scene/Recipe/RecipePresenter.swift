@@ -12,6 +12,8 @@ protocol RecipePresenter {
     func viewDidLoad()
     func startRecipe()
     func editRecipe()
+    func getNumberSteps() -> Int
+    func setupRecipeStepCell(_ stepCell: RecipeStepCell, _ index: Int)
 }
 
 
@@ -63,6 +65,19 @@ class RecipePresenterImp: RecipePresenter {
             self.view.configure(with: recipe)
         }
 
+    }
+    
+    func getNumberSteps() -> Int {
+        return self.recipe?.steps.count ?? 0
+    }
+    
+    func setupRecipeStepCell(_ stepCell: RecipeStepCell, _ index: Int) {
+        guard let stepEntity = self.recipe?.steps[index] else {
+            print("Запрос на не существующую ячейку")
+            return
+        }
+        
+        stepCell.setup(stepEntity)
     }
     
     func startRecipe() {

@@ -17,6 +17,8 @@
 		1512FD9D26E6197800FF4E75 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1512FD9C26E6197800FF4E75 /* R.generated.swift */; };
 		154AFE2A26E770EF006705FD /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 154AFE2926E770EF006705FD /* Info.storyboard */; };
 		154AFE2C26E77106006705FD /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154AFE2B26E77106006705FD /* InfoViewController.swift */; };
+		1555C51C270F389300D4F91A /* RecipeStepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1555C51B270F389300D4F91A /* RecipeStepCell.swift */; };
+		1555C51F270F3E8200D4F91A /* TimeFormaterr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1555C51E270F3E8200D4F91A /* TimeFormaterr.swift */; };
 		15925A98270DB91000864154 /* RecipePropertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15925A97270DB91000864154 /* RecipePropertyView.swift */; };
 		15D02814270C4BE900EC1F06 /* PourButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D02813270C4BE900EC1F06 /* PourButton.swift */; };
 		15DAC62126E637E3003C88E2 /* RecipeList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15DAC62026E637E3003C88E2 /* RecipeList.storyboard */; };
@@ -69,6 +71,8 @@
 		1512FD9C26E6197800FF4E75 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		154AFE2926E770EF006705FD /* Info.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
 		154AFE2B26E77106006705FD /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		1555C51B270F389300D4F91A /* RecipeStepCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStepCell.swift; sourceTree = "<group>"; };
+		1555C51E270F3E8200D4F91A /* TimeFormaterr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormaterr.swift; sourceTree = "<group>"; };
 		15925A97270DB91000864154 /* RecipePropertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePropertyView.swift; sourceTree = "<group>"; };
 		15D02813270C4BE900EC1F06 /* PourButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PourButton.swift; sourceTree = "<group>"; };
 		15DAC62026E637E3003C88E2 /* RecipeList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecipeList.storyboard; sourceTree = "<group>"; };
@@ -222,9 +226,18 @@
 			path = Info;
 			sourceTree = "<group>";
 		};
+		1555C51D270F3E5E00D4F91A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1555C51E270F3E8200D4F91A /* TimeFormaterr.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		15DAC62A26E63EBA003C88E2 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				1555C51D270F3E5E00D4F91A /* Utils */,
 				15DAC62B26E63EC2003C88E2 /* Entities */,
 			);
 			path = Core;
@@ -258,6 +271,7 @@
 				15FD0EF7270B46E70059F4F2 /* RecipeRouter.swift */,
 				15FD0EF9270B46FC0059F4F2 /* RecipeConfigurator.swift */,
 				15FD0EFB270B47170059F4F2 /* Recipe.storyboard */,
+				1555C51B270F389300D4F91A /* RecipeStepCell.swift */,
 			);
 			path = Recipe;
 			sourceTree = "<group>";
@@ -532,6 +546,7 @@
 				15925A98270DB91000864154 /* RecipePropertyView.swift in Sources */,
 				15DAC62726E63C76003C88E2 /* RecipeListRouter.swift in Sources */,
 				15D02814270C4BE900EC1F06 /* PourButton.swift in Sources */,
+				1555C51C270F389300D4F91A /* RecipeStepCell.swift in Sources */,
 				15DAC62526E63C6B003C88E2 /* RecipeListConfigurator.swift in Sources */,
 				15FD0EF6270B46D80059F4F2 /* RecipePresenter.swift in Sources */,
 				15DAC62D26E63ED2003C88E2 /* RecipeEntity.swift in Sources */,
@@ -539,6 +554,7 @@
 				15DAC62926E63D41003C88E2 /* RecipeListController.swift in Sources */,
 				15FD0EF8270B46E70059F4F2 /* RecipeRouter.swift in Sources */,
 				154AFE2C26E77106006705FD /* InfoViewController.swift in Sources */,
+				1555C51F270F3E8200D4F91A /* TimeFormaterr.swift in Sources */,
 				15FD0EFA270B46FC0059F4F2 /* RecipeConfigurator.swift in Sources */,
 				15DAC62326E63A92003C88E2 /* RecipeListPresenter.swift in Sources */,
 				1512FD6826E608E900FF4E75 /* AppDelegate.swift in Sources */,
