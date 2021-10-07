@@ -21,10 +21,10 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dre-T9-C0G">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="363"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="387"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pcz-Ah-e6E">
-                                                <rect key="frame" x="16" y="89" width="382" height="73"/>
+                                                <rect key="frame" x="16" y="113" width="382" height="73"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
                                                 <color key="textColor" name="text-basic"/>
@@ -32,13 +32,13 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Шаги" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5B-UC-vdg">
-                                                <rect key="frame" x="16" y="186" width="382" height="17"/>
+                                                <rect key="frame" x="16" y="210" width="382" height="17"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <color key="textColor" name="text-primary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seG-84-8X5" customClass="PourButton" customModule="PourPour" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="227" width="382" height="46"/>
+                                                <rect key="frame" x="16" y="251" width="382" height="46"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="46" id="WUd-G6-CP6"/>
                                                 </constraints>
@@ -52,7 +52,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dl8-zr-JNl" customClass="PourButton" customModule="PourPour" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="285" width="382" height="46"/>
+                                                <rect key="frame" x="16" y="309" width="382" height="46"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="46" id="FPK-MY-06j"/>
                                                 </constraints>
@@ -66,16 +66,16 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дополнительная информация" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yc0-r7-D16">
-                                                <rect key="frame" x="16" y="66" width="382" height="17"/>
+                                                <rect key="frame" x="16" y="90" width="382" height="17"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <color key="textColor" name="text-primary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tmZ-8L-V2g">
-                                                <rect key="frame" x="16" y="16" width="382" height="26"/>
+                                                <rect key="frame" x="16" y="16" width="382" height="50"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sAE-Zk-khR" customClass="RecipePropertyView" customModule="PourPour" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="95.5" height="26"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="95.5" height="50"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="coffee"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="valueLabel" value="0"/>
@@ -83,7 +83,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Caq-Fp-FVY" customClass="RecipePropertyView" customModule="PourPour" customModuleProvider="target">
-                                                        <rect key="frame" x="95.5" y="0.0" width="95.5" height="26"/>
+                                                        <rect key="frame" x="95.5" y="0.0" width="95.5" height="50"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="watter"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="valueLabel" value="0"/>
@@ -91,7 +91,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zaT-vk-G9u" customClass="RecipePropertyView" customModule="PourPour" customModuleProvider="target">
-                                                        <rect key="frame" x="191" y="0.0" width="95.5" height="26"/>
+                                                        <rect key="frame" x="191" y="0.0" width="95.5" height="50"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="temperature"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="valueLabel" value="0"/>
@@ -99,7 +99,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3d-gQ-Tzl" customClass="RecipePropertyView" customModule="PourPour" customModuleProvider="target">
-                                                        <rect key="frame" x="286.5" y="0.0" width="95.5" height="26"/>
+                                                        <rect key="frame" x="286.5" y="0.0" width="95.5" height="50"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="timer"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="valueLabel" value="0"/>

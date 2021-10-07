@@ -100,10 +100,10 @@ class RecipePropertyView: UIStackView {
     func addConstraint() {
         
         //image
-        self.iconImageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint(item: self.iconImageView, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.top, multiplier: 1, constant: 2).isActive = true
-        
-        NSLayoutConstraint(item: self.iconImageView, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: 2).isActive = true
+//        self.iconImageView.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint(item: self.iconImageView, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.top, multiplier: 1, constant: 2).isActive = true
+//
+//        NSLayoutConstraint(item: self.iconImageView, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: 2).isActive = true
         
         NSLayoutConstraint(item: self.iconImageView, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 24).isActive = true
         
