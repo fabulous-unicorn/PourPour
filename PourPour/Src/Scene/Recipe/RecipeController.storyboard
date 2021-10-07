@@ -78,7 +78,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="95.5" height="26"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="coffee"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="valueLabel" value="25"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="valueLabel" value="0"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="suffixLabel" value="гр"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </stackView>
@@ -86,7 +86,7 @@
                                                         <rect key="frame" x="95.5" y="0.0" width="95.5" height="26"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="watter"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="valueLabel" value="250"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="valueLabel" value="0"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="suffixLabel" value="гр"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </stackView>
@@ -94,7 +94,7 @@
                                                         <rect key="frame" x="191" y="0.0" width="95.5" height="26"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="temperature"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="valueLabel" value="96"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="valueLabel" value="0"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="suffixLabel" value="°C"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </stackView>
@@ -102,7 +102,7 @@
                                                         <rect key="frame" x="286.5" y="0.0" width="95.5" height="26"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="timer"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="valueLabel" value="03:20"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="valueLabel" value="0"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </stackView>
                                                 </subviews>
@@ -167,7 +167,11 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="coffeePropertyView" destination="sAE-Zk-khR" id="lQS-9H-ukJ"/>
                         <outlet property="descriptionView" destination="Pcz-Ah-e6E" id="uaA-Zc-eRt"/>
+                        <outlet property="temperaturePropertyView" destination="zaT-vk-G9u" id="Poa-q9-3vz"/>
+                        <outlet property="timePropertyView" destination="V3d-gQ-Tzl" id="RU0-mT-Ewk"/>
+                        <outlet property="watterPropertyView" destination="Caq-Fp-FVY" id="scG-Cc-Vpb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
