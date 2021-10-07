@@ -47,7 +47,7 @@ class RecipePresenterImp: RecipePresenter {
             id: 0,
             name: "Колумбия",
             massCoffee: 25.0,
-            massWatter: 210,
+            massWatter: 250,
             temperature: 96,
             time: 200,
             description: "Описание простого рецепта. Возможная дополнительная информация",
