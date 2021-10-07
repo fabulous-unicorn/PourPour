@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecipeController: UIViewController{
+class RecipeController: UITableViewController{
     
     @IBOutlet weak var coffeePropertyView: RecipePropertyView!
     @IBOutlet weak var watterPropertyView: RecipePropertyView!
@@ -40,6 +40,24 @@ class RecipeController: UIViewController{
     
 }
 
+extension RecipeController {
+    
+    
+    override func numberOfSections(in: UITableView) -> Int {
+        return self.presenter.getNumberSteps() == 0 ? 0 : 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.presenter.getNumberSteps()
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.stepRecipeCell, for: indexPath)!
+        self.presenter.setupRecipeStepCell(cell, indexPath.row)
+        return cell
+    }
+}
+
 extension RecipeController: RecipeView {
     
     func configure(with recipe: RecipeFullEntity) {
@@ -50,17 +68,9 @@ extension RecipeController: RecipeView {
         self.coffeePropertyView.valueLabel = NSNumber(value: recipe.massCoffee).stringValue
         self.watterPropertyView.valueLabel = "\(recipe.massWatter)"
         self.temperaturePropertyView.valueLabel = "\(recipe.temperature)"
-        self.timePropertyView.valueLabel = formMinutesTimerString(from: recipe.time)
+        self.timePropertyView.valueLabel = TimeFormaterr.formMinutesTimerString(from: recipe.time)
+        self.tableView.reloadData()
     }
     
-    func formMinutesTimerString(from seconds: Int) -> String {
-        let minutesTimer = seconds / 60
-        let secondsTimer = seconds - minutesTimer * 60
-        
-        if minutesTimer<10 {
-            return "0\(minutesTimer):\(secondsTimer)"
-        } else {
-            return "\(minutesTimer):\(secondsTimer)"
-        }
-    }
+    
 }
