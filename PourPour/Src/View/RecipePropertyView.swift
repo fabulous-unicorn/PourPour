@@ -100,14 +100,14 @@ class RecipePropertyView: UIStackView {
     func addConstraint() {
         
         //image
-//        self.iconImageView.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint(item: self.iconImageView, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.top, multiplier: 1, constant: 2).isActive = true
-//
-//        NSLayoutConstraint(item: self.iconImageView, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: 2).isActive = true
+        let size: CGFloat = 24
+        self.iconImageView.translatesAutoresizingMaskIntoConstraints = false
+        self.iconImageView.heightAnchor.constraint(equalToConstant: size).isActive = true
+        self.iconImageView.widthAnchor.constraint(equalToConstant: size).isActive = true
         
-        NSLayoutConstraint(item: self.iconImageView, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 24).isActive = true
-        
-        NSLayoutConstraint(item: self.iconImageView, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 24).isActive = true
+        //        let separate: CGFloat = 2
+        //        self.iconImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: separate).isActive = true
+        //        self.iconImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -1 * separate).isActive = true
     }
 
 }
