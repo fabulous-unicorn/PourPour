@@ -35,6 +35,7 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="percents">
                                                 <real key="value" value="12"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCompleted" value="NO"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAB-NW-vLB">
@@ -110,9 +111,11 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="CX9-Av-riV"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="commonTimeLabel" destination="0P2-Hd-Jy2" id="R71-V3-2JV"/>
                         <outlet property="instructionLabel" destination="q2d-9s-hCJ" id="I3w-sv-Cqq"/>
                         <outlet property="stepTable" destination="g7h-6p-IDM" id="OOt-iC-SM1"/>
                         <outlet property="timerLabel" destination="cAB-NW-vLB" id="aeQ-Ev-ng7"/>
+                        <outlet property="timerView" destination="DgS-rq-lnG" id="Y1q-Ue-fzj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

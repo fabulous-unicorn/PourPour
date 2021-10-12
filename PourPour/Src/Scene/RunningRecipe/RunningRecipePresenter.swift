@@ -17,7 +17,7 @@ protocol RunningRecipePresenter {
 
 protocol RunningRecipeView: class {
     
-    func updateCurrentStep(with step: RecipeStepEntity)
+    func updateCurrentStep(numberStep: Int, step: RecipeStepEntity?)
 }
 
 class RunningRecipePresenterImp: RunningRecipePresenter {
@@ -35,7 +35,8 @@ class RunningRecipePresenterImp: RunningRecipePresenter {
     }
     
     func viewDidLoad() {
-        self.view.updateCurrentStep(with: self.recipe.steps[0])
+        self.view.updateCurrentStep(numberStep: 1, step: self.recipe.steps[0])
+//        self.view.updateCurrentStep(numberStep: 6, step: nil)
     }
     
     func getNameScreen() -> String {
