@@ -48,6 +48,10 @@ class RunningRecipePresenterImp: RunningRecipePresenter {
     
     func setupRecipeStepCell(_ stepCell: RecipeStepCell, _ index: Int) {
 
-        stepCell.setup(self.recipe.steps[index])
+        if index == self.recipe.steps.count {
+            stepCell.setupCompletedCell(time: self.recipe.time)
+        } else {
+            stepCell.setup(self.recipe.steps[index])
+        }
     }
 }

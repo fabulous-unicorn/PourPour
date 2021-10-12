@@ -79,6 +79,8 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="massWatterLabel" destination="b44-JL-02H" id="CFb-FX-4Wr"/>
+                <outlet property="prefixLabel" destination="eOP-UN-ORp" id="He2-Ay-vQ7"/>
+                <outlet property="suffixLabel" destination="fSp-Vr-rea" id="Ial-sb-7fr"/>
                 <outlet property="timeLabel" destination="dvW-xK-qUp" id="fWS-TI-sHF"/>
                 <outlet property="timeLabelContainer" destination="H1t-dC-6mf" id="u6M-b7-C9O"/>
             </connections>

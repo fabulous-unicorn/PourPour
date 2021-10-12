@@ -43,10 +43,12 @@ class RecipePresenterImp: RecipePresenter {
     }
     
     func viewDidLoad() {
+        
         self.loadData(for: self.recipeId)
     }
 
     func loadData(for recipeId: Int) {
+        
         self.recipe = self.gateway.getRecipe(id: recipeId)
         
         if let recipe = self.recipe {
@@ -59,12 +61,17 @@ class RecipePresenterImp: RecipePresenter {
     }
     
     func setupRecipeStepCell(_ stepCell: RecipeStepCell, _ index: Int) {
-        guard let stepEntity = self.recipe?.steps[index] else {
-            print("Запрос на не существующую ячейку")
+        
+        guard let recipe = self.recipe else {
+            print("Попытка инициализировать ячейку без сущности рецепта")
             return
         }
         
-        stepCell.setup(stepEntity)
+        if index == recipe.steps.count {
+            stepCell.setupCompletedCell(time: recipe.time)
+        } else {
+            stepCell.setup(recipe.steps[index])
+        }
     }
     
     func startRecipe() {

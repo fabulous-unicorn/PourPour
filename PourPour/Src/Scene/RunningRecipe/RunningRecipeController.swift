@@ -29,8 +29,12 @@ class RunningRecipeController: UIViewController {
 
 extension RunningRecipeController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in: UITableView) -> Int {
+        return self.presenter.getNumberSteps() == 0 ? 0 : 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.presenter.getNumberSteps()
+        return self.presenter.getNumberSteps() + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
