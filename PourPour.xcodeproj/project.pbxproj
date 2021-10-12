@@ -35,6 +35,7 @@
 		15E3D85727157F2C00ADFAD9 /* RunningRecipeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3D85627157F2C00ADFAD9 /* RunningRecipeConfigurator.swift */; };
 		15E3D85927157F3B00ADFAD9 /* RunningRecipe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15E3D85827157F3B00ADFAD9 /* RunningRecipe.storyboard */; };
 		15E3D85C2715957C00ADFAD9 /* RecipeStep.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E3D85B2715957C00ADFAD9 /* RecipeStep.xib */; };
+		15E3D85E27159F3000ADFAD9 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3D85D27159F3000ADFAD9 /* TimerView.swift */; };
 		15FD0EF4270B46800059F4F2 /* RecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD0EF3270B46800059F4F2 /* RecipeController.swift */; };
 		15FD0EF6270B46D80059F4F2 /* RecipePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD0EF5270B46D80059F4F2 /* RecipePresenter.swift */; };
 		15FD0EF8270B46E70059F4F2 /* RecipeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD0EF7270B46E70059F4F2 /* RecipeRouter.swift */; };
@@ -97,6 +98,7 @@
 		15E3D85627157F2C00ADFAD9 /* RunningRecipeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecipeConfigurator.swift; sourceTree = "<group>"; };
 		15E3D85827157F3B00ADFAD9 /* RunningRecipe.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RunningRecipe.storyboard; sourceTree = "<group>"; };
 		15E3D85B2715957C00ADFAD9 /* RecipeStep.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeStep.xib; sourceTree = "<group>"; };
+		15E3D85D27159F3000ADFAD9 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		15FD0EF3270B46800059F4F2 /* RecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeController.swift; sourceTree = "<group>"; };
 		15FD0EF5270B46D80059F4F2 /* RecipePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePresenter.swift; sourceTree = "<group>"; };
 		15FD0EF7270B46E70059F4F2 /* RecipeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRouter.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				15E3D85A2715953400ADFAD9 /* RecipeStep */,
 				15925A97270DB91000864154 /* RecipePropertyView.swift */,
 				15D02813270C4BE900EC1F06 /* PourButton.swift */,
+				15E3D85D27159F3000ADFAD9 /* TimerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				15D02814270C4BE900EC1F06 /* PourButton.swift in Sources */,
 				1555C51C270F389300D4F91A /* RecipeStepCell.swift in Sources */,
 				15DAC62526E63C6B003C88E2 /* RecipeListConfigurator.swift in Sources */,
+				15E3D85E27159F3000ADFAD9 /* TimerView.swift in Sources */,
 				15E3D85127157EFD00ADFAD9 /* RunningRecipeController.swift in Sources */,
 				15FD0EF6270B46D80059F4F2 /* RecipePresenter.swift in Sources */,
 				15E3D84B2715721F00ADFAD9 /* RecipeGateway.swift in Sources */,
