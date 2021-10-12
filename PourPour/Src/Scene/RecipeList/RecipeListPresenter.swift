@@ -29,13 +29,15 @@ class RecipeListPresenterImp: RecipeListPresenter {
 
     private weak var view: RecipeListView!
     private let router: RecipeListRouter
-    private var recipeList: [RecipeEntity]
+    private let gateway: RecipeGateway
+    
+    private var recipeList: [RecipeEntity] = []
     var numberOfRowInTable: Int { return recipeList.count }
 
-    init(_ view: RecipeListView, _ router: RecipeListRouter) {
+    init(_ view: RecipeListView, _ router: RecipeListRouter, _ gateway: RecipeGateway) {
         self.view = view
         self.router = router
-        self.recipeList = []
+        self.gateway = gateway
     }
 
     func viewDidLoad() {
@@ -44,12 +46,7 @@ class RecipeListPresenterImp: RecipeListPresenter {
     }
 
     func loadTableData() {
-        self.recipeList = [
-            RecipeEntity(id: 0, name: "Колумбия \(Int.random(in: 0..<10))"),
-            RecipeEntity(id: 1, name: "Коста-Рика \(Int.random(in: 0..<10))"),
-            RecipeEntity(id: 2, name: "Бразилия \(Int.random(in: 0..<10))"),
-            RecipeEntity(id: 3, name: "Кения \(Int.random(in: 0..<10))"),
-            RecipeEntity(id: 4, name: "Эфиопия \(Int.random(in: 0..<10))")]
+        self.recipeList = self.gateway.getRecipeList()
     }
 
     func refreshItems() {
