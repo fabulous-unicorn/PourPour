@@ -10,10 +10,14 @@ import Foundation
 protocol RunningRecipePresenter {
     
     func viewDidLoad()
+    func getNumberSteps() -> Int
+    func getNameScreen() -> String
+    func setupRecipeStepCell(_ stepCell: RecipeStepCell, _ index: Int)
 }
 
 protocol RunningRecipeView: class {
     
+    func updateCurrentStep(with step: RecipeStepEntity)
 }
 
 class RunningRecipePresenterImp: RunningRecipePresenter {
@@ -31,6 +35,19 @@ class RunningRecipePresenterImp: RunningRecipePresenter {
     }
     
     func viewDidLoad() {
-        print("")
+        self.view.updateCurrentStep(with: self.recipe.steps[0])
+    }
+    
+    func getNameScreen() -> String {
+        return self.recipe.name
+    }
+    
+    func getNumberSteps() -> Int {
+        return self.recipe.steps.count
+    }
+    
+    func setupRecipeStepCell(_ stepCell: RecipeStepCell, _ index: Int) {
+
+        stepCell.setup(self.recipe.steps[index])
     }
 }
