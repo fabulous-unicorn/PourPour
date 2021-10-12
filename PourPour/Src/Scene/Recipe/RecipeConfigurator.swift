@@ -14,7 +14,8 @@ class RecipeConfigurator {
     func configure(view: RecipeController) {
     
         let router = RecipeRouterImp(view)
-        let presenter = RecipePresenterImp(view, router)
+        let gateway = ApiRecipeGateway()
+        let presenter = RecipePresenterImp(view, router, gateway)
         view.presenter = presenter
     }
     
