@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum PureTypeButton: String {
+enum PureStyleButton: String {
     case primary
     case secondary
     case unknown
@@ -42,9 +42,9 @@ class PourButton: UIButton {
     // MARK: - Properties
     
     @IBInspectable
-    var type: String = "unknown" {
+    var style: String = "unknown" {
         didSet {
-            let type = PureTypeButton(rawValue: type) ?? .unknown
+            let type = PureStyleButton(rawValue: style) ?? .unknown
             
             switch type {
             case .primary:

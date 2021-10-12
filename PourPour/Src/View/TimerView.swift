@@ -57,15 +57,13 @@ class TimerView: UIView {
     private func setBgImage() {
         
         self.addSubview(self.bgImageView)
-        bgImageView.tintColor = self.tintColor
+        self.bgImageView.tintColor = self.tintColor
         
-        bgImageView.translatesAutoresizingMaskIntoConstraints = false
-        let topConstraint = NSLayoutConstraint(item: self.bgImageView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0)
-        let bottomConstraint = NSLayoutConstraint(item: self.bgImageView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0)
-        let leadingConstraint = NSLayoutConstraint(item: self.bgImageView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0)
-        let trailingConstraint = NSLayoutConstraint(item: self.bgImageView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: 0)
-        
-        self.addConstraints([topConstraint, bottomConstraint, leadingConstraint, trailingConstraint])
+        self.bgImageView.translatesAutoresizingMaskIntoConstraints = false
+        self.bgImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        self.bgImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        self.bgImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        self.bgImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
     }
     
     private func setProgressView() {
@@ -74,12 +72,11 @@ class TimerView: UIView {
         let limit: CGFloat = 29.0
         
         progressView.translatesAutoresizingMaskIntoConstraints = false
-        let topConstraint = NSLayoutConstraint(item: self.progressView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: limit)
-        let bottomConstraint = NSLayoutConstraint(item: self.progressView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: -1 * limit)
-        let leadingConstraint = NSLayoutConstraint(item: self.progressView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: limit)
-        let trailingConstraint = NSLayoutConstraint(item: self.progressView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: -1 * limit)
-        self.addConstraints([topConstraint, bottomConstraint, leadingConstraint, trailingConstraint])
-
+        self.progressView.topAnchor.constraint(equalTo: self.topAnchor, constant: limit).isActive = true
+        self.progressView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -1 * limit).isActive = true
+        self.progressView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: limit).isActive = true
+        self.progressView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -1 * limit).isActive = true
+        
     }
     
     func drawProgress() {

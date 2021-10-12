@@ -95,7 +95,7 @@
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="xpC-sI-0fU">
-                            <rect key="frame" x="0.0" y="240" width="414" height="164"/>
+                            <rect key="frame" x="0.0" y="240" width="414" height="160"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seG-84-8X5" customClass="PourButton" customModule="PourPour" customModuleProvider="target">
@@ -105,22 +105,20 @@
                                     </constraints>
                                     <state key="normal" title="Старт"/>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="typeIBProperty" value="primary"/>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="type" value="primary"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="style" value="primary"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
                                         <action selector="onStartButtonTouched:" destination="WGy-gd-Vc1" eventType="touchUpInside" id="ALX-pz-DNz"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dl8-zr-JNl" customClass="PourButton" customModule="PourPour" customModuleProvider="target">
-                                    <rect key="frame" x="16" y="82" width="382" height="50"/>
+                                    <rect key="frame" x="16" y="82" width="382" height="46"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="46" id="FPK-MY-06j"/>
                                     </constraints>
                                     <state key="normal" title="Редактировать"/>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="typeIBProperty" value="secondary"/>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="type" value="secondary"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="style" value="secondary"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
                                         <action selector="onEditButtonTouched:" destination="WGy-gd-Vc1" eventType="touchUpInside" id="6eZ-nU-Ohb"/>
