@@ -68,7 +68,12 @@ class RecipePresenterImp: RecipePresenter {
     }
     
     func startRecipe() {
-        self.router.openRunningRecipe()
+        
+        guard let recipe = self.recipe else {
+            return
+        }
+        
+        self.router.openRunningRecipe(with: recipe)
     }
     
     func editRecipe() {
