@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,16 +17,80 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcg-Uq-zId">
+                                <rect key="frame" x="0.0" y="44" width="414" height="305.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01:10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAB-NW-vLB">
+                                        <rect key="frame" x="145.5" y="223.5" width="123" height="58"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DgS-rq-lnG">
+                                        <rect key="frame" x="127" y="63.5" width="160" height="160"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="160" id="4IA-IX-Bai"/>
+                                            <constraint firstAttribute="width" constant="160" id="Gue-WB-zdF"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Влейте __ гр воды" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2d-9s-hCJ">
+                                        <rect key="frame" x="108.5" y="24" width="197" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="q2d-9s-hCJ" firstAttribute="top" secondItem="bcg-Uq-zId" secondAttribute="top" constant="24" id="6OC-0F-Bof"/>
+                                    <constraint firstItem="DgS-rq-lnG" firstAttribute="centerX" secondItem="bcg-Uq-zId" secondAttribute="centerX" id="GjB-xo-y5Q"/>
+                                    <constraint firstItem="cAB-NW-vLB" firstAttribute="centerX" secondItem="bcg-Uq-zId" secondAttribute="centerX" id="NDN-2Q-7C2"/>
+                                    <constraint firstItem="q2d-9s-hCJ" firstAttribute="centerX" secondItem="bcg-Uq-zId" secondAttribute="centerX" id="l4d-Qs-4rY"/>
+                                    <constraint firstItem="cAB-NW-vLB" firstAttribute="top" secondItem="DgS-rq-lnG" secondAttribute="bottom" id="lXh-5P-tkJ"/>
+                                    <constraint firstItem="DgS-rq-lnG" firstAttribute="top" secondItem="q2d-9s-hCJ" secondAttribute="bottom" constant="13" id="oXw-V7-ZAm"/>
+                                    <constraint firstAttribute="bottom" secondItem="cAB-NW-vLB" secondAttribute="bottom" constant="24" id="ycC-ke-dgO"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g7h-6p-IDM">
+                                <rect key="frame" x="0.0" y="349.5" width="414" height="512.5"/>
+                                <color key="backgroundColor" name="surface-secondary-bg"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="surface-primary-bg"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="g7h-6p-IDM" secondAttribute="bottom" id="86Y-96-1NA"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bcg-Uq-zId" secondAttribute="trailing" id="A03-b7-yQ5"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="g7h-6p-IDM" secondAttribute="trailing" id="LXa-sk-nbJ"/>
+                            <constraint firstItem="bcg-Uq-zId" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="QDM-xd-nhu"/>
+                            <constraint firstItem="g7h-6p-IDM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="aqx-Up-c1p"/>
+                            <constraint firstItem="g7h-6p-IDM" firstAttribute="top" secondItem="bcg-Uq-zId" secondAttribute="bottom" id="oYI-wo-bxO"/>
+                            <constraint firstItem="bcg-Uq-zId" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="vCh-VX-u9k"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Eh2-sM-otR">
+                        <barButtonItem key="backBarButtonItem" title=" " id="CX9-Av-riV"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="instructionLabel" destination="q2d-9s-hCJ" id="I3w-sv-Cqq"/>
+                        <outlet property="stepTable" destination="g7h-6p-IDM" id="OOt-iC-SM1"/>
+                        <outlet property="timerLabel" destination="cAB-NW-vLB" id="aeQ-Ev-ng7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9" y="72"/>
+            <point key="canvasLocation" x="918.84057971014499" y="71.651785714285708"/>
         </scene>
     </scenes>
     <resources>
+        <namedColor name="surface-primary-bg">
+            <color red="0.98431372549019602" green="0.95686274509803926" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="surface-secondary-bg">
+            <color red="0.98039215686274506" green="0.90196078431372551" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -35,6 +35,8 @@ class RecipeController: UITableViewController{
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.register(R.nib.recipeStep)
+        
         presenter.viewDidLoad()
     }
     
