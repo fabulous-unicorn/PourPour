@@ -13,6 +13,7 @@ class TimerView: UIView {
     
     private let bgImageView = UIImageView(image: UIImage(resource: R.image.bigTimer))
     private let progressView = UIView()
+    private let completedImageView = UIImageView(image: UIImage(resource: R.image.smile))
     
     // MARK: - Initialization
     override init(frame: CGRect) {
@@ -43,18 +44,30 @@ class TimerView: UIView {
         }
     }
     
+    @IBInspectable var isCompleted: Bool = false {
+        didSet {
+            if isCompleted {
+                self.percents = 100
+                self.addCompletedSubView()
+            } else {
+                self.removeCompletedSubView()
+            }
+            setNeedsDisplay()
+        }
+    }
+    
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         self.drawProgress()
     }
     
     private func setupView() {
-        self.setProgressView()
-        self.setBgImage()
+        self.addProgressView()
+        self.addBgImage()
     }
     
     
-    private func setBgImage() {
+    private func addBgImage() {
         
         self.addSubview(self.bgImageView)
         self.bgImageView.tintColor = self.tintColor
@@ -66,7 +79,7 @@ class TimerView: UIView {
         self.bgImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
     }
     
-    private func setProgressView() {
+    private func addProgressView() {
         
         self.addSubview(self.progressView)
         let limit: CGFloat = 29.0
@@ -76,7 +89,24 @@ class TimerView: UIView {
         self.progressView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -1 * limit).isActive = true
         self.progressView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: limit).isActive = true
         self.progressView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -1 * limit).isActive = true
+    }
+    
+    private func addCompletedSubView() {
         
+        self.addSubview(self.completedImageView)
+        let limit: CGFloat = 60.0
+        self.completedImageView.tintColor = R.color.textPrimary()
+        
+        self.completedImageView.translatesAutoresizingMaskIntoConstraints = false
+        self.completedImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: limit).isActive = true
+        self.completedImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -1 * limit).isActive = true
+        self.completedImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: limit).isActive = true
+        self.completedImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -1 * limit).isActive = true
+    }
+    
+    private func removeCompletedSubView() {
+        
+        self.willRemoveSubview(self.completedImageView)
     }
     
     func drawProgress() {

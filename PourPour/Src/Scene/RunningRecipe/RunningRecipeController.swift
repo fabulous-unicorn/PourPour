@@ -11,18 +11,21 @@ import UIKit
 class RunningRecipeController: UIViewController {
     
     @IBOutlet weak var instructionLabel: UILabel!
+    @IBOutlet weak var timerView: TimerView!
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var commonTimeLabel: UILabel!
     @IBOutlet weak var stepTable: UITableView!
     
     var presenter: RunningRecipePresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.viewDidLoad()
         self.stepTable.delegate = self
         self.stepTable.dataSource = self
         self.stepTable.register(R.nib.recipeStep)
         self.title = self.presenter.getNameScreen()
+        
+        presenter.viewDidLoad()
     }
 }
 
@@ -48,9 +51,20 @@ extension RunningRecipeController: UITableViewDelegate, UITableViewDataSource {
 
 extension RunningRecipeController: RunningRecipeView {
     
-    func updateCurrentStep(with step: RecipeStepEntity) {
+    func updateCurrentStep(numberStep: Int, step: RecipeStepEntity?) {
         
-        self.instructionLabel.text = "Влейте \(step.massWatter) гр воды"
-        self.timerLabel.text = "00:02"
+        if numberStep == self.stepTable.numberOfRows(inSection: 0) {
+            self.instructionLabel.text = "Время насладиться кофе"
+            self.timerLabel.isHidden = true
+            self.timerView.percents = 100
+        } else {
+            
+            guard let step = step else {
+                fatalError("Отсутствует сущность шага")
+            }
+            
+            self.instructionLabel.text = "Шаг \(numberStep): Влейте \(step.massWatter) гр воды"
+            self.timerLabel.text = "00:02"
+        }
     }
 }
