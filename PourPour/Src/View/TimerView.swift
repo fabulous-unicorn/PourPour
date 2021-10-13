@@ -15,6 +15,7 @@ class TimerView: UIView {
     private let progressView = UIView()
     private let timerLabel = UILabel()
     private let completedImageView = UIImageView(image: UIImage(resource: R.image.smile))
+    private let shapeLayer = CAShapeLayer()
     
     @IBInspectable
     var progressColor: UIColor = .clear {
@@ -64,6 +65,7 @@ class TimerView: UIView {
         self.addProgressView()
         self.addBgImage()
         self.addTimerLabel()
+        self.progressView.clearsContextBeforeDrawing = true
     }
     
     override func draw(_ rect: CGRect) {
@@ -82,6 +84,7 @@ class TimerView: UIView {
         
         self.addSubview(self.progressView)
         self.addAroundEqualAnchor(for: self.progressView, equalTo: self, constant: 29)
+        self.progressView.layer.addSublayer(shapeLayer)
     }
     
     private func addTimerLabel() {
@@ -151,12 +154,16 @@ class TimerView: UIView {
                     clockwise: true)
         path.addLine(to: viewCenter)
         
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.path = path.cgPath
-           
-        shapeLayer.fillColor = self.progressColor.cgColor
-        self.progressView.layer.addSublayer(shapeLayer)
+//        let shapeLayer = CAShapeLayer()
+//        shapeLayer.path = path.cgPath
+//
+//        shapeLayer.fillColor = self.progressColor.cgColor
+//        self.progressView.layer.addSublayer(shapeLayer)
 
+        self.shapeLayer.path = path.cgPath
+           
+        self.shapeLayer.fillColor = self.progressColor.cgColor
+        
     }
     
     private func getPercent(curentSecond: Int, lastSecond: Int) -> CGFloat {

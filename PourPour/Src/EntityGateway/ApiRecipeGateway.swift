@@ -24,14 +24,14 @@ class ApiRecipeGateway: RecipeGateway {
             massCoffee: 25.0,
             massWatter: 250,
             temperature: 96,
-            time: 200,
+            time: 150,
             description: "Описание простого рецепта. Возможная дополнительная информация",
             steps: [
-                RecipeStepEntity(id: 0, time: 30, massWatter: 50),
-                RecipeStepEntity(id: 1, time: 60, massWatter: 50),
-                RecipeStepEntity(id: 2, time: 90, massWatter: 50),
-                RecipeStepEntity(id: 3, time: 120, massWatter: 50),
-                RecipeStepEntity(id: 4, time: 150, massWatter: 50)
+                RecipeStepEntity(id: 0, time: 0, massWatter: 50),
+                RecipeStepEntity(id: 1, time: 30, massWatter: 50),
+                RecipeStepEntity(id: 2, time: 60, massWatter: 50),
+                RecipeStepEntity(id: 3, time: 90, massWatter: 50),
+                RecipeStepEntity(id: 4, time: 120, massWatter: 50)
                 ]
             )
     }
