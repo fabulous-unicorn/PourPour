@@ -18,25 +18,26 @@ class RecipeStepCell: UITableViewCell {
     
     var entity: RecipeStepEntity!
     
-    func setup(_ entity: RecipeStepEntity) {
+    func setup(_ entity: RecipeStepEntity, inActive: Bool = true) {
         
-        self.setDesignCell()
+        self.setDesignCell(inActive: inActive)
         
         self.entity = entity
         self.timeLabel.text = TimeFormaterr.formMinutesTimerString(from: self.entity.time)
         self.massWatterLabel.text = "\(self.entity.massWatter)"
     }
     
-    private func setDesignCell() {
+    private func setDesignCell(inActive: Bool) {
         self.timeLabelContainer.layer.cornerRadius = 6
         self.timeLabelContainer.layer.borderWidth = 1.5
         self.timeLabelContainer.layer.borderColor = R.color.controlAccent()?.cgColor
         self.timeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: self.timeLabel.font.pointSize, weight: .semibold)
+        self.contentView.alpha = inActive ? 1 : 0.4
     }
     
     func setupCompletedCell(time: Int) {
     
-        self.setDesignCell()
+        self.setDesignCell(inActive: true)
         self.prefixLabel.isHidden = true
         self.suffixLabel.isHidden = true
         
