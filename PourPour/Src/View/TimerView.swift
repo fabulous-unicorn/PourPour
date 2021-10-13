@@ -16,6 +16,34 @@ class TimerView: UIView {
     private let timerLabel = UILabel()
     private let completedImageView = UIImageView(image: UIImage(resource: R.image.smile))
     
+    @IBInspectable
+    var progressColor: UIColor = .clear {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    @IBInspectable
+    var timeLabelColor: UIColor = .black {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    @IBInspectable var currentSecond: Int = 0 {
+        didSet {
+            changeStateIfNeeds(curentSecond: currentSecond, lastSecond: lastSecond)
+            setNeedsDisplay()
+        }
+    }
+    
+    @IBInspectable var lastSecond: Int = 0 {
+        didSet {
+            changeStateIfNeeds(curentSecond: currentSecond, lastSecond: lastSecond)
+            setNeedsDisplay()
+        }
+    }
+    
     // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,51 +60,16 @@ class TimerView: UIView {
         setupView()
     }
     
-    @IBInspectable
-    var progressColor: UIColor = .clear {
-        didSet {
-            setNeedsDisplay()
-        }
-    }
- 
-    @IBInspectable var percents: CGFloat = 0.0 {
-        didSet {
-            setNeedsDisplay()
-        }
-    }
-    
-    @IBInspectable var timeString: String = "00:00" {
-        didSet {
-            self.timerLabel.text = timeString
-            setNeedsDisplay()
-        }
-    }
-    
-    @IBInspectable var isCompleted: Bool = false {
-        didSet {
-            if isCompleted {
-                self.percents = 100
-                self.timerLabel.isHidden = true
-                self.addCompletedSubView()
-            } else {
-                self.removeCompletedSubView()
-                self.timerLabel.isHidden = false
-            }
-            setNeedsDisplay()
-        }
-    }
-    
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        self.drawProgress()
-    }
-    
     private func setupView() {
         self.addProgressView()
         self.addBgImage()
         self.addTimerLabel()
     }
     
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        self.drawProgress()
+    }
     
     private func addBgImage() {
         
@@ -96,30 +89,56 @@ class TimerView: UIView {
         self.addSubview(self.timerLabel)
         self.timerLabel.font = .monospacedDigitSystemFont(ofSize: 36.0, weight: .bold)
         self.timerLabel.textAlignment = .center
+        self.timerLabel.textColor = self.timeLabelColor
         
         self.timerLabel.translatesAutoresizingMaskIntoConstraints = false
         self.timerLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         self.timerLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
     }
     
+    private func changeStateIfNeeds(curentSecond: Int, lastSecond: Int) {
+        
+        guard curentSecond >= 0 else {
+            fatalError("curentSecond не может быть отрицательным, непредсказуемое поведение")
+        }
+        
+        let remainingSeconds = lastSecond - currentSecond
+        self.timerLabel.text = TimeFormaterr.formMinutesTimerString(from: remainingSeconds)
+        
+        if currentSecond >= lastSecond {
+            self.timerLabel.isHidden = true
+            self.addCompletedSubView()
+        } else {
+            self.removeCompletedSubView()
+            self.timerLabel.isHidden = false
+        }
+    }
+    
     private func addCompletedSubView() {
+        guard !(self.completedImageView.isDescendant(of: self)) else {
+            return
+        }
         
         self.addSubview(self.completedImageView)
-        self.completedImageView.tintColor = R.color.textPrimary()
+        self.completedImageView.tintColor = self.tintColor
         self.addAroundEqualAnchor(for: self.completedImageView, equalTo: self, constant: 60)
     }
     
     private func removeCompletedSubView() {
-        
-        self.willRemoveSubview(self.completedImageView)
+        guard self.completedImageView.isDescendant(of: self) else {
+            return
+        }
+        self.completedImageView.removeFromSuperview()
     }
     
     func drawProgress() {
         
+        let percents = 100 - self.getPercent(curentSecond: currentSecond, lastSecond: lastSecond)
+        
         let viewCenter = CGPoint(x: progressView.bounds.size.width * 0.5, y: progressView.bounds.size.height * 0.5)
         let radius = min(progressView.bounds.size.width, progressView.bounds.size.height) * 0.5
         let startAngle = -0.5 * CGFloat.pi
-        let endAngle = startAngle + (self.percents / 100) * 2 * CGFloat.pi
+        let endAngle = startAngle + (percents / 100) * 2 * CGFloat.pi
         
         let path = UIBezierPath()
         path.move(to: viewCenter)
@@ -138,6 +157,14 @@ class TimerView: UIView {
         shapeLayer.fillColor = self.progressColor.cgColor
         self.progressView.layer.addSublayer(shapeLayer)
 
+    }
+    
+    private func getPercent(curentSecond: Int, lastSecond: Int) -> CGFloat {
+        
+        guard currentSecond < lastSecond else { return 100 }
+        guard curentSecond > 0 else { return 0 }
+        
+        return (CGFloat(currentSecond) * 100.0) / CGFloat(lastSecond)
     }
     
     private func addAroundEqualAnchor(for view: UIView, equalTo toView: UIView, constant: CGFloat) {

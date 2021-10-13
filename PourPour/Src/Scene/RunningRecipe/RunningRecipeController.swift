@@ -54,7 +54,8 @@ extension RunningRecipeController: RunningRecipeView {
         
         if numberStep == self.stepTable.numberOfRows(inSection: 0) {
             self.instructionLabel.text = "Время насладиться кофе"
-            self.timerView.isCompleted = true
+            self.timerView.currentSecond = 0
+            self.timerView.lastSecond = 0
         } else {
             
             guard let step = step else {
@@ -62,9 +63,9 @@ extension RunningRecipeController: RunningRecipeView {
             }
             
             self.instructionLabel.text = "Шаг \(numberStep): Влейте \(step.massWatter) гр воды"
-            self.timerView.isCompleted = false
-            self.timerView.percents = 33.00
-            self.timerView.timeString = "00:10"
+            self.timerView.lastSecond = step.time
+            self.timerView.currentSecond = 10
+            
         }
     }
 }

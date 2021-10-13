@@ -11,6 +11,10 @@ class TimeFormaterr {
     
     static func formMinutesTimerString(from seconds: Int) -> String {
         
+        guard seconds >= 0 else {
+            return "--:--"
+        }
+        
         var result = ""
         
         let minutesTimer = seconds / 60
