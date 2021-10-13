@@ -12,7 +12,6 @@ class RunningRecipeController: UIViewController {
     
     @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var timerView: TimerView!
-    @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var commonTimeLabel: UILabel!
     @IBOutlet weak var stepTable: UITableView!
     
@@ -55,8 +54,7 @@ extension RunningRecipeController: RunningRecipeView {
         
         if numberStep == self.stepTable.numberOfRows(inSection: 0) {
             self.instructionLabel.text = "Время насладиться кофе"
-            self.timerLabel.isHidden = true
-            self.timerView.percents = 100
+            self.timerView.isCompleted = true
         } else {
             
             guard let step = step else {
@@ -64,7 +62,9 @@ extension RunningRecipeController: RunningRecipeView {
             }
             
             self.instructionLabel.text = "Шаг \(numberStep): Влейте \(step.massWatter) гр воды"
-            self.timerLabel.text = "00:02"
+            self.timerView.isCompleted = false
+            self.timerView.percents = 33.00
+            self.timerView.timeString = "00:10"
         }
     }
 }

@@ -18,6 +18,7 @@ protocol RunningRecipePresenter {
 protocol RunningRecipeView: class {
     
     func updateCurrentStep(numberStep: Int, step: RecipeStepEntity?)
+    //UpdateScene
 }
 
 class RunningRecipePresenterImp: RunningRecipePresenter {
@@ -26,6 +27,7 @@ class RunningRecipePresenterImp: RunningRecipePresenter {
     private let router: RunningRecipeRouter
     private let recipe: RecipeFullEntity
     
+//    var timer: Timer?
     
     init(_ view: RunningRecipeView, _ router: RunningRecipeRouter, _ recipe: RecipeFullEntity) {
         
@@ -36,8 +38,36 @@ class RunningRecipePresenterImp: RunningRecipePresenter {
     
     func viewDidLoad() {
         self.view.updateCurrentStep(numberStep: 1, step: self.recipe.steps[0])
+//        self.timer.timeInterva
 //        self.view.updateCurrentStep(numberStep: 6, step: nil)
+        
+//        self.timer = Timer.scheduledTimer(timeInterval: 0.01, invocation: #selector(timerHasTicked(timer:)), repeats: false)
     }
+    
+    
+    @objc private func timerHasTicked(timer: Timer) {
+        
+    }
+        
+//            timer = Timer.scheduledTimer(timeInterval: 0.01, target: self,
+//                                         selector: #selector(timerHasTicked(timer:)),
+//                                         userInfo: nil, repeats: true)
+//            RunLoop.current.add(timer!, forMode: RunLoopMode.commonModes)
+//
+//
+//
+//            /// Record the time at which we started this timer.
+//            //checkForOngoingTimer()
+//            timerStartTime = Date.timeIntervalSinceReferenceDate
+//
+//
+//
+//             timerOriginalStartTime = Date()
+//             timerSession = true
+//
+//
+//
+//            delegate?.timerHasStarted()
     
     func getNameScreen() -> String {
         return self.recipe.name

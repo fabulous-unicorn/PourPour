@@ -36,14 +36,9 @@
                                                 <real key="value" value="12"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isCompleted" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="timeString" value="00:00"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAB-NW-vLB">
-                                        <rect key="frame" x="154.5" y="137.5" width="105" height="43"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                                        <color key="textColor" name="text-primary"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Шаг  _: Влейте __ гр воды" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2d-9s-hCJ">
                                         <rect key="frame" x="70" y="24" width="274" height="27"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
@@ -79,11 +74,9 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="q2d-9s-hCJ" firstAttribute="top" secondItem="bcg-Uq-zId" secondAttribute="top" constant="24" id="6OC-0F-Bof"/>
-                                    <constraint firstItem="cAB-NW-vLB" firstAttribute="centerY" secondItem="DgS-rq-lnG" secondAttribute="centerY" id="8sa-cx-Dbw"/>
                                     <constraint firstAttribute="trailing" secondItem="3zN-yJ-HYk" secondAttribute="trailing" id="EoR-UL-gME"/>
                                     <constraint firstItem="DgS-rq-lnG" firstAttribute="centerX" secondItem="bcg-Uq-zId" secondAttribute="centerX" id="GjB-xo-y5Q"/>
                                     <constraint firstItem="3zN-yJ-HYk" firstAttribute="leading" secondItem="bcg-Uq-zId" secondAttribute="leading" id="Ktb-cD-Eow"/>
-                                    <constraint firstItem="cAB-NW-vLB" firstAttribute="centerX" secondItem="bcg-Uq-zId" secondAttribute="centerX" id="NDN-2Q-7C2"/>
                                     <constraint firstItem="3zN-yJ-HYk" firstAttribute="top" secondItem="DgS-rq-lnG" secondAttribute="bottom" constant="8" id="U6Z-GE-tzX"/>
                                     <constraint firstItem="q2d-9s-hCJ" firstAttribute="centerX" secondItem="bcg-Uq-zId" secondAttribute="centerX" id="l4d-Qs-4rY"/>
                                     <constraint firstAttribute="bottom" secondItem="3zN-yJ-HYk" secondAttribute="bottom" constant="8" id="lHt-NG-D3k"/>
@@ -114,7 +107,6 @@
                         <outlet property="commonTimeLabel" destination="0P2-Hd-Jy2" id="R71-V3-2JV"/>
                         <outlet property="instructionLabel" destination="q2d-9s-hCJ" id="I3w-sv-Cqq"/>
                         <outlet property="stepTable" destination="g7h-6p-IDM" id="OOt-iC-SM1"/>
-                        <outlet property="timerLabel" destination="cAB-NW-vLB" id="aeQ-Ev-ng7"/>
                         <outlet property="timerView" destination="DgS-rq-lnG" id="Y1q-Ue-fzj"/>
                     </connections>
                 </viewController>
@@ -133,14 +125,11 @@
         <namedColor name="surface-secondary-bg">
             <color red="0.98039215686274506" green="0.90196078431372551" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="text-primary">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="text-secondary">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="timer-progress">
-            <color red="0.96470588235294119" green="0.74509803921568629" blue="0.47843137254901963" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.9649999737739563" green="0.74500000476837158" blue="0.4779999852180481" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

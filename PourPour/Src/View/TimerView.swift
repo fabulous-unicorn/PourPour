@@ -13,6 +13,7 @@ class TimerView: UIView {
     
     private let bgImageView = UIImageView(image: UIImage(resource: R.image.bigTimer))
     private let progressView = UIView()
+    private let timerLabel = UILabel()
     private let completedImageView = UIImageView(image: UIImage(resource: R.image.smile))
     
     // MARK: - Initialization
@@ -44,13 +45,22 @@ class TimerView: UIView {
         }
     }
     
+    @IBInspectable var timeString: String = "00:00" {
+        didSet {
+            self.timerLabel.text = timeString
+            setNeedsDisplay()
+        }
+    }
+    
     @IBInspectable var isCompleted: Bool = false {
         didSet {
             if isCompleted {
                 self.percents = 100
+                self.timerLabel.isHidden = true
                 self.addCompletedSubView()
             } else {
                 self.removeCompletedSubView()
+                self.timerLabel.isHidden = false
             }
             setNeedsDisplay()
         }
@@ -64,6 +74,7 @@ class TimerView: UIView {
     private func setupView() {
         self.addProgressView()
         self.addBgImage()
+        self.addTimerLabel()
     }
     
     
@@ -89,6 +100,17 @@ class TimerView: UIView {
         self.progressView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -1 * limit).isActive = true
         self.progressView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: limit).isActive = true
         self.progressView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -1 * limit).isActive = true
+    }
+    
+    private func addTimerLabel() {
+        
+        self.addSubview(self.timerLabel)
+        self.timerLabel.font = .monospacedDigitSystemFont(ofSize: 36.0, weight: .bold)
+        self.timerLabel.textAlignment = .center
+        
+        self.timerLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.timerLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        self.timerLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
     }
     
     private func addCompletedSubView() {
