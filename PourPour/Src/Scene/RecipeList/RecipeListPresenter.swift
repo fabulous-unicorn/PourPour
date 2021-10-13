@@ -59,7 +59,8 @@ class RecipeListPresenterImp: RecipeListPresenter {
     }
     
     func onRecipeSelected(_ index: Int) {
-        self.router.openRecipe(index)
+        let recipeId = self.recipeList[index].id
+        self.router.openRecipe(recipeId)
     }
 
     func touchInfo() {

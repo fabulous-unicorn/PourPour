@@ -8,7 +8,7 @@
 import Foundation
 
 protocol RecipeListRouter {
-    func openRecipe(_ index: Int)
+    func openRecipe(_ recipeId: Int)
     func openInfoSceen()
 }
 
@@ -20,8 +20,8 @@ class RecipeListRouterImp: RecipeListRouter {
         self.view = view
     }
     
-    func openRecipe(_ index: Int) {
-        RecipeConfigurator.open(navigationController: self.view.navigationController!)
+    func openRecipe(_ recipeId: Int) {
+        RecipeConfigurator.open(navigationController: self.view.navigationController!, recipeId: recipeId)
     }
     
     func openInfoSceen() {

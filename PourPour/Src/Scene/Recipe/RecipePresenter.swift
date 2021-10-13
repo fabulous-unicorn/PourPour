@@ -33,12 +33,10 @@ class RecipePresenterImp: RecipePresenter {
     let recipeId: Int
 
 
-    init(_ view: RecipeView, _ router: RecipeRouter, _ gateway: RecipeGateway) {
+    init(_ view: RecipeView, _ router: RecipeRouter, _ gateway: RecipeGateway, _ recipeId: Int) {
         self.view = view
         self.router = router
         self.gateway = gateway
-        
-        let recipeId = 0
         self.recipeId = recipeId
     }
     
