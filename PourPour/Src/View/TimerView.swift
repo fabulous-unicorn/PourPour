@@ -82,24 +82,13 @@ class TimerView: UIView {
         
         self.addSubview(self.bgImageView)
         self.bgImageView.tintColor = self.tintColor
-        
-        self.bgImageView.translatesAutoresizingMaskIntoConstraints = false
-        self.bgImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        self.bgImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        self.bgImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        self.bgImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        self.addAroundEqualAnchor(for: self.bgImageView, equalTo: self, constant: 0)
     }
     
     private func addProgressView() {
         
         self.addSubview(self.progressView)
-        let limit: CGFloat = 29.0
-        
-        progressView.translatesAutoresizingMaskIntoConstraints = false
-        self.progressView.topAnchor.constraint(equalTo: self.topAnchor, constant: limit).isActive = true
-        self.progressView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -1 * limit).isActive = true
-        self.progressView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: limit).isActive = true
-        self.progressView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -1 * limit).isActive = true
+        self.addAroundEqualAnchor(for: self.progressView, equalTo: self, constant: 29)
     }
     
     private func addTimerLabel() {
@@ -116,14 +105,8 @@ class TimerView: UIView {
     private func addCompletedSubView() {
         
         self.addSubview(self.completedImageView)
-        let limit: CGFloat = 60.0
         self.completedImageView.tintColor = R.color.textPrimary()
-        
-        self.completedImageView.translatesAutoresizingMaskIntoConstraints = false
-        self.completedImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: limit).isActive = true
-        self.completedImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -1 * limit).isActive = true
-        self.completedImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: limit).isActive = true
-        self.completedImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -1 * limit).isActive = true
+        self.addAroundEqualAnchor(for: self.completedImageView, equalTo: self, constant: 60)
     }
     
     private func removeCompletedSubView() {
@@ -155,5 +138,14 @@ class TimerView: UIView {
         shapeLayer.fillColor = self.progressColor.cgColor
         self.progressView.layer.addSublayer(shapeLayer)
 
+    }
+    
+    private func addAroundEqualAnchor(for view: UIView, equalTo toView: UIView, constant: CGFloat) {
+
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.topAnchor.constraint(equalTo: toView.topAnchor, constant: constant).isActive = true
+        view.bottomAnchor.constraint(equalTo: toView.bottomAnchor, constant: -1 * constant).isActive = true
+        view.leadingAnchor.constraint(equalTo: toView.leadingAnchor, constant: constant).isActive = true
+        view.trailingAnchor.constraint(equalTo: toView.trailingAnchor, constant: -1 * constant).isActive = true
     }
 }
