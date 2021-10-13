@@ -11,7 +11,7 @@ protocol RunningRecipePresenter {
     
     func viewDidLoad()
     func getNumberSteps() -> Int
-    func setupRecipeStepCell(_ stepCell: RecipeStepCell, _ index: Int)
+    func setupRecipeStepCell(_ stepCell: RecipeStepCell, _ index: Int, inActive: Bool)
 }
 
 protocol RunningRecipeView: class {
@@ -69,6 +69,7 @@ class RunningRecipePresenterImp: RunningRecipePresenter {
                 self.view.updateCurrentInstruction(currentSecond: self.seconds, stepForView: step)
             }
         }
+        //TODO: выпилить принт после изучения возможных утечек
         print("Seconds: \(seconds)")
     }
     
@@ -80,12 +81,12 @@ class RunningRecipePresenterImp: RunningRecipePresenter {
         return self.recipe.steps.count
     }
     
-    func setupRecipeStepCell(_ stepCell: RecipeStepCell, _ index: Int) {
+    func setupRecipeStepCell(_ stepCell: RecipeStepCell, _ index: Int, inActive: Bool) {
 
         if index == self.recipe.steps.count {
             stepCell.setupCompletedCell(time: self.recipe.time)
         } else {
-            stepCell.setup(self.recipe.steps[index])
+            stepCell.setup(self.recipe.steps[index], inActive: inActive)
         }
     }
 }

@@ -16,6 +16,11 @@ class RunningRecipeController: UIViewController {
     @IBOutlet weak var stepTable: UITableView!
     
     var presenter: RunningRecipePresenter!
+    var currentActiveStep: Int = 0 {
+        didSet {
+            self.stepTable.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +46,8 @@ extension RunningRecipeController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.stepRecipeCell, for: indexPath)!
-        self.presenter.setupRecipeStepCell(cell, indexPath.row)
+        let inActive = indexPath.row >= self.currentActiveStep
+        self.presenter.setupRecipeStepCell(cell, indexPath.row, inActive: inActive)
         return cell
     }
     
@@ -58,15 +64,20 @@ extension RunningRecipeController: RunningRecipeView {
     
     
     func updateCurrentInstruction(currentSecond: Int, stepForView step: RecipeStepForViewEntity) {
-       
+        
         self.instructionLabel.text = "Шаг \(step.numberStep + 1): Влейте \(step.massWatter) гр воды"
         self.timerView.lastSecond = step.lastSecond - step.startSecond
         self.timerView.currentSecond = currentSecond - step.startSecond
+        
+        if self.currentActiveStep < step.numberStep {
+            self.currentActiveStep += 1
             
         }
+    }
     
     func setupCompletedStateScene() {
         
+        self.currentActiveStep = self.stepTable.numberOfRows(inSection: 0) - 1
         self.instructionLabel.text = "Время насладиться кофе"
         self.timerView.currentSecond = 0
         self.timerView.lastSecond = 0
