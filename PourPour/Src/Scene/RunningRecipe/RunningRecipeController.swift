@@ -22,10 +22,10 @@ class RunningRecipeController: UIViewController {
         self.stepTable.delegate = self
         self.stepTable.dataSource = self
         self.stepTable.register(R.nib.recipeStep)
-        self.title = self.presenter.getNameScreen()
         
         presenter.viewDidLoad()
     }
+    
 }
 
 
@@ -50,22 +50,26 @@ extension RunningRecipeController: UITableViewDelegate, UITableViewDataSource {
 
 extension RunningRecipeController: RunningRecipeView {
     
-    func updateCurrentStep(numberStep: Int, step: RecipeStepEntity?) {
-        
-        if numberStep == self.stepTable.numberOfRows(inSection: 0) {
-            self.instructionLabel.text = "Время насладиться кофе"
-            self.timerView.currentSecond = 0
-            self.timerView.lastSecond = 0
-        } else {
-            
-            guard let step = step else {
-                fatalError("Отсутствует сущность шага")
-            }
-            
-            self.instructionLabel.text = "Шаг \(numberStep): Влейте \(step.massWatter) гр воды"
-            self.timerView.lastSecond = step.time
-            self.timerView.currentSecond = 10
+    
+    func configure(recipe: RecipeFullEntity) {
+        self.navigationItem.title = recipe.name
+        self.commonTimeLabel.text = TimeFormaterr.formMinutesTimerString(from: recipe.time)
+    }
+    
+    
+    func updateCurrentInstruction(currentSecond: Int, stepForView step: RecipeStepForViewEntity) {
+       
+        self.instructionLabel.text = "Шаг \(step.numberStep + 1): Влейте \(step.massWatter) гр воды"
+        self.timerView.lastSecond = step.lastSecond - step.startSecond
+        self.timerView.currentSecond = currentSecond - step.startSecond
             
         }
+    
+    func setupCompletedStateScene() {
+        
+        self.instructionLabel.text = "Время насладиться кофе"
+        self.timerView.currentSecond = 0
+        self.timerView.lastSecond = 0
     }
+    
 }

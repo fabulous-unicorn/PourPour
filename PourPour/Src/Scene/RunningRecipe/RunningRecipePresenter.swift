@@ -11,14 +11,14 @@ protocol RunningRecipePresenter {
     
     func viewDidLoad()
     func getNumberSteps() -> Int
-    func getNameScreen() -> String
     func setupRecipeStepCell(_ stepCell: RecipeStepCell, _ index: Int)
 }
 
 protocol RunningRecipeView: class {
     
-    func updateCurrentStep(numberStep: Int, step: RecipeStepEntity?)
-    //UpdateScene
+    func configure(recipe: RecipeFullEntity)
+    func updateCurrentInstruction(currentSecond: Int, stepForView step: RecipeStepForViewEntity)
+    func setupCompletedStateScene()
 }
 
 class RunningRecipePresenterImp: RunningRecipePresenter {
@@ -27,47 +27,50 @@ class RunningRecipePresenterImp: RunningRecipePresenter {
     private let router: RunningRecipeRouter
     private let recipe: RecipeFullEntity
     
-//    var timer: Timer?
+    private var timer: Timer?
+    private var seconds: Int = 0
+    private var stepsForView: [RecipeStepForViewEntity]
     
     init(_ view: RunningRecipeView, _ router: RunningRecipeRouter, _ recipe: RecipeFullEntity) {
         
         self.view = view
         self.router = router
         self.recipe = recipe
+        self.stepsForView =  RecipeStepForViewEntity.getStepsForView(recipe: recipe)
     }
     
     func viewDidLoad() {
-        self.view.updateCurrentStep(numberStep: 1, step: self.recipe.steps[0])
-//        self.timer.timeInterva
-//        self.view.updateCurrentStep(numberStep: 6, step: nil)
+        self.view.configure(recipe: self.recipe)
         
-//        self.timer = Timer.scheduledTimer(timeInterval: 0.01, invocation: #selector(timerHasTicked(timer:)), repeats: false)
+        if self.stepsForView.count == 0 {
+            
+            self.view.setupCompletedStateScene()
+        } else {
+            
+            self.view.updateCurrentInstruction(currentSecond: self.seconds, stepForView: self.stepsForView[0] )
+            
+            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+            RunLoop.current.add(self.timer!, forMode: .common)
+        }
     }
     
-    
-    @objc private func timerHasTicked(timer: Timer) {
+    //!!!!!!!        timer.invalidate()
+    @objc func fireTimer() {
+        self.seconds += 1
+      
+        if self.seconds > self.recipe.time {
+            self.timer?.invalidate()
+            self.view.setupCompletedStateScene()
+            return
+        }
         
+        self.stepsForView.forEach { step in
+            if step.startSecond <= self.seconds  && self.seconds < step.lastSecond {
+                self.view.updateCurrentInstruction(currentSecond: self.seconds, stepForView: step)
+            }
+        }
+        print("Seconds: \(seconds)")
     }
-        
-//            timer = Timer.scheduledTimer(timeInterval: 0.01, target: self,
-//                                         selector: #selector(timerHasTicked(timer:)),
-//                                         userInfo: nil, repeats: true)
-//            RunLoop.current.add(timer!, forMode: RunLoopMode.commonModes)
-//
-//
-//
-//            /// Record the time at which we started this timer.
-//            //checkForOngoingTimer()
-//            timerStartTime = Date.timeIntervalSinceReferenceDate
-//
-//
-//
-//             timerOriginalStartTime = Date()
-//             timerSession = true
-//
-//
-//
-//            delegate?.timerHasStarted()
     
     func getNameScreen() -> String {
         return self.recipe.name
@@ -83,6 +86,37 @@ class RunningRecipePresenterImp: RunningRecipePresenter {
             stepCell.setupCompletedCell(time: self.recipe.time)
         } else {
             stepCell.setup(self.recipe.steps[index])
+        }
+    }
+}
+
+class RecipeStepForViewEntity {
+    
+    let numberStep: Int
+    let startSecond: Int
+    let lastSecond : Int
+    let massWatter: Int
+    
+    internal init(numberStep: Int, startSecond: Int, lastSecond: Int, massWatter: Int) {
+        self.numberStep = numberStep
+        self.startSecond = startSecond
+        self.lastSecond = lastSecond
+        self.massWatter = massWatter
+    }
+    
+    static func getStepsForView(recipe: RecipeFullEntity) -> [RecipeStepForViewEntity] {
+        
+        guard recipe.steps.count != 0 else {
+            return []
+        }
+        
+        return recipe.steps.enumerated().map{ index, step  in
+            
+            if index + 1 == recipe.steps.count {
+                return RecipeStepForViewEntity(numberStep: index, startSecond: step.time, lastSecond: recipe.time, massWatter: step.massWatter)
+            } else {
+                return RecipeStepForViewEntity(numberStep: index, startSecond: step.time, lastSecond: recipe.steps[index + 1].time, massWatter: step.massWatter)
+            }
         }
     }
 }
