@@ -31,6 +31,10 @@ class RunningRecipeController: UIViewController {
         presenter.viewDidLoad()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.presenter.viewDidDisappear()
+    }
 }
 
 
