@@ -10,6 +10,7 @@ import Foundation
 protocol RunningRecipePresenter {
     
     func viewDidLoad()
+    func viewDidDisappear()
     func getNumberSteps() -> Int
     func setupRecipeStepCell(_ stepCell: RecipeStepCell, _ index: Int, inActive: Bool)
 }
@@ -54,7 +55,10 @@ class RunningRecipePresenterImp: RunningRecipePresenter {
         }
     }
     
-    //!!!!!!!        timer.invalidate()
+    func viewDidDisappear() {
+        self.timer?.invalidate()
+    }
+    
     @objc func fireTimer() {
         self.seconds += 1
       
