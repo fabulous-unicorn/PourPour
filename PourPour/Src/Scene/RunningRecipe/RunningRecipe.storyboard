@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,135 +24,8 @@
             </objects>
             <point key="canvasLocation" x="138" y="72"/>
         </scene>
-        <!--Running Recipe Controller-->
-        <scene sceneID="s0d-6b-0kx">
-            <objects>
-                <viewController storyboardIdentifier="runningRecipeVC" id="Y6W-OH-hqX" customClass="RunningRecipeController" customModule="PourPour" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcg-Uq-zId">
-                                <rect key="frame" x="0.0" y="44" width="414" height="325.5"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DgS-rq-lnG" customClass="TimerView" customModule="PourPour" customModuleProvider="target">
-                                        <rect key="frame" x="107" y="59" width="200" height="200"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" name="control-icon-bg"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="4IA-IX-Bai"/>
-                                            <constraint firstAttribute="width" constant="200" id="Gue-WB-zdF"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
-                                                <color key="value" name="timer-progress"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="timeLabelColor">
-                                                <color key="value" name="text-primary"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="currentSecond">
-                                                <integer key="value" value="2"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="lastSecond">
-                                                <integer key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Шаг  _: Влейте __ гр воды" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2d-9s-hCJ">
-                                        <rect key="frame" x="70" y="24" width="274" height="27"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3zN-yJ-HYk">
-                                        <rect key="frame" x="0.0" y="267" width="414" height="50.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0P2-Hd-Jy2">
-                                                <rect key="frame" x="334" y="12" width="64" height="26.5"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Общее время" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34j-G4-fLm">
-                                                <rect key="frame" x="16" y="13.5" width="130" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                                <color key="textColor" name="text-secondary"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" name="surface-secondary-bg"/>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="0P2-Hd-Jy2" secondAttribute="bottom" constant="12" id="5iv-9U-RwO"/>
-                                            <constraint firstItem="0P2-Hd-Jy2" firstAttribute="top" secondItem="3zN-yJ-HYk" secondAttribute="top" constant="12" id="K7V-Ov-vra"/>
-                                            <constraint firstItem="34j-G4-fLm" firstAttribute="leading" secondItem="3zN-yJ-HYk" secondAttribute="leading" constant="16" id="cNd-Xj-Guh"/>
-                                            <constraint firstAttribute="trailing" secondItem="0P2-Hd-Jy2" secondAttribute="trailing" constant="16" id="gYq-NT-jxM"/>
-                                            <constraint firstItem="34j-G4-fLm" firstAttribute="centerY" secondItem="3zN-yJ-HYk" secondAttribute="centerY" id="o8J-UL-QWS"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="q2d-9s-hCJ" firstAttribute="top" secondItem="bcg-Uq-zId" secondAttribute="top" constant="24" id="6OC-0F-Bof"/>
-                                    <constraint firstAttribute="trailing" secondItem="3zN-yJ-HYk" secondAttribute="trailing" id="EoR-UL-gME"/>
-                                    <constraint firstItem="DgS-rq-lnG" firstAttribute="centerX" secondItem="bcg-Uq-zId" secondAttribute="centerX" id="GjB-xo-y5Q"/>
-                                    <constraint firstItem="3zN-yJ-HYk" firstAttribute="leading" secondItem="bcg-Uq-zId" secondAttribute="leading" id="Ktb-cD-Eow"/>
-                                    <constraint firstItem="3zN-yJ-HYk" firstAttribute="top" secondItem="DgS-rq-lnG" secondAttribute="bottom" constant="8" id="U6Z-GE-tzX"/>
-                                    <constraint firstItem="q2d-9s-hCJ" firstAttribute="centerX" secondItem="bcg-Uq-zId" secondAttribute="centerX" id="l4d-Qs-4rY"/>
-                                    <constraint firstAttribute="bottom" secondItem="3zN-yJ-HYk" secondAttribute="bottom" constant="8" id="lHt-NG-D3k"/>
-                                    <constraint firstItem="DgS-rq-lnG" firstAttribute="top" secondItem="q2d-9s-hCJ" secondAttribute="bottom" constant="8" id="oXw-V7-ZAm"/>
-                                </constraints>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g7h-6p-IDM">
-                                <rect key="frame" x="0.0" y="369.5" width="414" height="492.5"/>
-                                <color key="backgroundColor" name="surface-secondary-bg"/>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" name="surface-primary-bg"/>
-                        <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="g7h-6p-IDM" secondAttribute="bottom" id="86Y-96-1NA"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bcg-Uq-zId" secondAttribute="trailing" id="A03-b7-yQ5"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="g7h-6p-IDM" secondAttribute="trailing" id="LXa-sk-nbJ"/>
-                            <constraint firstItem="bcg-Uq-zId" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="QDM-xd-nhu"/>
-                            <constraint firstItem="g7h-6p-IDM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="aqx-Up-c1p"/>
-                            <constraint firstItem="g7h-6p-IDM" firstAttribute="top" secondItem="bcg-Uq-zId" secondAttribute="bottom" id="oYI-wo-bxO"/>
-                            <constraint firstItem="bcg-Uq-zId" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="vCh-VX-u9k"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Eh2-sM-otR">
-                        <barButtonItem key="backBarButtonItem" title=" " id="CX9-Av-riV"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="commonTimeLabel" destination="0P2-Hd-Jy2" id="R71-V3-2JV"/>
-                        <outlet property="instructionLabel" destination="q2d-9s-hCJ" id="I3w-sv-Cqq"/>
-                        <outlet property="stepTable" destination="g7h-6p-IDM" id="OOt-iC-SM1"/>
-                        <outlet property="timerView" destination="DgS-rq-lnG" id="Y1q-Ue-fzj"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="918.84057971014499" y="71.651785714285708"/>
-        </scene>
     </scenes>
     <resources>
-        <namedColor name="control-icon-bg">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="surface-primary-bg">
-            <color red="0.98431372549019602" green="0.95686274509803926" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="surface-secondary-bg">
-            <color red="0.98039215686274506" green="0.90196078431372551" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="text-primary">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="text-secondary">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="timer-progress">
-            <color red="0.9649999737739563" green="0.74500000476837158" blue="0.4779999852180481" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

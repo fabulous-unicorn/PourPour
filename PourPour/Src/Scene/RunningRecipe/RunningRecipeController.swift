@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-class RunningRecipeSceenController: UIViewController {
+class RunningRecipeController: UIViewController {
     
     let contentView = UIHostingController(rootView: RunningRecipeScene())
     
