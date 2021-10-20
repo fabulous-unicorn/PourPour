@@ -19,8 +19,11 @@ class RunningRecipeConfigurator {
     }
 
     static func open(navigationController: UINavigationController, recipe: RecipeFullEntity) {
-        let view = R.storyboard.runningRecipe.runningRecipeVC()!
-        RunningRecipeConfigurator().configure(view: view, recipe: recipe)
+//        let view = R.storyboard.runningRecipe.runningRecipeVC()!
+//        RunningRecipeConfigurator().configure(view: view, recipe: recipe)
+//        navigationController.pushViewController(view, animated: true)
+        
+        let view = R.storyboard.runningRecipe.runningRecipeSceen()!
         navigationController.pushViewController(view, animated: true)
     }
 }

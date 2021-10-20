@@ -6,16 +6,24 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Hosting Controller-->
-        <scene sceneID="1YS-Ef-gwt">
+        <!--Running Recipe Sceen Controller-->
+        <scene sceneID="sXC-4w-mRi">
             <objects>
-                <hostingController storyboardIdentifier="runningRecipeScene" id="G2F-Uh-Wmf" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CNJ-c0-P0h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="runningRecipeSceen" id="lVi-kM-dmc" customClass="RunningRecipeSceenController" customModule="PourPour" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1dW-u2-0yj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="LWg-v8-9PF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LxO-qV-QBO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="149" y="72"/>
+            <point key="canvasLocation" x="138" y="72"/>
         </scene>
         <!--Running Recipe Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -146,5 +154,8 @@
         <namedColor name="timer-progress">
             <color red="0.9649999737739563" green="0.74500000476837158" blue="0.4779999852180481" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
