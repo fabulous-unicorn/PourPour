@@ -9,6 +9,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Hosting Controller-->
+        <scene sceneID="1YS-Ef-gwt">
+            <objects>
+                <hostingController storyboardIdentifier="runningRecipeScene" id="G2F-Uh-Wmf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CNJ-c0-P0h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="149" y="72"/>
+        </scene>
         <!--Running Recipe Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
