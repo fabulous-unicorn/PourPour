@@ -19,6 +19,7 @@
 		1524E381271F192A00B14AD7 /* PoureButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1524E380271F192A00B14AD7 /* PoureButtonStyle.swift */; };
 		1524E386272015FB00B14AD7 /* StepRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1524E385272015FB00B14AD7 /* StepRow.swift */; };
 		1524E38827202ABD00B14AD7 /* RunningRecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1524E38727202ABD00B14AD7 /* RunningRecipeController.swift */; };
+		1524E38B2720568000B14AD7 /* ProgressTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1524E38A2720568000B14AD7 /* ProgressTimerView.swift */; };
 		154AFE2A26E770EF006705FD /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 154AFE2926E770EF006705FD /* Info.storyboard */; };
 		154AFE2C26E77106006705FD /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154AFE2B26E77106006705FD /* InfoViewController.swift */; };
 		1555C51C270F389300D4F91A /* RecipeStepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1555C51B270F389300D4F91A /* RecipeStepCell.swift */; };
@@ -85,6 +86,7 @@
 		1524E380271F192A00B14AD7 /* PoureButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoureButtonStyle.swift; sourceTree = "<group>"; };
 		1524E385272015FB00B14AD7 /* StepRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepRow.swift; sourceTree = "<group>"; };
 		1524E38727202ABD00B14AD7 /* RunningRecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecipeController.swift; sourceTree = "<group>"; };
+		1524E38A2720568000B14AD7 /* ProgressTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTimerView.swift; sourceTree = "<group>"; };
 		154AFE2926E770EF006705FD /* Info.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
 		154AFE2B26E77106006705FD /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		1555C51B270F389300D4F91A /* RecipeStepCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStepCell.swift; sourceTree = "<group>"; };
@@ -256,7 +258,9 @@
 		1524E38927202F1B00B14AD7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1524E37E271F16F300B14AD7 /* RunningRecipeScene.swift */,
 				1524E385272015FB00B14AD7 /* StepRow.swift */,
+				1524E38A2720568000B14AD7 /* ProgressTimerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -333,7 +337,6 @@
 				15E3D85627157F2C00ADFAD9 /* RunningRecipeConfigurator.swift */,
 				15E3D85227157F0A00ADFAD9 /* Not_used_RunningRecipePresenter.swift */,
 				15E3D85427157F1A00ADFAD9 /* Not_used_RunningRecipeRouter.swift */,
-				1524E37E271F16F300B14AD7 /* RunningRecipeScene.swift */,
 				1524E38727202ABD00B14AD7 /* RunningRecipeController.swift */,
 			);
 			path = RunningRecipe;
@@ -643,6 +646,7 @@
 				1524E38827202ABD00B14AD7 /* RunningRecipeController.swift in Sources */,
 				15FD0EF4270B46800059F4F2 /* RecipeController.swift in Sources */,
 				15DAC62926E63D41003C88E2 /* RecipeListController.swift in Sources */,
+				1524E38B2720568000B14AD7 /* ProgressTimerView.swift in Sources */,
 				15E3D85527157F1A00ADFAD9 /* Not_used_RunningRecipeRouter.swift in Sources */,
 				1524E37F271F16F300B14AD7 /* RunningRecipeScene.swift in Sources */,
 				15FD0EF8270B46E70059F4F2 /* RecipeRouter.swift in Sources */,
