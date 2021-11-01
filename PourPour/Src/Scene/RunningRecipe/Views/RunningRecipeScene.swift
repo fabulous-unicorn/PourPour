@@ -24,7 +24,9 @@ struct RunningRecipeScene: View {
             CommonTime(currentTime: self.currentSecond)
                 .padding(.bottom, 8)
 
-            StepList(steps: self.recipe.steps, currentSecond: self.currentSecond)
+            StepList(steps: self.recipe.steps,
+                     indexActiveStep: RunningRecipePresenter.getIndexActiveStep(recipe: self.recipe, currentSecond: self.currentSecond) ?? self.recipe.steps.count,
+                     timeComplited: self.recipe.duration)
         }
         .background(Color("surface-primary-bg"))
         .onReceive(timer) { _ in

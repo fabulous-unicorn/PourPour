@@ -9,18 +9,21 @@ import SwiftUI
 
 struct StepList: View {
     var steps: [RecipeStepEntity]
-    var currentSecond: Int
+    var indexActiveStep: Int
+    let timeComplited: Int
     
     var body: some View {
-        //TODO: нехватает шага завершения
-        List(steps, id: \.id) { step in
+        List {
+            ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
             StepRow(startTime: step.startTime, massWatter: step.massWatter)
-                .if(!RunningRecipePresenter.isActiveStep(step: step,
-                                                        currentSecond: self.currentSecond)) {
+                .if(index < self.indexActiveStep) {
                     $0.opacity(0.4)
                 }
+            }
+            if (self.steps.count != 0) {
+                ComplitedStepRow(startTime: self.timeComplited)
+            }
         }
-        
         .colorMultiply(Color("surface-secondary-bg"))
         .onAppear {
             UITableView.appearance().separatorStyle = .none
@@ -39,6 +42,8 @@ struct StepList_Previews: PreviewProvider {
             RecipeStepEntity(id: 2, startTime: 10, massWatter: 10),
             RecipeStepEntity(id: 3, startTime: 15, massWatter: 10),
             RecipeStepEntity(id: 4, startTime: 20, massWatter: 10)
-            ], currentSecond: 7)
+        ],
+        indexActiveStep: 2,
+        timeComplited: 20)
     }
 }
