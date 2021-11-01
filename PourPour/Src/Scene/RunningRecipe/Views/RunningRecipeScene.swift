@@ -7,33 +7,6 @@
 
 import SwiftUI
 
-
-struct CommonTime: View {
-    var currentTime: Int
-    
-    var body: some View {
-        Group {
-            HStack {
-                Text("Общее время")
-                    .font(.system(size: 20))
-                    .fontWeight(.medium)
-                    .foregroundColor(Color("text-secondary"))
-                    .frame(height:24)
-                Spacer()
-                Text(TimeFormaterr.formMinutesTimerString(from: currentTime))
-                    .font(.system(size: 22))
-                    .fontWeight(.bold)
-                    .foregroundColor(Color("text-primary"))
-                    .frame(height: 28.0)
-                    .padding(/*@START_MENU_TOKEN@*/.vertical, 12.0/*@END_MENU_TOKEN@*/)
-            }
-            .padding(.horizontal, 16.0)
-            .background(Color("surface-secondary-bg"))
-        }
-    }
-}
-
-
 struct RunningRecipeScene: View {
     var recipe: RecipeFullEntity
     @State var currentSecond: Int = 0
@@ -41,19 +14,13 @@ struct RunningRecipeScene: View {
     
     var body: some View {
         VStack(spacing: 8.0) {
-            
-            Text("Шаг []: Влейте [] гр вода")
-                .font(.system(size: 22))
-                .fontWeight(.bold)
-                .foregroundColor(Color("text-primary"))
-                .tracking(0.8)
-                .multilineTextAlignment(.center)
-                .padding(.top, 24.0)
-                .padding(.bottom, 8.0)
-        
+
+            RunningRecipeSubhead(numberCurrentStep: 0, massWatter: 50)
+
             ProgressTimerView(
                 currentSecond: self.currentSecond,
                 lastSecond: RunningRecipePresenter.getLastSecondCurrentStep(recipe: self.recipe, currentSecond: self.currentSecond))
+
             CommonTime(currentTime: self.currentSecond)
                 .padding(.bottom, 8)
 

@@ -42,6 +42,8 @@
 		15E3D85C2715957C00ADFAD9 /* RecipeStep.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E3D85B2715957C00ADFAD9 /* RecipeStep.xib */; };
 		15E3D85E27159F3000ADFAD9 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3D85D27159F3000ADFAD9 /* TimerView.swift */; };
 		15F85F52272FF3720083042E /* ConditionalModifierSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F85F51272FF3720083042E /* ConditionalModifierSwiftUI.swift */; };
+		15F85F54272FFE170083042E /* CommonTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F85F53272FFE170083042E /* CommonTime.swift */; };
+		15F85F56272FFEAD0083042E /* RunningRecipeSubhead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F85F55272FFEAD0083042E /* RunningRecipeSubhead.swift */; };
 		15FD0EF4270B46800059F4F2 /* RecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD0EF3270B46800059F4F2 /* RecipeController.swift */; };
 		15FD0EF6270B46D80059F4F2 /* RecipePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD0EF5270B46D80059F4F2 /* RecipePresenter.swift */; };
 		15FD0EF8270B46E70059F4F2 /* RecipeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD0EF7270B46E70059F4F2 /* RecipeRouter.swift */; };
@@ -111,6 +113,8 @@
 		15E3D85B2715957C00ADFAD9 /* RecipeStep.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeStep.xib; sourceTree = "<group>"; };
 		15E3D85D27159F3000ADFAD9 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		15F85F51272FF3720083042E /* ConditionalModifierSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionalModifierSwiftUI.swift; sourceTree = "<group>"; };
+		15F85F53272FFE170083042E /* CommonTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTime.swift; sourceTree = "<group>"; };
+		15F85F55272FFEAD0083042E /* RunningRecipeSubhead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecipeSubhead.swift; sourceTree = "<group>"; };
 		15FD0EF3270B46800059F4F2 /* RecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeController.swift; sourceTree = "<group>"; };
 		15FD0EF5270B46D80059F4F2 /* RecipePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePresenter.swift; sourceTree = "<group>"; };
 		15FD0EF7270B46E70059F4F2 /* RecipeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRouter.swift; sourceTree = "<group>"; };
@@ -266,6 +270,8 @@
 				1524E385272015FB00B14AD7 /* StepRow.swift */,
 				1524E38A2720568000B14AD7 /* ProgressTimerView.swift */,
 				1524E38F2721A59800B14AD7 /* StepList.swift */,
+				15F85F53272FFE170083042E /* CommonTime.swift */,
+				15F85F55272FFEAD0083042E /* RunningRecipeSubhead.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -656,6 +662,8 @@
 				15FD0EF6270B46D80059F4F2 /* RecipePresenter.swift in Sources */,
 				15E3D84B2715721F00ADFAD9 /* RecipeGateway.swift in Sources */,
 				15E3D85327157F0A00ADFAD9 /* RunningRecipePresenter.swift in Sources */,
+				15F85F56272FFEAD0083042E /* RunningRecipeSubhead.swift in Sources */,
+				15F85F54272FFE170083042E /* CommonTime.swift in Sources */,
 				15DAC62D26E63ED2003C88E2 /* RecipeEntity.swift in Sources */,
 				15F85F52272FF3720083042E /* ConditionalModifierSwiftUI.swift in Sources */,
 				1524E3902721A59800B14AD7 /* StepList.swift in Sources */,

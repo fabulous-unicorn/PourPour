@@ -55,3 +55,14 @@ class RecipeFullEntity {
     }
    
 }
+
+extension RecipeFullEntity {
+    
+    func getLastSecondStep(for index: Int) -> Int {
+        guard index >= self.steps.count - 1 else {
+            return self.duration
+        }
+        //TODO: шо-то вот тут странное
+        return self.steps[index + 1].startTime - 1 //целая последняя секунда
+    }
+}

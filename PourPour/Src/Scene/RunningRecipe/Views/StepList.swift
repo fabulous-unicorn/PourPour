@@ -12,6 +12,7 @@ struct StepList: View {
     var currentSecond: Int
     
     var body: some View {
+        //TODO: нехватает шага завершения
         List(steps, id: \.id) { step in
             StepRow(startTime: step.startTime, massWatter: step.massWatter)
                 .if(!RunningRecipePresenter.isActiveStep(step: step,
