@@ -30,9 +30,21 @@ struct RunningRecipeScene: View {
         }
         .background(Color("surface-primary-bg"))
         .onReceive(timer) { _ in
-            withAnimation(.linear(duration: 1)) {
+            
+            let activeStep = RunningRecipePresenter.getActiveStep(recipe: self.recipe, currentSecond: self.currentSecond)
+            
+            let activeStep2 = RunningRecipePresenter.getActiveStep(recipe: self.recipe, currentSecond: self.currentSecond + 1)
+
+            
+            if activeStep?.id != activeStep2?.id {
                 if self.currentSecond < recipe.duration {
                     self.currentSecond += 1
+                }
+            } else {
+                withAnimation(.linear(duration: 1)) {
+                    if self.currentSecond < recipe.duration {
+                        self.currentSecond += 1
+                    }
                 }
             }
         }
