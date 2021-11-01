@@ -59,6 +59,7 @@ struct RunningRecipeScene: View {
 
             StepList(steps: self.recipe.steps, currentSecond: self.currentSecond)
         }
+        .background(Color("surface-primary-bg"))
         .onReceive(timer) { _ in
             if self.currentSecond < recipe.duration {
                 self.currentSecond += 1
