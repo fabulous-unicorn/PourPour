@@ -14,7 +14,7 @@ struct StepRow: View {
     
     var body: some View {
         HStack(alignment: .center) {
-            Text(TimeFormaterr.formMinutesTimerString(from: self.startTime))
+            Text(TimeFormater.formMinutesTimerString(from: self.startTime))
                 .font(.system(size: 17,
                               weight: .semibold)
                         .monospacedDigit())
@@ -51,7 +51,6 @@ struct StepRow: View {
 
             Spacer()
         }
-//        .frame(maxWidth: .infinity)
     }
 }
 

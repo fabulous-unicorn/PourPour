@@ -19,7 +19,7 @@ struct CommonTime: View {
                     .foregroundColor(Color("text-secondary"))
                     .frame(height:24)
                 Spacer()
-                Text(TimeFormaterr.formMinutesTimerString(from: currentTime))
+                Text(TimeFormater.formMinutesTimerString(from: currentTime))
                     .font(.system(size: 22))
                     .fontWeight(.bold)
                     .foregroundColor(Color("text-primary"))
