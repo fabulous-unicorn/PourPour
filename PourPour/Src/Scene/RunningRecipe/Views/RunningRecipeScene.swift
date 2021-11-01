@@ -16,10 +16,10 @@ struct RunningRecipeScene: View {
         VStack(spacing: 8.0) {
 
             RunningRecipeSubhead(numberCurrentStep: 0, massWatter: 50)
-
+            
             ProgressTimerView(
-                currentSecond: self.currentSecond,
-                lastSecond: RunningRecipePresenter.getLastSecondCurrentStep(recipe: self.recipe, currentSecond: self.currentSecond))
+                currentSecond: RunningRecipePresenter.getCurrentTimeForActiveStep(recipe: self.recipe, currentSecond: self.currentSecond),
+                duration: RunningRecipePresenter.getDurationActiveStep(recipe: self.recipe, currentSecond: self.currentSecond))
 
             CommonTime(currentTime: self.currentSecond)
                 .padding(.bottom, 8)
@@ -28,8 +28,10 @@ struct RunningRecipeScene: View {
         }
         .background(Color("surface-primary-bg"))
         .onReceive(timer) { _ in
-            if self.currentSecond < recipe.duration {
-                self.currentSecond += 1
+            withAnimation(.linear(duration: 1)) {
+                if self.currentSecond < recipe.duration {
+                    self.currentSecond += 1
+                }
             }
         }
         .onAppear {
