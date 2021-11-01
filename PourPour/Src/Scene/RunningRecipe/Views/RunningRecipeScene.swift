@@ -7,10 +7,12 @@
 
 import SwiftUI
 
+let TIME_TIMER_UPDATE = 0.01
+
 struct RunningRecipeScene: View {
     var recipe: RecipeFullEntity
-    @State var currentSecond: Int = 0
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State var currentSecond: Double = 0
+    let timer = Timer.publish(every: TIME_TIMER_UPDATE, on: .main, in: .common).autoconnect()
     
     var body: some View {
         VStack(spacing: 8.0) {
@@ -19,31 +21,31 @@ struct RunningRecipeScene: View {
             
             ProgressTimerView(
                 currentSecond: RunningRecipePresenter.getCurrentTimeForActiveStep(recipe: self.recipe, currentSecond: self.currentSecond),
-                duration: RunningRecipePresenter.getDurationActiveStep(recipe: self.recipe, currentSecond: self.currentSecond))
+                duration: RunningRecipePresenter.getDurationActiveStep(recipe: self.recipe, currentSecond: Int(self.currentSecond)))
 
-            CommonTime(currentTime: self.currentSecond)
+            CommonTime(currentTime: Int(self.currentSecond))
                 .padding(.bottom, 8)
 
             StepList(steps: self.recipe.steps,
-                     indexActiveStep: RunningRecipePresenter.getIndexActiveStep(recipe: self.recipe, currentSecond: self.currentSecond) ?? self.recipe.steps.count,
+                     indexActiveStep: RunningRecipePresenter.getIndexActiveStep(recipe: self.recipe, currentSecond: Int(self.currentSecond)) ?? self.recipe.steps.count,
                      timeComplited: self.recipe.duration)
         }
         .background(Color("surface-primary-bg"))
         .onReceive(timer) { _ in
             
-            let activeStep = RunningRecipePresenter.getActiveStep(recipe: self.recipe, currentSecond: self.currentSecond)
+            let activeStep = RunningRecipePresenter.getActiveStep(recipe: self.recipe, currentSecond: Int(self.currentSecond))
             
-            let activeStep2 = RunningRecipePresenter.getActiveStep(recipe: self.recipe, currentSecond: self.currentSecond + 1)
+            let activeStep2 = RunningRecipePresenter.getActiveStep(recipe: self.recipe, currentSecond: Int(self.currentSecond + TIME_TIMER_UPDATE))
 
             
             if activeStep?.id != activeStep2?.id {
-                if self.currentSecond < recipe.duration {
-                    self.currentSecond += 1
+                if Int(self.currentSecond) < recipe.duration {
+                    self.currentSecond += TIME_TIMER_UPDATE
                 }
             } else {
                 withAnimation(.linear(duration: 1)) {
-                    if self.currentSecond < recipe.duration {
-                        self.currentSecond += 1
+                    if Int(self.currentSecond) < recipe.duration {
+                        self.currentSecond += TIME_TIMER_UPDATE
                     }
                 }
             }

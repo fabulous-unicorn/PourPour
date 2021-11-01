@@ -36,11 +36,11 @@ class RunningRecipePresenter {
         return recipe.getDurationStep(for: activeStepIndex)
     }
     
-    static func getCurrentTimeForActiveStep(recipe: RecipeFullEntity, currentSecond: Int) -> Int {
-        guard let activeStep = getActiveStep(recipe: recipe, currentSecond: currentSecond) else {
-            return recipe.duration
+    static func getCurrentTimeForActiveStep(recipe: RecipeFullEntity, currentSecond: Double) -> Double {
+        guard let activeStep = getActiveStep(recipe: recipe, currentSecond: Int(currentSecond)) else {
+            return Double(recipe.duration)
         }
         
-        return currentSecond - activeStep.startTime
+        return currentSecond - Double(activeStep.startTime)
     }
 }

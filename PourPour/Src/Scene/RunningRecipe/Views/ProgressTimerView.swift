@@ -47,12 +47,12 @@ struct ProgressTimerShape: Shape {
 
 struct ProgressTimerView: View {
     
-    var currentSecond: Int // = 2
+    var currentSecond: Double // = 2
     var duration: Int // = 10
 
     var body: some View {
         ZStack {
-            ProgressTimerShape(percents: Double(currentSecond) * 100 / Double(duration))
+            ProgressTimerShape(percents: currentSecond * 100 / Double(duration))
                 .fill(Color("timer-progress"))
                 .padding(.all, 30.0)
 
@@ -63,7 +63,7 @@ struct ProgressTimerView: View {
                 .foregroundColor(Color("control-icon-bg"))
                 .padding(.all, 0.0)
 
-            Text(TimeFormater.formMinutesTimerString(from: duration - currentSecond))
+            Text(TimeFormater.formMinutesTimerString(from: duration - Int(currentSecond)))
                 .font(.system(size: 36,
                               weight: .bold)
                         .monospacedDigit())
