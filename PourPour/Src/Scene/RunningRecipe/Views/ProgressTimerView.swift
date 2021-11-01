@@ -63,7 +63,7 @@ struct ProgressTimerView: View {
                 .foregroundColor(Color("control-icon-bg"))
                 .padding(.all, 0.0)
 
-            Text(TimeFormaterr.formMinutesTimerString(from: duration - currentSecond))
+            Text(TimeFormater.formMinutesTimerString(from: duration - currentSecond))
                 .font(.system(size: 36,
                               weight: .bold)
                         .monospacedDigit())

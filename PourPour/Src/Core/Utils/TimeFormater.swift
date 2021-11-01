@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TimeFormaterr {
+class TimeFormater {
     
     static func formMinutesTimerString(from seconds: Int) -> String {
         

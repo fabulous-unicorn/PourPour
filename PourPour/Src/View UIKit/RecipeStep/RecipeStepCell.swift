@@ -23,7 +23,7 @@ class RecipeStepCell: UITableViewCell {
         self.setDesignCell(inActive: inActive)
         
         self.entity = entity
-        self.timeLabel.text = TimeFormaterr.formMinutesTimerString(from: self.entity.startTime)
+        self.timeLabel.text = TimeFormater.formMinutesTimerString(from: self.entity.startTime)
         self.massWatterLabel.text = "\(self.entity.massWatter)"
     }
     
@@ -41,7 +41,7 @@ class RecipeStepCell: UITableViewCell {
         self.prefixLabel.isHidden = true
         self.suffixLabel.isHidden = true
         
-        self.timeLabel.text = TimeFormaterr.formMinutesTimerString(from: time)
+        self.timeLabel.text = TimeFormater.formMinutesTimerString(from: time)
         self.massWatterLabel.text = "Завершение"
     }
 }

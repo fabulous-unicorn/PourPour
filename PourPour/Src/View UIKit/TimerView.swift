@@ -106,7 +106,7 @@ class TimerView: UIView {
         }
         
         let remainingSeconds = lastSecond - currentSecond
-        self.timerLabel.text = TimeFormaterr.formMinutesTimerString(from: remainingSeconds)
+        self.timerLabel.text = TimeFormater.formMinutesTimerString(from: remainingSeconds)
         
         if currentSecond >= lastSecond {
             self.timerLabel.isHidden = true
