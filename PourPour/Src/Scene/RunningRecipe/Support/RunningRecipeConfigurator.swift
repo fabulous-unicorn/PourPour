@@ -7,21 +7,20 @@
 
 import Foundation
 import UIKit
-
+import SwiftUI
 
 class RunningRecipeConfigurator {
 
     func configure(view: RunningRecipeController, recipe: RecipeFullEntity) {
 
-//        let router = RunningRecipeRouterImp(view)
-//        let presenter = RunningRecipePresenterImp(view, router, recipe)
-//        view.presenter = presenter
+        let swifyUIview = UIHostingController(rootView: RunningRecipeScene(recipe: recipe))
+        view.contentView = swifyUIview
     }
 
     static func open(navigationController: UINavigationController, recipe: RecipeFullEntity) {
 
         let view = R.storyboard.runningRecipe.runningRecipeSceen()!
-        //        RunningRecipeConfigurator().configure(view: view, recipe: recipe)
+        RunningRecipeConfigurator().configure(view: view, recipe: recipe)
         navigationController.pushViewController(view, animated: true)
     }
 }

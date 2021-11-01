@@ -9,12 +9,12 @@ import SwiftUI
 
 
 struct StepRow: View {
-    let time: Int
+    let startTime: Int
     let massWatter: Int
     
     var body: some View {
         HStack(alignment: .center) {
-            Text(TimeFormaterr.formMinutesTimerString(from: self.time))
+            Text(TimeFormaterr.formMinutesTimerString(from: self.startTime))
                 .font(.system(size: 17,
                               weight: .semibold)
                         .monospacedDigit())
@@ -57,7 +57,7 @@ struct StepRow: View {
 
 struct StepRow_Previews: PreviewProvider {
     static var previews: some View {
-        StepRow(time: 0, massWatter: 50)
+        StepRow(startTime: 0, massWatter: 50)
             .previewLayout(.sizeThatFits)
     }
 }

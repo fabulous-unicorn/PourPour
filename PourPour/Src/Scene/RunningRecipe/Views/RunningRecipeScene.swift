@@ -34,30 +34,10 @@ struct CommonTime: View {
 }
 
 
-struct StepList: View {
-    
-    var body: some View {
-        List {
-            StepRow(time: 0, massWatter: 50)
-            StepRow(time: 30, massWatter: 50)
-            StepRow(time: 60, massWatter: 50)
-        }
-        
-        .colorMultiply(Color("surface-secondary-bg"))
-        .onAppear {
-            UITableView.appearance().separatorStyle = .none
-        }
-        .onDisappear {
-            UITableView.appearance().separatorStyle = .singleLine
-        }
-    }
-}
-
-
-
 struct RunningRecipeScene: View {
-    @State private var currentSecond: Int = 2
-    @State private var lastSecond: Int = 10
+    var recipe: RecipeFullEntity
+    @State var currentSecond: Int = 0
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         VStack(spacing: 8.0) {
@@ -73,43 +53,41 @@ struct RunningRecipeScene: View {
         
             ProgressTimerView(
                 currentSecond: self.currentSecond,
-                lastSecond: self.lastSecond)
-
-            CommonTime(currentTime: 32)
+                lastSecond: RunningRecipePresenter.getLastSecondCurrentStep(recipe: self.recipe, currentSecond: self.currentSecond))
+            CommonTime(currentTime: self.currentSecond)
                 .padding(.bottom, 8)
 
-            StepList()
-            
-            //Для отладки анимации
-            HStack(spacing: 8.0) {
-                Button(action: {
-                    print("onTouchedButtonReset")
-                    withAnimation(.linear(duration: 1)) {
-                        self.currentSecond = 0
-                    }
-                }, label: {
-                    Text("Reset")
-                        .frame(maxWidth: .infinity)
-                })
-                .buttonStyle(SecondaryButtonStyle())
-
-                Button(action: {
-                    print("onTouchedButtonStart")
-                    withAnimation(.linear(duration: 1)) {
-                        self.currentSecond += 1
-                    }
-                }, label: {
-                    Text("Start")
-                        .frame(maxWidth: .infinity)
-                })
-                .buttonStyle(PrimaryButtonStyle())
+            StepList(steps: self.recipe.steps, currentSecond: self.currentSecond)
+        }
+        .onReceive(timer) { _ in
+            if self.currentSecond < recipe.duration {
+                self.currentSecond += 1
             }
+        }
+        .onAppear {
+            self.currentSecond = 0
         }
     }
 }
 
 struct RunningRecipeScene_Previews: PreviewProvider {
+    
     static var previews: some View {
-        RunningRecipeScene()
+        RunningRecipeScene(recipe: RecipeFullEntity(
+            id: 4,
+            name: "Эфиопия",
+            massCoffee: 25.0,
+            massWatter: 50,
+            temperature: 96,
+            duration: 25,
+            description: "Описание простого рецепта. Возможная дополнительная информация",
+            steps: [
+                RecipeStepEntity(id: 0, startTime: 0, massWatter: 10),
+                RecipeStepEntity(id: 1, startTime: 5, massWatter: 10),
+                RecipeStepEntity(id: 2, startTime: 10, massWatter: 10),
+                RecipeStepEntity(id: 3, startTime: 15, massWatter: 10),
+                RecipeStepEntity(id: 4, startTime: 20, massWatter: 10)
+                ]
+            ))
     }
 }

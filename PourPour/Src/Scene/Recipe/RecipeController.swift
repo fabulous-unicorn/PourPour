@@ -70,7 +70,7 @@ extension RecipeController: RecipeView {
         self.coffeePropertyView.valueLabel = NSNumber(value: recipe.massCoffee).stringValue
         self.watterPropertyView.valueLabel = "\(recipe.massWatter)"
         self.temperaturePropertyView.valueLabel = "\(recipe.temperature)"
-        self.timePropertyView.valueLabel = TimeFormaterr.formMinutesTimerString(from: recipe.time)
+        self.timePropertyView.valueLabel = TimeFormaterr.formMinutesTimerString(from: recipe.duration)
         self.tableView.reloadData()
     }
     

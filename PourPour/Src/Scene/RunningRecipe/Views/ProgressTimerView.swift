@@ -48,9 +48,7 @@ struct ProgressTimerShape: Shape {
 struct ProgressTimerView: View {
     var currentSecond: Int // = 2
     var lastSecond: Int // = 10
-    
-//    private var percents: Double = 0.2
-    
+
     var body: some View {
         ZStack {
             ProgressTimerShape(percents: Double(currentSecond) * 100 / Double(lastSecond))
@@ -73,10 +71,6 @@ struct ProgressTimerView: View {
         .frame(width: 200.0, height: 200.0)
     }
     
-//    mutating func updateState(currentSecond: Int, lastSecond: Int) {
-//        self.currentSecond = currentSecond
-//        self.lastSecond = lastSecond
-//    }
 }
 
 struct ProgressTimerView_Previews: PreviewProvider {

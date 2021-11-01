@@ -9,12 +9,11 @@ import UIKit
 import SwiftUI
 
 class RunningRecipeController: UIViewController {
-    
-    let contentView = UIHostingController(rootView: RunningRecipeScene())
+
+    var contentView: UIHostingController<RunningRecipeScene>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.addChild(self.contentView)
         self.view.addSubview(contentView.view)
         self.setConstraints()

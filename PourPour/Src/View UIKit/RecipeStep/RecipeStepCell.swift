@@ -23,7 +23,7 @@ class RecipeStepCell: UITableViewCell {
         self.setDesignCell(inActive: inActive)
         
         self.entity = entity
-        self.timeLabel.text = TimeFormaterr.formMinutesTimerString(from: self.entity.time)
+        self.timeLabel.text = TimeFormaterr.formMinutesTimerString(from: self.entity.startTime)
         self.massWatterLabel.text = "\(self.entity.massWatter)"
     }
     

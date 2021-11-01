@@ -66,7 +66,7 @@ class RecipePresenterImp: RecipePresenter {
         }
         
         if index == recipe.steps.count {
-            stepCell.setupCompletedCell(time: recipe.time)
+            stepCell.setupCompletedCell(time: recipe.duration)
         } else {
             stepCell.setup(recipe.steps[index])
         }

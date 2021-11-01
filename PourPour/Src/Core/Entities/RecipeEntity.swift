@@ -21,12 +21,12 @@ class RecipeEntity {
 class RecipeStepEntity {
     
     var id: Int
-    var time: Int //seconds
+    var startTime: Int //seconds
     var massWatter: Int
     
-    init(id: Int, time: Int, massWatter: Int) {
+    init(id: Int, startTime: Int, massWatter: Int) {
         self.id = id
-        self.time = time
+        self.startTime = startTime
         self.massWatter = massWatter
     }
 }
@@ -38,18 +38,18 @@ class RecipeFullEntity {
     var massCoffee: Double
     var massWatter: Int
     var temperature: Int
-    var time: Int //seconds
+    var duration: Int //seconds
     var description: String
     var steps: [RecipeStepEntity]
 
-    init(id: Int, name: String, massCoffee: Double, massWatter: Int, temperature: Int, time: Int, description: String, steps: [RecipeStepEntity]) {
+    init(id: Int, name: String, massCoffee: Double, massWatter: Int, temperature: Int, duration: Int, description: String, steps: [RecipeStepEntity]) {
         
         self.id = id
         self.name = name
         self.massCoffee = massCoffee
         self.massWatter = massWatter
         self.temperature = temperature
-        self.time = time
+        self.duration = duration
         self.description = description
         self.steps = steps
     }
