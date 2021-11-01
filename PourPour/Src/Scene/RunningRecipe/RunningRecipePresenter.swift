@@ -12,16 +12,16 @@ class RunningRecipePresenter {
     //+
     static func getIndexActiveStep(recipe: RecipeFullEntity, currentSecond: Int) -> Int? {
         let indexActiveStep = recipe.steps.enumerated().first { index, step in
-            step.startTime <= currentSecond && currentSecond <= step.startTime + recipe.getDurationStep(for: index)
+            step.startTime <= currentSecond && currentSecond < step.startTime + recipe.getDurationStep(for: index)
         }?.offset
-        
+
         return indexActiveStep
     }
     
     //+
     static func getActiveStep(recipe: RecipeFullEntity, currentSecond: Int) -> RecipeStepEntity? {
         let activeStep = recipe.steps.enumerated().first { index, step in
-            step.startTime <= currentSecond && currentSecond <= step.startTime + recipe.getDurationStep(for: index)
+            step.startTime <= currentSecond && currentSecond < step.startTime + recipe.getDurationStep(for: index)
         }?.element
         
         return activeStep
