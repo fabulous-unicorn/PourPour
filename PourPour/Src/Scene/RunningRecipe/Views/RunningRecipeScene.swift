@@ -17,7 +17,14 @@ struct RunningRecipeScene: View {
     var body: some View {
         VStack(spacing: 8.0) {
 
-            RunningRecipeSubhead(numberCurrentStep: 0, massWatter: 50)
+            if let activeStep = RunningRecipePresenter.getActiveStep(recipe: self.recipe, currentSecond: Int(self.currentSecond)) {
+                RunningRecipeSubhead(numberCurrentStep: RunningRecipePresenter.getIndexActiveStep(recipe: recipe,
+                                                              currentSecond: Int(self.currentSecond))! + 1,
+                    massWatter: activeStep.massWatter)
+            } else {
+                RunningRecipeSubhead(isComplited: true)
+            }
+            
             
             ProgressTimerView(
                 currentSecond: RunningRecipePresenter.getCurrentTimeForActiveStep(recipe: self.recipe, currentSecond: self.currentSecond),
