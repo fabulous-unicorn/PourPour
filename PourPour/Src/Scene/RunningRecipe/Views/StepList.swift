@@ -8,30 +8,34 @@
 import SwiftUI
 
 struct StepList: View {
+    
     var steps: [RecipeStepEntity]
     var indexActiveStep: Int
     let timeComplited: Int
     
+    internal init(steps: [RecipeStepEntity], indexActiveStep: Int, timeComplited: Int) {
+        self.steps = steps
+        self.indexActiveStep = indexActiveStep
+        self.timeComplited = timeComplited
+    }
+    
     var body: some View {
-        List {
-            ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
-            StepRow(startTime: step.startTime, massWatter: step.massWatter)
-                .if(index < self.indexActiveStep) {
-                    $0.opacity(0.4)
+        ScrollView {
+            VStack {
+                ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
+                StepRow(startTime: step.startTime, massWatter: step.massWatter)
+                    .if(index < self.indexActiveStep) {
+                        $0.opacity(0.4)
+                    }
+                }
+                if (self.steps.count != 0) {
+                    ComplitedStepRow(startTime: self.timeComplited)
                 }
             }
-            if (self.steps.count != 0) {
-                ComplitedStepRow(startTime: self.timeComplited)
-            }
         }
-        .colorMultiply(Color("surface-secondary-bg"))
-        .onAppear {
-            UITableView.appearance().separatorStyle = .none
-        }
-        .onDisappear {
-            UITableView.appearance().separatorStyle = .singleLine
-        }
+        .background(Color("surface-secondary-bg"))
     }
+    
 }
 
 struct StepList_Previews: PreviewProvider {
@@ -45,5 +49,6 @@ struct StepList_Previews: PreviewProvider {
         ],
         indexActiveStep: 2,
         timeComplited: 20)
+        .previewLayout(.sizeThatFits)
     }
 }
