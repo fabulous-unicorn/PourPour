@@ -63,11 +63,20 @@ struct ProgressTimerView: View {
                 .foregroundColor(Color("control-icon-bg"))
                 .padding(.all, 0.0)
 
-            Text(TimeFormater.formMinutesTimerString(from: duration - Int(currentSecond)))
-                .font(.system(size: 36,
-                              weight: .bold)
-                        .monospacedDigit())
-                .foregroundColor(Color("text-primary"))
+            if Int(self.currentSecond) == self.duration {
+                Image("smile")
+                    .renderingMode(.template)
+                    .resizable(resizingMode: .stretch)
+                    .aspectRatio(contentMode: .fill)
+                    .foregroundColor(Color("control-icon-bg"))
+                    .padding(.all, 60)
+            } else {
+                Text(TimeFormater.formMinutesTimerString(from: duration - Int(currentSecond)))
+                    .font(.system(size: 36,
+                                  weight: .bold)
+                            .monospacedDigit())
+                    .foregroundColor(Color("text-primary"))
+            }
         }
         .frame(width: 200.0, height: 200.0)
     }
@@ -77,6 +86,8 @@ struct ProgressTimerView: View {
 struct ProgressTimerView_Previews: PreviewProvider {
     static var previews: some View {
         ProgressTimerView(currentSecond: 2, duration: 10)
+            .previewLayout(.sizeThatFits)
+        ProgressTimerView(currentSecond: 10, duration: 10)
             .previewLayout(.sizeThatFits)
     }
 }
