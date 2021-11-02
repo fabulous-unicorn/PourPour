@@ -25,7 +25,7 @@ struct StepRow: View {
                 .overlay(
                     RoundedRectangle(cornerRadius: 6.0)
                         .stroke(Color("control-accent"), lineWidth: 1.5))
-                .padding(.leading, 12.0)
+                .padding(.leading, 16.0)
                 .padding(.vertical, 8.0)
 
             HStack(alignment: .bottom, spacing: 2.0) {
@@ -51,6 +51,7 @@ struct StepRow: View {
 
             Spacer()
         }
+        .background(Color(.clear))
     }
 }
 
