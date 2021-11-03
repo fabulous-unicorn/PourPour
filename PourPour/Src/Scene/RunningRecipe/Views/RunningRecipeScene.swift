@@ -17,7 +17,7 @@ struct RunningRecipeScene: View {
     
     var body: some View {
         VStack(spacing: 8.0) {
-
+            //MARK: - RunningRecipeSubhead
             if let activeStep = RunningRecipePresenter.getActiveStep(recipe: self.recipe, currentSecond: Int(self.currentSecond)) {
                 RunningRecipeSubhead(numberCurrentStep: RunningRecipePresenter.getIndexActiveStep(recipe: recipe,
                                                               currentSecond: Int(self.currentSecond))! + 1,
@@ -25,15 +25,14 @@ struct RunningRecipeScene: View {
             } else {
                 RunningRecipeSubhead()
             }
-            
-            
+            //MARK: - ProgressTimerView
             ProgressTimerView(
                 currentSecond: RunningRecipePresenter.getCurrentTimeForActiveStep(recipe: self.recipe, currentSecond: self.currentSecond),
                 duration: RunningRecipePresenter.getDurationActiveStep(recipe: self.recipe, currentSecond: Int(self.currentSecond)))
-
+            //MARK: - CommonTime
             CommonTime(currentTime: Int(self.currentSecond))
                 .padding(.bottom, 8)
-
+            //MARK: - StepList
             StepList(steps: self.recipe.steps,
                      indexActiveStep: RunningRecipePresenter.getIndexActiveStep(recipe: self.recipe, currentSecond: Int(self.currentSecond)) ?? self.recipe.steps.count,
                      timeComplited: self.recipe.duration)
@@ -42,21 +41,15 @@ struct RunningRecipeScene: View {
         .edgesIgnoringSafeArea([.bottom])
         .background(Color("surface-primary-bg"))
         .onReceive(timer) { _ in
+            //MARK: - onReceive(timer)
+            let willStepChange = RunningRecipePresenter.willStepChange(recipe: self.recipe,
+                                                                       currentSecond: self.currentSecond,
+                                                                       delta: TIME_TIMER_UPDATE)
+            let animation: Animation? = !willStepChange ? .linear(duration: TIME_TIMER_UPDATE) : nil
             
-            let activeStep = RunningRecipePresenter.getActiveStep(recipe: self.recipe, currentSecond: Int(self.currentSecond))
-            
-            let activeStep2 = RunningRecipePresenter.getActiveStep(recipe: self.recipe, currentSecond: Int(self.currentSecond + TIME_TIMER_UPDATE))
-
-            
-            if activeStep?.id != activeStep2?.id {
-                if Int(self.currentSecond) < recipe.duration {
+            if Int(self.currentSecond) < recipe.duration {
+                withAnimation(animation) {
                     self.currentSecond += TIME_TIMER_UPDATE
-                }
-            } else {
-                withAnimation(.linear(duration: 1)) {
-                    if Int(self.currentSecond) < recipe.duration {
-                        self.currentSecond += TIME_TIMER_UPDATE
-                    }
                 }
             }
         }
