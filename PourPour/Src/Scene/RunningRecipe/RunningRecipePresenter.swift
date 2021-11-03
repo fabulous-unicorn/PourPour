@@ -43,4 +43,11 @@ class RunningRecipePresenter {
         
         return currentSecond - Double(activeStep.startTime)
     }
+    
+    static func willStepChange(recipe: RecipeFullEntity, currentSecond: Double, delta: Double) -> Bool {
+        let activeStep = getActiveStep(recipe: recipe, currentSecond: Int(currentSecond))
+        let activeStep2 = getActiveStep(recipe: recipe, currentSecond: Int(currentSecond + delta))
+        
+        return activeStep?.id != activeStep2?.id
+    }
 }
