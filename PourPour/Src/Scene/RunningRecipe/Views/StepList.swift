@@ -11,25 +11,26 @@ struct StepList: View {
     
     let steps: [RecipeStepEntity]
     let indexActiveStep: Int
-    let timeComplited: Int
+    let timeCompleted: Int
     
-    internal init(steps: [RecipeStepEntity], indexActiveStep: Int, timeComplited: Int) {
+    internal init(steps: [RecipeStepEntity], indexActiveStep: Int, timeCompleted: Int) {
         self.steps = steps
         self.indexActiveStep = indexActiveStep
-        self.timeComplited = timeComplited
+        self.timeCompleted = timeCompleted
     }
     
     var body: some View {
         ScrollView(.vertical) {
             if (self.steps.count != 0) {
                 VStack {
+                    //TODO: Можно добавить автоскрол к активному шагу
                     ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
                     StepRow(startTime: step.startTime, massWatter: step.massWatter)
                         .if(index < self.indexActiveStep) {
                             $0.opacity(0.4)
                         }
                     }
-                    ComplitedStepRow(startTime: self.timeComplited)
+                    ComplitedStepRow(startTime: self.timeCompleted)
                 }
             } else {
                 VStack {
@@ -68,12 +69,12 @@ struct StepList_Previews: PreviewProvider {
                     RecipeStepEntity(id: 4, startTime: 20, massWatter: 10)
                 ],
                 indexActiveStep: 2,
-                timeComplited: 20)
+                timeCompleted: 20)
             .previewLayout(.sizeThatFits)
 
         StepList(steps: [],
                  indexActiveStep: 0,
-                 timeComplited: 0)
+                 timeCompleted: 0)
             .previewLayout(.sizeThatFits)
     }
 }

@@ -32,32 +32,32 @@ class RunningRecipePresenterTests: XCTestCase {
         // Given
         let currentSecond = 5
         // When
-        let indexActiveStep = RunningRecipePresenter.getIndexActiveStep(recipe: recipe, currentSecond: currentSecond)
+        let indexActiveStep = RunningRecipePresenter.getIndexActiveStep(recipe: recipe, currentTimerValue: currentSecond)
         // Then
         XCTAssertEqual(indexActiveStep, 1, "Индекс активного шага определяется неверно")
     }
     
     func testGetActiveStep() throws {
         let currentSecond = 6
-        let activeStep = RunningRecipePresenter.getActiveStep(recipe: recipe, currentSecond: currentSecond)
+        let activeStep = RunningRecipePresenter.getActiveStep(recipe: recipe, currentTimerValue: currentSecond)
         XCTAssertEqual(activeStep?.id, self.recipe.steps[1].id, "Активный шаг определяется неверно")
     }
 
     func testGetDurationActiveStep() throws {
         let currentSecond = 6
-        let duration = RunningRecipePresenter.getDurationActiveStep(recipe: recipe, currentSecond: currentSecond)
+        let duration = RunningRecipePresenter.getDurationActiveStep(recipe: recipe, currentTimerValue: currentSecond)
         XCTAssertEqual(duration, 7, "Продолжительность активного шага определяется неверно")
     }
     
     func testGetDurationActiveStepForLastStep() throws {
         let currentSecond = 22
-        let duration = RunningRecipePresenter.getDurationActiveStep(recipe: recipe, currentSecond: currentSecond)
+        let duration = RunningRecipePresenter.getDurationActiveStep(recipe: recipe, currentTimerValue: currentSecond)
         XCTAssertEqual(duration, 4, "Продолжительность активного шага(при условии, что он является последним) определяется неверно")
     }
 
     func testGetCurrentTimeForActiveStep() throws {
         let currentSecond = 6.13
-        let currentTime = RunningRecipePresenter.getCurrentTimeForActiveStep(recipe: recipe, currentSecond: currentSecond)
+        let currentTime = RunningRecipePresenter.getCurrentTimeForActiveStep(recipe: recipe, currentTimerValue: currentSecond)
         XCTAssertEqual(currentTime, 1.13, "Время для активного шага определяется неверно")
     }
 }
