@@ -12,10 +12,16 @@ struct RunningRecipeSubhead: View {
     let massWatter: Int
     let isComplited: Bool
     
-    init(numberCurrentStep: Int = 0, massWatter: Int = 0, isComplited: Bool = false) {
+    init(numberCurrentStep: Int, massWatter: Int) {
         self.numberCurrentStep = numberCurrentStep
         self.massWatter = massWatter
-        self.isComplited = isComplited
+        self.isComplited = false
+    }
+    
+    init() {
+        self.numberCurrentStep = 0
+        self.massWatter = 0
+        self.isComplited = true
     }
     
     var body: some View {
@@ -45,7 +51,7 @@ struct RunningRecipeSubhead_Previews: PreviewProvider {
     static var previews: some View {
         RunningRecipeSubhead(numberCurrentStep: 2, massWatter: 50)
             .previewLayout(.sizeThatFits)
-        RunningRecipeSubhead(isComplited: true)
+        RunningRecipeSubhead()
             .previewLayout(.sizeThatFits)
     }
 }

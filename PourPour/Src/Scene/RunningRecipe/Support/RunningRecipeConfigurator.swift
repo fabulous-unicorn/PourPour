@@ -15,6 +15,7 @@ class RunningRecipeConfigurator {
 
         let swifyUIview = UIHostingController(rootView: RunningRecipeScene(recipe: recipe))
         view.contentView = swifyUIview
+        view.setTitle(recipe.name)
     }
 
     static func open(navigationController: UINavigationController, recipe: RecipeFullEntity) {

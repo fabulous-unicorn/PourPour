@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CommonTime: View {
-    var currentTime: Int
+    let currentTime: Int
     
     var body: some View {
         Group {

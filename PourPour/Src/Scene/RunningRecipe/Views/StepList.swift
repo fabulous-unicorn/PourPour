@@ -9,8 +9,8 @@ import SwiftUI
 
 struct StepList: View {
     
-    var steps: [RecipeStepEntity]
-    var indexActiveStep: Int
+    let steps: [RecipeStepEntity]
+    let indexActiveStep: Int
     let timeComplited: Int
     
     internal init(steps: [RecipeStepEntity], indexActiveStep: Int, timeComplited: Int) {
@@ -20,19 +20,39 @@ struct StepList: View {
     }
     
     var body: some View {
-        ScrollView {
-            VStack {
-                ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
-                StepRow(startTime: step.startTime, massWatter: step.massWatter)
-                    .if(index < self.indexActiveStep) {
-                        $0.opacity(0.4)
+        ScrollView(.vertical) {
+            if (self.steps.count != 0) {
+                VStack {
+                    ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
+                    StepRow(startTime: step.startTime, massWatter: step.massWatter)
+                        .if(index < self.indexActiveStep) {
+                            $0.opacity(0.4)
+                        }
                     }
-                }
-                if (self.steps.count != 0) {
                     ComplitedStepRow(startTime: self.timeComplited)
                 }
+            } else {
+                VStack {
+                    //TODO: Настроить центрирование надписи
+                    Spacer(minLength: 40)
+                    Text("В данном рецепте шаги отсутствуют :(")
+                        .font(.system(size: 20)
+                                .monospacedDigit())
+                        .tracking(0.38)
+                        .foregroundColor(Color("text-secondary"))
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 40.0)
+//                        .background(Color.red)
+                    Spacer(minLength: 40)
+                }
+                .frame(maxWidth: .infinity,
+                       maxHeight: .infinity,
+                       alignment: .center)
+                .padding(.all, 0.0)
+//                .background(Color.green)
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("surface-secondary-bg"))
     }
     
@@ -41,14 +61,19 @@ struct StepList: View {
 struct StepList_Previews: PreviewProvider {
     static var previews: some View {
         StepList(steps: [
-            RecipeStepEntity(id: 0, startTime: 0, massWatter: 10),
-            RecipeStepEntity(id: 1, startTime: 5, massWatter: 10),
-            RecipeStepEntity(id: 2, startTime: 10, massWatter: 10),
-            RecipeStepEntity(id: 3, startTime: 15, massWatter: 10),
-            RecipeStepEntity(id: 4, startTime: 20, massWatter: 10)
-        ],
-        indexActiveStep: 2,
-        timeComplited: 20)
-        .previewLayout(.sizeThatFits)
+                    RecipeStepEntity(id: 0, startTime: 0, massWatter: 10),
+                    RecipeStepEntity(id: 1, startTime: 5, massWatter: 10),
+                    RecipeStepEntity(id: 2, startTime: 10, massWatter: 10),
+                    RecipeStepEntity(id: 3, startTime: 15, massWatter: 10),
+                    RecipeStepEntity(id: 4, startTime: 20, massWatter: 10)
+                ],
+                indexActiveStep: 2,
+                timeComplited: 20)
+            .previewLayout(.sizeThatFits)
+
+        StepList(steps: [],
+                 indexActiveStep: 0,
+                 timeComplited: 0)
+            .previewLayout(.sizeThatFits)
     }
 }

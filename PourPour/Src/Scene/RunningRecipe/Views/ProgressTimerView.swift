@@ -46,9 +46,8 @@ struct ProgressTimerShape: Shape {
 }
 
 struct ProgressTimerView: View {
-    
-    var currentSecond: Double // = 2
-    var duration: Int // = 10
+    let currentSecond: Double // = 2
+    let duration: Int // = 10
 
     var body: some View {
         ZStack {
