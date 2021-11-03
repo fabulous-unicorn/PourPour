@@ -10,7 +10,7 @@ import Foundation
 protocol RecipeRouter {
     
     func openRunningRecipe(with recipe: RecipeFullEntity)
-    func openEditingRecipe()
+    func openEditingRecipe(with recipe: RecipeFullEntity)
 }
 
 class RecipeRouterImp: RecipeRouter {
@@ -25,8 +25,7 @@ class RecipeRouterImp: RecipeRouter {
         RunningRecipeConfigurator.open(navigationController: self.view.navigationController!, recipe: recipe)
     }
     
-    func openEditingRecipe() {
-        //TODO: добавить редактирование рецепта
-        print("openEditingRecipe")
+    func openEditingRecipe(with recipe: RecipeFullEntity) {
+        EditingRecipeConfigurator.open(navigationController: self.view.navigationController!, recipe: recipe)
     }
 }
