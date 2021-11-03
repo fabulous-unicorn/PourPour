@@ -38,9 +38,7 @@ struct ComplitedStepRow: View {
                             .monospacedDigit())
                     .foregroundColor(Color("text-primary"))
                     .tracking(0.38)
-
             }
-
             Spacer()
         }
     }

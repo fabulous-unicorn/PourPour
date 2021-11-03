@@ -10,8 +10,9 @@ import SwiftUI
 let TIME_TIMER_UPDATE = 0.01
 
 struct RunningRecipeScene: View {
-    var recipe: RecipeFullEntity
     @State var currentSecond: Double = 0
+    
+    let recipe: RecipeFullEntity
     let timer = Timer.publish(every: TIME_TIMER_UPDATE, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -22,7 +23,7 @@ struct RunningRecipeScene: View {
                                                               currentSecond: Int(self.currentSecond))! + 1,
                     massWatter: activeStep.massWatter)
             } else {
-                RunningRecipeSubhead(isComplited: true)
+                RunningRecipeSubhead()
             }
             
             
@@ -37,6 +38,8 @@ struct RunningRecipeScene: View {
                      indexActiveStep: RunningRecipePresenter.getIndexActiveStep(recipe: self.recipe, currentSecond: Int(self.currentSecond)) ?? self.recipe.steps.count,
                      timeComplited: self.recipe.duration)
         }
+        .padding(0.0)
+        .edgesIgnoringSafeArea([.bottom])
         .background(Color("surface-primary-bg"))
         .onReceive(timer) { _ in
             

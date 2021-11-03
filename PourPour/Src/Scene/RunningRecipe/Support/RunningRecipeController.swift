@@ -26,4 +26,9 @@ class RunningRecipeController: UIViewController {
         self.contentView.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         self.contentView.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
     }
+    
+    func setTitle(_ title: String) {
+        self.navigationItem.title = title
+        self.navigationItem.largeTitleDisplayMode = .never
+    }
 }
