@@ -8,9 +8,10 @@
 import SwiftUI
 
 let TIME_TIMER_UPDATE = 0.01
+fileprivate typealias Presenter = RunningRecipePresenter 
 
 struct RunningRecipeScene: View {
-    @State var currentSecond: Double = 0
+    @State var currentTimerValue: Double = 0
     
     let recipe: RecipeFullEntity
     let timer = Timer.publish(every: TIME_TIMER_UPDATE, on: .main, in: .common).autoconnect()
@@ -18,43 +19,44 @@ struct RunningRecipeScene: View {
     var body: some View {
         VStack(spacing: 8.0) {
             //MARK: - RunningRecipeSubhead
-            if let activeStep = RunningRecipePresenter.getActiveStep(recipe: self.recipe, currentSecond: Int(self.currentSecond)) {
-                RunningRecipeSubhead(numberCurrentStep: RunningRecipePresenter.getIndexActiveStep(recipe: recipe,
-                                                              currentSecond: Int(self.currentSecond))! + 1,
+            if let activeStep = Presenter.getActiveStep(self.recipe, currentTimerValue: self.currentTimerValue) {
+                let numberActiveStep = Presenter.getIndexActiveStep(self.recipe,
+                                                                     currentTimerValue: self.currentTimerValue)! + 1
+                RunningRecipeSubhead(numberActiveStep: numberActiveStep,
                     massWatter: activeStep.massWatter)
             } else {
                 RunningRecipeSubhead()
             }
             //MARK: - ProgressTimerView
             ProgressTimerView(
-                currentSecond: RunningRecipePresenter.getCurrentTimeForActiveStep(recipe: self.recipe, currentSecond: self.currentSecond),
-                duration: RunningRecipePresenter.getDurationActiveStep(recipe: self.recipe, currentSecond: Int(self.currentSecond)))
+                currentSecond: Presenter.getCurrentTimeForActiveStep(self.recipe, currentTimerValue: self.currentTimerValue),
+                duration: Presenter.getDurationActiveStep(self.recipe, currentTimerValue: self.currentTimerValue))
             //MARK: - CommonTime
-            CommonTime(currentTime: Int(self.currentSecond))
+            CommonTime(currentTime: Int(self.currentTimerValue))
                 .padding(.bottom, 8)
             //MARK: - StepList
             StepList(steps: self.recipe.steps,
-                     indexActiveStep: RunningRecipePresenter.getIndexActiveStep(recipe: self.recipe, currentSecond: Int(self.currentSecond)) ?? self.recipe.steps.count,
-                     timeComplited: self.recipe.duration)
+                     indexActiveStep: Presenter.getIndexActiveStep(self.recipe, currentTimerValue: self.currentTimerValue) ?? self.recipe.steps.count,
+                     timeCompleted: self.recipe.duration)
         }
         .padding(0.0)
         .edgesIgnoringSafeArea([.bottom])
         .background(Color("surface-primary-bg"))
         .onReceive(timer) { _ in
             //MARK: - onReceive(timer)
-            let willStepChange = RunningRecipePresenter.willStepChange(recipe: self.recipe,
-                                                                       currentSecond: self.currentSecond,
-                                                                       delta: TIME_TIMER_UPDATE)
+            let willStepChange = Presenter.willStepChange(self.recipe,
+                                                          currentTimerValue: self.currentTimerValue,
+                                                          deltaTime: TIME_TIMER_UPDATE)
             let animation: Animation? = !willStepChange ? .linear(duration: TIME_TIMER_UPDATE) : nil
             
-            if Int(self.currentSecond) < recipe.duration {
+            if Int(self.currentTimerValue) < self.recipe.duration {
                 withAnimation(animation) {
-                    self.currentSecond += TIME_TIMER_UPDATE
+                    self.currentTimerValue += TIME_TIMER_UPDATE
                 }
             }
         }
         .onAppear {
-            self.currentSecond = 0
+            self.currentTimerValue = 0
         }
     }
 }

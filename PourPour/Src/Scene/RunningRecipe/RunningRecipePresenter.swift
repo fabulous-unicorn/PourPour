@@ -10,24 +10,26 @@ import Combine
 
 class RunningRecipePresenter {
 
-    static func getIndexActiveStep(recipe: RecipeFullEntity, currentSecond: Int) -> Int? {
+    static func getIndexActiveStep(_ recipe: RecipeFullEntity, currentTimerValue: Double) -> Int? {
+        let currentTimerValue = Int(currentTimerValue)
         let indexActiveStep = recipe.steps.enumerated().first { index, step in
-            step.startTime <= currentSecond && currentSecond < step.startTime + recipe.getDurationStep(for: index)
+            step.startTime <= currentTimerValue && currentTimerValue < step.startTime + recipe.getDurationStep(for: index)
         }?.offset
 
         return indexActiveStep
     }
     
-    static func getActiveStep(recipe: RecipeFullEntity, currentSecond: Int) -> RecipeStepEntity? {
+    static func getActiveStep(_ recipe: RecipeFullEntity, currentTimerValue: Double) -> RecipeStepEntity? {
+        let currentTimerValue = Int(currentTimerValue)
         let activeStep = recipe.steps.enumerated().first { index, step in
-            step.startTime <= currentSecond && currentSecond < step.startTime + recipe.getDurationStep(for: index)
+            step.startTime <= currentTimerValue && currentTimerValue < step.startTime + recipe.getDurationStep(for: index)
         }?.element
         
         return activeStep
     }
     
-    static func getDurationActiveStep(recipe: RecipeFullEntity, currentSecond: Int) -> Int {
-        let activeStepIndex = getIndexActiveStep(recipe: recipe, currentSecond: currentSecond)
+    static func getDurationActiveStep(_ recipe: RecipeFullEntity, currentTimerValue: Double) -> Int {
+        let activeStepIndex = getIndexActiveStep(recipe, currentTimerValue: currentTimerValue)
         
         guard let activeStepIndex = activeStepIndex else {
             return recipe.duration
@@ -36,18 +38,18 @@ class RunningRecipePresenter {
         return recipe.getDurationStep(for: activeStepIndex)
     }
     
-    static func getCurrentTimeForActiveStep(recipe: RecipeFullEntity, currentSecond: Double) -> Double {
-        guard let activeStep = getActiveStep(recipe: recipe, currentSecond: Int(currentSecond)) else {
+    static func getCurrentTimeForActiveStep(_ recipe: RecipeFullEntity, currentTimerValue: Double) -> Double {
+        guard let activeStep = getActiveStep(recipe, currentTimerValue: currentTimerValue) else {
             return Double(recipe.duration)
         }
         
-        return currentSecond - Double(activeStep.startTime)
+        return currentTimerValue - Double(activeStep.startTime)
     }
     
-    static func willStepChange(recipe: RecipeFullEntity, currentSecond: Double, delta: Double) -> Bool {
-        let activeStep = getActiveStep(recipe: recipe, currentSecond: Int(currentSecond))
-        let activeStep2 = getActiveStep(recipe: recipe, currentSecond: Int(currentSecond + delta))
+    static func willStepChange(_ recipe: RecipeFullEntity, currentTimerValue: Double, deltaTime: Double) -> Bool {
+        let activeStep = getActiveStep(recipe, currentTimerValue: currentTimerValue)
+        let nextActiveStep = getActiveStep(recipe, currentTimerValue: currentTimerValue + deltaTime)
         
-        return activeStep?.id != activeStep2?.id
+        return activeStep?.id != nextActiveStep?.id
     }
 }
