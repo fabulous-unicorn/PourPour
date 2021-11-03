@@ -36,7 +36,6 @@
 		15E3D84B2715721F00ADFAD9 /* RecipeGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3D84A2715721F00ADFAD9 /* RecipeGateway.swift */; };
 		15E3D84E2715733900ADFAD9 /* ApiRecipeGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3D84D2715733900ADFAD9 /* ApiRecipeGateway.swift */; };
 		15E3D85327157F0A00ADFAD9 /* RunningRecipePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3D85227157F0A00ADFAD9 /* RunningRecipePresenter.swift */; };
-		15E3D85527157F1A00ADFAD9 /* Not use - RunningRecipeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3D85427157F1A00ADFAD9 /* Not use - RunningRecipeRouter.swift */; };
 		15E3D85727157F2C00ADFAD9 /* RunningRecipeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3D85627157F2C00ADFAD9 /* RunningRecipeConfigurator.swift */; };
 		15E3D85927157F3B00ADFAD9 /* RunningRecipe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15E3D85827157F3B00ADFAD9 /* RunningRecipe.storyboard */; };
 		15E3D85C2715957C00ADFAD9 /* RecipeStep.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E3D85B2715957C00ADFAD9 /* RecipeStep.xib */; };
@@ -110,7 +109,6 @@
 		15E3D84A2715721F00ADFAD9 /* RecipeGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeGateway.swift; sourceTree = "<group>"; };
 		15E3D84D2715733900ADFAD9 /* ApiRecipeGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRecipeGateway.swift; sourceTree = "<group>"; };
 		15E3D85227157F0A00ADFAD9 /* RunningRecipePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecipePresenter.swift; sourceTree = "<group>"; };
-		15E3D85427157F1A00ADFAD9 /* Not use - RunningRecipeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Not use - RunningRecipeRouter.swift"; sourceTree = "<group>"; };
 		15E3D85627157F2C00ADFAD9 /* RunningRecipeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecipeConfigurator.swift; sourceTree = "<group>"; };
 		15E3D85827157F3B00ADFAD9 /* RunningRecipe.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RunningRecipe.storyboard; sourceTree = "<group>"; };
 		15E3D85B2715957C00ADFAD9 /* RecipeStep.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeStep.xib; sourceTree = "<group>"; };
@@ -274,7 +272,6 @@
 		1524E38927202F1B00B14AD7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1524E37E271F16F300B14AD7 /* RunningRecipeScene.swift */,
 				1524E385272015FB00B14AD7 /* StepRow.swift */,
 				1524E38A2720568000B14AD7 /* ProgressTimerView.swift */,
 				1524E38F2721A59800B14AD7 /* StepList.swift */,
@@ -365,8 +362,8 @@
 			children = (
 				1524E38E2721A53700B14AD7 /* Support */,
 				1524E38927202F1B00B14AD7 /* Views */,
+				1524E37E271F16F300B14AD7 /* RunningRecipeScene.swift */,
 				15E3D85227157F0A00ADFAD9 /* RunningRecipePresenter.swift */,
-				15E3D85427157F1A00ADFAD9 /* Not use - RunningRecipeRouter.swift */,
 			);
 			path = RunningRecipe;
 			sourceTree = "<group>";
@@ -696,7 +693,6 @@
 				15FD0EF4270B46800059F4F2 /* RecipeController.swift in Sources */,
 				15DAC62926E63D41003C88E2 /* RecipeListController.swift in Sources */,
 				1524E38B2720568000B14AD7 /* ProgressTimerView.swift in Sources */,
-				15E3D85527157F1A00ADFAD9 /* Not use - RunningRecipeRouter.swift in Sources */,
 				1524E37F271F16F300B14AD7 /* RunningRecipeScene.swift in Sources */,
 				15FD0EF8270B46E70059F4F2 /* RecipeRouter.swift in Sources */,
 				15F85F58273016870083042E /* ComplitedStepRow.swift in Sources */,
