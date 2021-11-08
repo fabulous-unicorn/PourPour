@@ -19,8 +19,8 @@ struct EditingRecipeScene: View {
             VStack {
                 PourTextField(labelText: "Название рецепта",
                               placeholder: "Колумбия мытой обработки",
-                              text: self.$state.recipe.name) //$recipe.name
-                
+                              text: self.$state.recipe.name)
+                                
                 Text("Новое название: \(self.state.recipe.name)")
 
             }

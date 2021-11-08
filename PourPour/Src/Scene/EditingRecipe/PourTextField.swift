@@ -19,9 +19,11 @@ struct Headline: View {
 }
 
 struct PourSeparator: View {
+    var color: Color
+    
     var body: some View {
         Rectangle()
-            .fill(Color(.separator))
+            .fill(self.color)
             .frame(maxWidth: .infinity, maxHeight: 1.0)
             .padding(.leading, 16.0)
     }
@@ -31,6 +33,8 @@ struct PourTextField: View {
     let labelText: String
     let placeholder: String
     @Binding var text: String
+    
+    @State private var isFocused: Bool = false
         
     var body: some View {
         VStack(spacing: 9.0) {
@@ -44,8 +48,13 @@ struct PourTextField: View {
                     text: $text)
                     .foregroundColor(Color("text-basic"))
                     .disableAutocorrection(true)
+                    .accentColor(Color("control-accent"))
+                    //TODO: becomeFirstResponder ??
+                    .onTapGesture(perform: {
+                        self.isFocused = !isFocused
+                    })
                     .padding(.trailing, 16.0)
-
+                   
                 if !text.isEmpty {
                     Button(action: {
                             self.text = ""
@@ -56,8 +65,10 @@ struct PourTextField: View {
                         .padding(.trailing, 8)
                 }
             }
+            
+            let color = self.isFocused ? Color("control-accent") : Color(.separator)
+            PourSeparator(color: color)
 
-            PourSeparator()
         }
         .padding(.leading, 16.0)
         
