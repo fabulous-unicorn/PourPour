@@ -11,9 +11,10 @@ class EditingRecipeConfigurator {
 
     func configure(view: EditingRecipeController, recipe: RecipeFullEntity) {
 
-        let swifyUIview = UIHostingController(rootView: EditingRecipeScene(recipe: recipe))
+        let screenState = EditingRecipeState(recipe: recipe)
+        let swifyUIview = UIHostingController(rootView: EditingRecipeScene(state: screenState))
         view.contentView = swifyUIview
-        view.setTitle(recipe.name)
+        view.setTitle("Создание/Редактирование")
     }
 
     static func open(navigationController: UINavigationController, recipe: RecipeFullEntity) {
