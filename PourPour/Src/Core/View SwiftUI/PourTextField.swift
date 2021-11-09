@@ -11,8 +11,6 @@ struct PourTextField: View {
     let labelText: String
     let placeholder: String
     @Binding var text: String
-    
-    @State private var isFocused: Bool = false
         
     var body: some View {
         VStack(spacing: 8.0) {
@@ -28,10 +26,6 @@ struct PourTextField: View {
                     .foregroundColor(Color("text-basic"))
                     .disableAutocorrection(true)
                     .accentColor(Color("control-accent"))
-                    //TODO: becomeFirstResponder ??
-                    .onTapGesture(perform: {
-                        self.isFocused = !isFocused
-                    })
                     .padding(.horizontal, 16.0)
                    
                 if !text.isEmpty {
@@ -44,9 +38,8 @@ struct PourTextField: View {
                     .padding(.trailing, 16.0)
                 }
             }
-            
-            let color = self.isFocused ? Color("control-accent") : Color(.separator)
-            PourSeparator(color: color)
+            .padding(.bottom, 8.0)
+            .background(PourSeparator(color: Color(.separator)), alignment: .bottomTrailing)
         }
     }
 }

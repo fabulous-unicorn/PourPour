@@ -21,7 +21,7 @@ struct EditingRecipeScene: View {
                               placeholder: "Колумбия мытой обработки",
                               text: self.$state.recipe.name)
 
-                PourEditorText(labelText: "Дополнительная информация",placeholder: "...", text: self.$state.recipe.description, onCommit: {
+                PourEditorText(labelText: "Дополнительная информация",placeholder: "Описание", text: self.$state.recipe.description, onCommit: {
                     print("Новое описание: \(self.state.recipe.description)")
                 })
 

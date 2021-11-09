@@ -20,7 +20,6 @@ struct PourEditorText: View {
         }
     }
     
-    @State private var isFocused: Bool = false
     @State private var dynamicHeight: CGFloat = UIFont.systemFontSize
     @State private var showingPlaceholder = false
     
@@ -45,12 +44,13 @@ struct PourEditorText: View {
             HStack(spacing: 6.0) {
                 
                 UITextViewWrapper(text: self.internalText, calculatedHeight: $dynamicHeight, onDone: onCommit)
-                    .foregroundColor(Color("text-basic"))
                     .accentColor(Color("control-accent"))
                     .frame(minHeight: dynamicHeight, maxHeight: dynamicHeight)
                     .background(placeholderView, alignment: .topLeading)
+                    
                     .padding(.horizontal, 16.0)
-
+                
+                
                 if !text.isEmpty {
                     Button(action: {
                             self.text = ""
@@ -61,9 +61,8 @@ struct PourEditorText: View {
                     .padding(.trailing, 16.0)
                 }
             }
-//            let color = self.isFocused ? Color("control-accent") : Color(.separator)
-            let color = Color(.separator)
-            PourSeparator(color: color)
+            .padding(.bottom, 8.0)
+            .background(PourSeparator(color: Color(.separator)), alignment: .bottomTrailing)
         }
     }
     
@@ -71,8 +70,6 @@ struct PourEditorText: View {
         Group {
             if showingPlaceholder {
                 Text(placeholder).foregroundColor(Color(UIColor.tertiaryLabel))
-//                    .padding(.leading, 4)
-//                    .padding(.top, 8)
             }
         }
     }

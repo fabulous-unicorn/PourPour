@@ -288,6 +288,9 @@
 				156A5DC4273A6A560081DE32 /* PourSeparator.swift */,
 				1524E380271F192A00B14AD7 /* PoureButtonStyle.swift */,
 				156A5DC6273A6AD80081DE32 /* Headline.swift */,
+				156A5DCA273A74DD0081DE32 /* UITextViewWrapper.swift */,
+				15EC852627395E1B000A848E /* PourTextField.swift */,
+				15EC85282739751A000A848E /* PourEditorText.swift */,
 			);
 			path = "View SwiftUI";
 			sourceTree = "<group>";
@@ -337,11 +340,8 @@
 			isa = PBXGroup;
 			children = (
 				15634DC72732E4D70006E096 /* Support */,
-				15EC85282739751A000A848E /* PourEditorText.swift */,
 				15634DC82732E5520006E096 /* EditingRecipeScene.swift */,
 				15EC852427395CC1000A848E /* EditingRecipeState.swift */,
-				15EC852627395E1B000A848E /* PourTextField.swift */,
-				156A5DCA273A74DD0081DE32 /* UITextViewWrapper.swift */,
 			);
 			path = EditingRecipe;
 			sourceTree = "<group>";
