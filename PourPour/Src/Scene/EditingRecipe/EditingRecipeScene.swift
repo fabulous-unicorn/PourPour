@@ -16,13 +16,18 @@ struct EditingRecipeScene: View {
     
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(spacing: 16.0) {
                 PourTextField(labelText: "Название рецепта",
                               placeholder: "Колумбия мытой обработки",
                               text: self.$state.recipe.name)
-                                
-                Text("Новое название: \(self.state.recipe.name)")
 
+                PourEditorText(labelText: "Дополнительная информация",placeholder: "...", text: self.$state.recipe.description, onCommit: {
+                    print("Новое описание: \(self.state.recipe.description)")
+                })
+
+//                Text("Новое название: \(self.state.recipe.name)")
+                Text("Новое описание: \(self.state.recipe.description)")
+                
             }
             .padding(.top, 16.0)
             .padding(.bottom, 24.0)
