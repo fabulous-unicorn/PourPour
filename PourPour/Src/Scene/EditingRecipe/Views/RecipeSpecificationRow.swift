@@ -40,7 +40,6 @@ struct RecipeSpecificationRow: View {
                 .frame(width: .infinity)
 
             HStack {
-                Spacer()
                 TextField(
                     "0",
                     text: self.$value)
@@ -49,7 +48,10 @@ struct RecipeSpecificationRow: View {
                     .disableAutocorrection(true)
                     .accentColor(Color("control-accent"))
                     .padding(.horizontal, 16.0)
-                   
+                Text(self.entity.postfix)
+                    .foregroundColor(Color(.tertiaryLabel))
+                Spacer()
+                    .frame(width: .infinity)
                 if !value.isEmpty {
                     Button(action: {
                             self.value = ""
