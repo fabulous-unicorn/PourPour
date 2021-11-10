@@ -58,21 +58,30 @@ enum RecipeSpecificationRowType {
         }
     }
     
-//    func validateValue(_ value: String) -> ValidationStatus {
-//        switch self {
-//        case .coffee:
-//            <#code#>
-//        case .watter:
-//            
-//        case .temperature:
-//            
-//        case .duration:
-//            
-//        }
-//    }
+    func validateValue(_ value: String) -> ValidationStatus {
+        switch self {
+        case .coffee:
+            guard Double(value) != nil else {
+                return .invalid(error: "??Ошибка")
+            }
+            return .valid
+        case .watter:
+            //TODO: Добавить валидацию
+            return .valid
+        case .temperature:
+            //TODO: Добавить валидацию
+            return .valid
+        case .duration:
+            //TODO: Добавить валидацию
+            return .valid
+        }
+    }
 }
 
 enum ValidationStatus {
     case valid
     case invalid(error: String)
 }
+
+//            let filtered = value.filter { "0123456789".contains($0) }
+//            guard filtered == value else { return .invalide(error "Невалидные символы")}

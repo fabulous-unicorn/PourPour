@@ -29,6 +29,8 @@ fileprivate struct InputRow: View {
     
     var body: some View {
         HStack {
+            //TODO: Добавить отдальный инпут для общего времени
+            //TODO: Добавить отображение ошибочного ввода
             TextField(
                 "0",
                 text: self.$value)
@@ -36,6 +38,7 @@ fileprivate struct InputRow: View {
                 .foregroundColor(Color("text-basic"))
                 .disableAutocorrection(true)
                 .accentColor(Color("control-accent"))
+                //TODO: Добавить валидацию
 //                .onReceive(Just(value)) { newValue in
 //                    let filtered = newValue.filter { "0123456789".contains($0) }
 //                    if filtered != newValue {
