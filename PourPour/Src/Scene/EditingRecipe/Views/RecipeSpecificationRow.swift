@@ -26,26 +26,50 @@ fileprivate struct LabelRow: View {
 fileprivate struct InputRow: View {
     let entity: RecipeSpecificationRowType
     @Binding var value: String
+    @State private var hasError: Bool = false
     
     var body: some View {
         HStack {
             //TODO: Добавить отдальный инпут для общего времени
             //TODO: Добавить отображение ошибочного ввода
-            TextField(
-                "0",
-                text: self.$value)
-                .keyboardType(.numberPad)
-                .foregroundColor(Color("text-basic"))
-                .disableAutocorrection(true)
-                .accentColor(Color("control-accent"))
-                //TODO: Добавить валидацию
-//                .onReceive(Just(value)) { newValue in
-//                    let filtered = newValue.filter { "0123456789".contains($0) }
-//                    if filtered != newValue {
-//                        self.value = filtered
-//                    }
-//                }
-                    
+            VStack(spacing: -1.0) {
+                TextField(
+                    "0",
+                    text: self.$value)
+                    .keyboardType(.numberPad)
+                    .foregroundColor(Color("text-basic"))
+                    .disableAutocorrection(true)
+                    .accentColor(Color("control-accent"))
+                    //TODO: Добавить валидацию //.onChange
+                    .onReceive(Just(value)) { newValue in
+                        if newValue == "" {
+                            if self.hasError != false {
+                                self.hasError = false
+                            }
+                        } else {
+                            let status = self.entity.validateValue(newValue)
+                            
+                            switch status {
+                            case .valid :
+                                print("v")
+                                if self.hasError != false {
+                                    self.hasError = false
+                                }
+                            case .invalid(let error) :
+                                print(error)
+                                if self.hasError != true {
+                                    self.hasError = true
+                                }
+                            }
+                        }
+                    }
+                    if self.hasError {
+                        Rectangle()
+                            .fill(Color.red)
+                            .frame(maxWidth: .infinity, maxHeight: 1.0)
+                    }
+            }
+            
             Text(self.entity.postfix)
                 .foregroundColor(Color(.tertiaryLabel))
 
@@ -55,10 +79,15 @@ fileprivate struct InputRow: View {
                     }) {
                         Image(systemName: "multiply.circle.fill")
                             .foregroundColor(Color(UIColor.opaqueSeparator))
+                            .frame(width: 24.0, height: 24.0)
                     }
                 .padding(.trailing, 16.0)
+            } else {
+                Spacer()
+                    .frame(width: 48.0)
             }
         }
+        
     }
 }
 
@@ -71,9 +100,9 @@ struct RecipeSpecificationRow: View {
         HStack(spacing: 0.0) {
             LabelRow(imageName: self.entity.imageName,
                  label: self.entity.label)
-                .frame(width: .infinity)
+//                .frame(width: .infinity)
             InputRow(entity: self.entity, value: self.$value)
-            .frame(width: .infinity)
+//                .frame(width: .infinity)
         }
         .padding(.vertical, 8.0)
         .background(PourSeparator(color: Color(.separator)), alignment: .bottomTrailing)

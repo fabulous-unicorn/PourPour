@@ -58,18 +58,22 @@ enum RecipeSpecificationRowType {
         }
     }
     
-    func validateValue(_ value: String) -> ValidationStatus {
+    func validateValue(_ newValue: String) -> ValidationStatus {
         switch self {
         case .coffee:
-            guard Double(value) != nil else {
+            guard Double(newValue) != nil else {
                 return .invalid(error: "??Ошибка")
             }
             return .valid
         case .water:
-            //TODO: Добавить валидацию
+            guard Int(newValue) != nil else {
+                return .invalid(error: "??Ошибка")
+            }
             return .valid
         case .temperature:
-            //TODO: Добавить валидацию
+            guard Int(newValue) != nil else {
+                return .invalid(error: "??Ошибка")
+            }
             return .valid
         case .duration:
             //TODO: Добавить валидацию
