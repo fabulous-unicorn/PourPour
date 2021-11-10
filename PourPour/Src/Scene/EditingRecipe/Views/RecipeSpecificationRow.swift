@@ -36,18 +36,15 @@ fileprivate struct InputRow: View {
                 .foregroundColor(Color("text-basic"))
                 .disableAutocorrection(true)
                 .accentColor(Color("control-accent"))
-                .onReceive(Just(value)) { newValue in
-                    let filtered = newValue.filter { "0123456789".contains($0) }
-                    if filtered != newValue {
-                        self.value = filtered
-                    }
-                }
+//                .onReceive(Just(value)) { newValue in
+//                    let filtered = newValue.filter { "0123456789".contains($0) }
+//                    if filtered != newValue {
+//                        self.value = filtered
+//                    }
+//                }
                     
             Text(self.entity.postfix)
                 .foregroundColor(Color(.tertiaryLabel))
-
-//            Spacer()
-//                .frame(minWidth: 16.0)
 
             if !value.isEmpty {
                 Button(action: {
@@ -81,50 +78,40 @@ struct RecipeSpecificationRow: View {
 }
 
 #if DEBUG
-struct RecipeSpecificationRow_Previews: PreviewProvider {
-    static var testCoffee: String = "16"
-    static var testCoffeeBinding = Binding<String>(get: { testCoffee },
-                                             set: { testCoffee = $0 } )
+struct RecipeSpecificationRow_Preview_Container: View {
+    @State private var coffee :String = "16"
+    @State private var watter :String = "320"
+    @State private var temperature :String = "74"
+    @State private var duration :String = "03:01"
     
-    static var testWatter: String = "320"
-    static var testWatterBinding = Binding<String>(get: { testWatter },
-                                             set: { testWatter = $0 } )
-    
-    static var testTemperature: String = "74"
-    static var testTemperatureBinding = Binding<String>(get: { testTemperature },
-                                             set: { testTemperature = $0 } )
-    
-    static var testDuration: String = "03:01"
-    static var testDurationBinding = Binding<String>(get: { testDuration },
-                                             set: { testDuration = $0 } )
-    
-    static var previews: some View {
+    var body: some View {
         VStack(alignment: .leading) {
             RecipeSpecificationRow(entity: .coffee,
-                                   value: testCoffeeBinding)
+                                   value: self.$coffee)
             RecipeSpecificationRow(entity: .watter,
-                                   value: testWatterBinding)
+                                   value: self.$watter)
             RecipeSpecificationRow(entity: .temperature,
-                                   value: testTemperatureBinding)
+                                   value: self.$temperature)
             RecipeSpecificationRow(entity: .duration,
-                                   value: testDurationBinding)
+                                   value: self.$duration)
             
             Text("""
                 Значения:
-                    Кофе: \(testCoffee)
-                    Вода: \(testWatter)
-                    Температура: \(testTemperature)
-                    Общее время: \(testDuration)
+                    Кофе: \(coffee)
+                    Вода: \(watter)
+                    Температура: \(temperature)
+                    Общее время: \(duration)
                 """)
                 .padding()
         }
-        .previewLayout(.sizeThatFits)
     }
 }
 
 
-
-
-
-
+struct RecipeSpecificationRow_Previews: PreviewProvider {
+    static var previews: some View {
+        RecipeSpecificationRow_Preview_Container()
+            .previewLayout(.sizeThatFits)
+    }
+}
 #endif

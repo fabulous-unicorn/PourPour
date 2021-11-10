@@ -45,18 +45,25 @@ struct PourTextField: View {
 }
 
 #if DEBUG
+struct PourTextField_Preview_Container: View {
+    @State private var value = ""
+    
+    var body: some View {
+        VStack {
+            PourTextField(labelText: "Название рецепта",
+                          placeholder: "Колумбия мытой обработки",
+                          text: self.$value)
+            Text("Название: \(self.value)")
+                .padding()
+            Spacer()
+        }
+    }
+}
+
 struct PourTextField_Previews: PreviewProvider {
     
     static var previews: some View {
-        PourTextField(labelText: "Название рецепта",
-                      placeholder: "Колумбия мытой обработки",
-                      text: .constant(""))
-            .previewLayout(.sizeThatFits)
-        
-        PourTextField(labelText: "Название рецепта",
-                      placeholder: "Колумбия мытой обработки",
-                      text: .constant("Колумбия мытой обработки"))
-            .previewLayout(.sizeThatFits)
+        PourTextField_Preview_Container()
     }
 }
 #endif

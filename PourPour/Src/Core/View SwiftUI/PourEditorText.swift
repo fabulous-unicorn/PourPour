@@ -76,20 +76,25 @@ struct PourEditorText: View {
 }
 
 #if DEBUG
-struct PourEditorText_Previews: PreviewProvider {
-    static var test: String = ""  //Описание простого рецепта. Возможная дополнительная информация
-    static var testBinding = Binding<String>(get: { test }, set: {
-//        print("New value: \($0)")
-        test = $0 } )
-    
-    static var previews: some View {
+struct PourEditorText_Preview_Container : View {
+     @State private var value = ""
+    //Описание простого рецепта. Возможная дополнительная информация
+
+     var body: some View {
         VStack(alignment: .leading) {
-            PourEditorText(labelText: "Дополнительная информация",placeholder: "...", text: testBinding, onCommit: {
-                print("Final text: \(test)")
+            PourEditorText(labelText: "Дополнительная информация",placeholder: "...", text: $value, onCommit: {
+                print("Final text: \(value)")
             })
-            Text("Описание: \(self.test)")
+            Text("Описание: \(self.value)")
+                .padding()
             Spacer()
         }
+     }
+}
+
+struct PourEditorText_Previews: PreviewProvider {
+    static var previews: some View {
+        PourEditorText_Preview_Container()
     }
 }
 #endif
