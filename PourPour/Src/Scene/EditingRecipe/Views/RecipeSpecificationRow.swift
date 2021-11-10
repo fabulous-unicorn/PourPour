@@ -39,7 +39,7 @@ fileprivate struct InputRow: View {
                 .foregroundColor(Color(.tertiaryLabel))
 
             Spacer()
-                .frame(minWidth: 46.0)
+                .frame(minWidth: 16.0)
 
             if !value.isEmpty {
                 Button(action: {
