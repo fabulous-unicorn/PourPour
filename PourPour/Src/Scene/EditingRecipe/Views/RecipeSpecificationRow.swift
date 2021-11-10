@@ -22,46 +22,49 @@ fileprivate struct LabelRow: View {
     }
 }
 
+fileprivate struct InputRow: View {
+    let entity: RecipeSpecificationRowType
+    @Binding var value: String
+    
+    var body: some View {
+        HStack {
+            TextField(
+                "0",
+                text: self.$value)
+                .keyboardType(.numberPad)
+                .foregroundColor(Color("text-basic"))
+                .disableAutocorrection(true)
+                .accentColor(Color("control-accent"))
+            Text(self.entity.postfix)
+                .foregroundColor(Color(.tertiaryLabel))
+
+            Spacer()
+                .frame(minWidth: 46.0)
+
+            if !value.isEmpty {
+                Button(action: {
+                        self.value = ""
+                    }) {
+                        Image(systemName: "multiply.circle.fill")
+                            .foregroundColor(Color(UIColor.opaqueSeparator))
+                    }
+                .padding(.trailing, 16.0)
+            }
+        }
+    }
+}
+
 struct RecipeSpecificationRow: View {
     
     let entity: RecipeSpecificationRowType
-    
     @Binding var value: String
-    
-    internal init(entity: RecipeSpecificationRowType, value: Binding<String>) {
-        self.entity = entity
-        self._value = value
-    }
         
     var body: some View {
         HStack(spacing: 0.0) {
             LabelRow(imageName: self.entity.imageName,
                  label: self.entity.label)
                 .frame(width: .infinity)
-
-            HStack {
-                TextField(
-                    "0",
-                    text: self.$value)
-                    .keyboardType(.numberPad)
-                    .foregroundColor(Color("text-basic"))
-                    .disableAutocorrection(true)
-                    .accentColor(Color("control-accent"))
-                    .padding(.horizontal, 16.0)
-                Text(self.entity.postfix)
-                    .foregroundColor(Color(.tertiaryLabel))
-                Spacer()
-                    .frame(width: .infinity)
-                if !value.isEmpty {
-                    Button(action: {
-                            self.value = ""
-                        }) {
-                            Image(systemName: "multiply.circle.fill")
-                                .foregroundColor(Color(UIColor.opaqueSeparator))
-                        }
-                    .padding(.trailing, 16.0)
-                }
-            }
+            InputRow(entity: self.entity, value: self.$value)
             .frame(width: .infinity)
         }
         .padding(.vertical, 8.0)
@@ -72,7 +75,7 @@ struct RecipeSpecificationRow: View {
 #if DEBUG
 struct RecipeSpecificationRow_Previews: PreviewProvider {
     
-    static var test:String = ""//some very very very long description string to be initially wider than screen"
+    static var test:String = "31"//some very very very long description string to be initially wider than screen"
     static var testBinding = Binding<String>(get: { test }, set: {
 //        print("New value: \($0)")
         test = $0 } )
@@ -83,7 +86,7 @@ struct RecipeSpecificationRow_Previews: PreviewProvider {
             RecipeSpecificationRow(entity: .coffee, value: testBinding)
             RecipeSpecificationRow(entity: .watter, value: testBinding)
             RecipeSpecificationRow(entity: .temperature, value: testBinding)
-//            RecipeSpecificationRow(type: .duration)
+            RecipeSpecificationRow(entity: .duration, value: testBinding)
         }
         .previewLayout(.sizeThatFits)
     }
