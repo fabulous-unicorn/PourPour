@@ -11,8 +11,8 @@ class EditingRecipeConfigurator {
 
     func configure(view: EditingRecipeController, recipe: RecipeFullEntity) {
 
-        let screenState = EditingRecipeState(recipe: recipe)
-        let swifyUIview = UIHostingController(rootView: EditingRecipeScene(state: screenState))
+        let viewModel = RecipeEntityViewModel(recipe: recipe)
+        let swifyUIview = UIHostingController(rootView: EditingRecipeScene(viewModel))
         view.contentView = swifyUIview
         view.setTitle("Создание/Редактирование")
     }

@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct EditingRecipeScene: View {
-    @ObservedObject private var state: EditingRecipeState
+    @ObservedObject private var viewModel: RecipeEntityViewModel
     
-    init(state: EditingRecipeState) {
-        self.state = state
+    init(_ viewModel: RecipeEntityViewModel) {
+        self.viewModel = viewModel
     }
     
     var body: some View {
@@ -19,14 +19,19 @@ struct EditingRecipeScene: View {
             VStack(spacing: 16.0) {
                 PourTextField(labelText: "Название рецепта",
                               placeholder: "Колумбия мытой обработки",
-                              text: self.$state.recipe.name)
+                              text: self.$viewModel.name)
 
-                PourEditorText(labelText: "Дополнительная информация",placeholder: "Описание", text: self.$state.recipe.description, onCommit: {
-                    print("Новое описание: \(self.state.recipe.description)")
+                PourEditorText(labelText: "Дополнительная информация",placeholder: "Описание", text: self.$viewModel.description, onCommit: {
+                    print("Новое описание: \(self.viewModel.description)")
                 })
+                RecipeSpecificationsList(massCoffee: self.$viewModel.massCoffee,
+                                         massWatter: self.$viewModel.massWatter,
+                                         temperature: self.$viewModel.temperature,
+                                         duration: self.$viewModel.duration)
+                
 
 //                Text("Новое название: \(self.state.recipe.name)")
-                Text("Новое описание: \(self.state.recipe.description)")
+//                Text("Новое описание: \(self.state.recipe.description)")
                 
             }
             .padding(.top, 16.0)
@@ -41,7 +46,7 @@ struct EditingRecipeScene: View {
 struct EditingRecipeScene_Previews: PreviewProvider {
     
     static var previews: some View {
-        EditingRecipeScene(state: EditingRecipeState(recipe: RecipeFullEntity(
+        EditingRecipeScene(RecipeEntityViewModel(recipe: RecipeFullEntity(
             id: 4,
             name: "Эфиопия",
             massCoffee: 25.0,
