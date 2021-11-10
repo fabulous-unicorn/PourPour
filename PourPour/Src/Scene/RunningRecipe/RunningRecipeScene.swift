@@ -23,7 +23,7 @@ struct RunningRecipeScene: View {
                 let numberActiveStep = Presenter.getIndexActiveStep(self.recipe,
                                                                      currentTimerValue: self.currentTimerValue)! + 1
                 RunningRecipeSubhead(numberActiveStep: numberActiveStep,
-                    massWatter: activeStep.massWatter)
+                    massWater: activeStep.massWater)
             } else {
                 RunningRecipeSubhead()
             }
@@ -68,16 +68,16 @@ struct RunningRecipeScene_Previews: PreviewProvider {
             id: 4,
             name: "Эфиопия",
             massCoffee: 25.0,
-            massWatter: 50,
+            massWater: 50,
             temperature: 96,
             duration: 25,
             description: "Описание простого рецепта. Возможная дополнительная информация",
             steps: [
-                RecipeStepEntity(id: 0, startTime: 0, massWatter: 10),
-                RecipeStepEntity(id: 1, startTime: 5, massWatter: 10),
-                RecipeStepEntity(id: 2, startTime: 10, massWatter: 10),
-                RecipeStepEntity(id: 3, startTime: 15, massWatter: 10),
-                RecipeStepEntity(id: 4, startTime: 20, massWatter: 10)
+                RecipeStepEntity(id: 0, startTime: 0, massWater: 10),
+                RecipeStepEntity(id: 1, startTime: 5, massWater: 10),
+                RecipeStepEntity(id: 2, startTime: 10, massWater: 10),
+                RecipeStepEntity(id: 3, startTime: 15, massWater: 10),
+                RecipeStepEntity(id: 4, startTime: 20, massWater: 10)
                 ]
             ))
     }

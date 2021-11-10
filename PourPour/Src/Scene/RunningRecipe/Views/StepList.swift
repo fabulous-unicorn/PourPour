@@ -25,7 +25,7 @@ struct StepList: View {
                 VStack {
                     //TODO: Можно добавить автоскрол к активному шагу
                     ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
-                    StepRow(startTime: step.startTime, massWatter: step.massWatter)
+                    StepRow(startTime: step.startTime, massWater: step.massWater)
                         .if(index < self.indexActiveStep) {
                             $0.opacity(0.4)
                         }
@@ -62,11 +62,11 @@ struct StepList: View {
 struct StepList_Previews: PreviewProvider {
     static var previews: some View {
         StepList(steps: [
-                    RecipeStepEntity(id: 0, startTime: 0, massWatter: 10),
-                    RecipeStepEntity(id: 1, startTime: 5, massWatter: 10),
-                    RecipeStepEntity(id: 2, startTime: 10, massWatter: 10),
-                    RecipeStepEntity(id: 3, startTime: 15, massWatter: 10),
-                    RecipeStepEntity(id: 4, startTime: 20, massWatter: 10)
+                    RecipeStepEntity(id: 0, startTime: 0, massWater: 10),
+                    RecipeStepEntity(id: 1, startTime: 5, massWater: 10),
+                    RecipeStepEntity(id: 2, startTime: 10, massWater: 10),
+                    RecipeStepEntity(id: 3, startTime: 15, massWater: 10),
+                    RecipeStepEntity(id: 4, startTime: 20, massWater: 10)
                 ],
                 indexActiveStep: 2,
                 timeCompleted: 20)

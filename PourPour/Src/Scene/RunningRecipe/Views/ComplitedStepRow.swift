@@ -28,7 +28,7 @@ struct ComplitedStepRow: View {
 
             HStack(alignment: .bottom, spacing: 2.0) {
 
-                Image("watter")
+                Image("water")
                     .foregroundColor(Color("control-icon-bg"))
                     .frame(width: 24.0, height: 24.0)
 

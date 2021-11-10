@@ -44,7 +44,7 @@
                                 <color key="textColor" name="text-basic"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="watter" translatesAutoresizingMaskIntoConstraints="NO" id="MMZ-s8-gtD">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="water" translatesAutoresizingMaskIntoConstraints="NO" id="MMZ-s8-gtD">
                                 <rect key="frame" x="47" y="0.0" width="24" height="24"/>
                                 <color key="tintColor" name="control-icon-bg"/>
                                 <constraints>
@@ -78,7 +78,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="massWatterLabel" destination="b44-JL-02H" id="CFb-FX-4Wr"/>
+                <outlet property="massWaterLabel" destination="b44-JL-02H" id="CFb-FX-4Wr"/>
                 <outlet property="prefixLabel" destination="eOP-UN-ORp" id="He2-Ay-vQ7"/>
                 <outlet property="suffixLabel" destination="fSp-Vr-rea" id="Ial-sb-7fr"/>
                 <outlet property="timeLabel" destination="dvW-xK-qUp" id="fWS-TI-sHF"/>
@@ -88,7 +88,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="watter" width="24" height="24"/>
+        <image name="water" width="24" height="24"/>
         <namedColor name="control-icon-bg">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -23,7 +23,7 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="248" distribution="equalCentering" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="tmZ-8L-V2g">
                                     <rect key="frame" x="16" y="16" width="382" height="57"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="sAE-Zk-khR" customClass="RecipePropertyView" customModule="PourPour" customModuleProvider="target">
+                                        <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sAE-Zk-khR" customClass="RecipePropertyView" customModule="PourPour" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="3.5" width="95.5" height="50"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="coffee"/>
@@ -31,7 +31,7 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="suffixLabel" value="гр"/>
                                             </userDefinedRuntimeAttributes>
                                         </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="Caq-Fp-FVY" customClass="RecipePropertyView" customModule="PourPour" customModuleProvider="target">
+                                        <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Caq-Fp-FVY" customClass="RecipePropertyView" customModule="PourPour" customModuleProvider="target">
                                             <rect key="frame" x="97.5" y="3.5" width="95.5" height="50"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="watter"/>
@@ -39,7 +39,7 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="suffixLabel" value="гр"/>
                                             </userDefinedRuntimeAttributes>
                                         </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="zaT-vk-G9u" customClass="RecipePropertyView" customModule="PourPour" customModuleProvider="target">
+                                        <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zaT-vk-G9u" customClass="RecipePropertyView" customModule="PourPour" customModuleProvider="target">
                                             <rect key="frame" x="195" y="3.5" width="89.5" height="50"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="temperature"/>
@@ -47,7 +47,7 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="suffixLabel" value="°C"/>
                                             </userDefinedRuntimeAttributes>
                                         </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="V3d-gQ-Tzl" customClass="RecipePropertyView" customModule="PourPour" customModuleProvider="target">
+                                        <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V3d-gQ-Tzl" customClass="RecipePropertyView" customModule="PourPour" customModuleProvider="target">
                                             <rect key="frame" x="286.5" y="3.5" width="95.5" height="50"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="timer"/>
@@ -163,7 +163,7 @@
                         <outlet property="descriptionView" destination="Pcz-Ah-e6E" id="9m1-eY-YGn"/>
                         <outlet property="temperaturePropertyView" destination="zaT-vk-G9u" id="i3V-cE-sjv"/>
                         <outlet property="timePropertyView" destination="V3d-gQ-Tzl" id="7lT-UC-mZT"/>
-                        <outlet property="watterPropertyView" destination="Caq-Fp-FVY" id="nBh-bv-SgO"/>
+                        <outlet property="waterPropertyView" destination="Caq-Fp-FVY" id="nBh-bv-SgO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jt3-vR-Rmc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -173,10 +173,10 @@
     </scenes>
     <designables>
         <designable name="Dl8-zr-JNl">
-            <size key="intrinsicContentSize" width="126" height="33"/>
+            <size key="intrinsicContentSize" width="108" height="30"/>
         </designable>
         <designable name="seG-84-8X5">
-            <size key="intrinsicContentSize" width="49" height="33"/>
+            <size key="intrinsicContentSize" width="42" height="30"/>
         </designable>
     </designables>
     <resources>

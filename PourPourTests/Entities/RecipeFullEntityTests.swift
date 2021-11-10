@@ -17,16 +17,16 @@ class RecipeFullEntityTests: XCTestCase {
             id: 4,
             name: "Эфиопия",
             massCoffee: 25.0,
-            massWatter: 50,
+            massWater: 50,
             temperature: 96,
             duration: 25,
             description: "Описание простого рецепта. Возможная дополнительная информация",
             steps: [
-                RecipeStepEntity(id: 0, startTime: 0, massWatter: 10),      //duration = 5
-                RecipeStepEntity(id: 1, startTime: 5, massWatter: 10),      //duration = 7
-                RecipeStepEntity(id: 2, startTime: 12, massWatter: 10),     //duration = 4
-                RecipeStepEntity(id: 3, startTime: 16, massWatter: 10),     //duration = 5
-                RecipeStepEntity(id: 4, startTime: 21, massWatter: 10)      //duration = 4
+                RecipeStepEntity(id: 0, startTime: 0, massWater: 10),      //duration = 5
+                RecipeStepEntity(id: 1, startTime: 5, massWater: 10),      //duration = 7
+                RecipeStepEntity(id: 2, startTime: 12, massWater: 10),     //duration = 4
+                RecipeStepEntity(id: 3, startTime: 16, massWater: 10),     //duration = 5
+                RecipeStepEntity(id: 4, startTime: 21, massWater: 10)      //duration = 4
                 ]
             )
         sut = recipe

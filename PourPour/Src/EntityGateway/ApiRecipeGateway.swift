@@ -31,16 +31,16 @@ class ApiRecipeGateway: RecipeGateway {
                 id: 0,
                 name: "Колумбия",
                 massCoffee: 25.0,
-                massWatter: 250,
+                massWater: 250,
                 temperature: 96,
                 duration: 150,
                 description: "Описание простого рецепта. Возможная дополнительная информация",
                 steps: [
-                    RecipeStepEntity(id: 0, startTime: 0, massWatter: 50),
-                    RecipeStepEntity(id: 1, startTime: 30, massWatter: 50),
-                    RecipeStepEntity(id: 2, startTime: 60, massWatter: 50),
-                    RecipeStepEntity(id: 3, startTime: 90, massWatter: 50),
-                    RecipeStepEntity(id: 4, startTime: 120, massWatter: 50)
+                    RecipeStepEntity(id: 0, startTime: 0, massWater: 50),
+                    RecipeStepEntity(id: 1, startTime: 30, massWater: 50),
+                    RecipeStepEntity(id: 2, startTime: 60, massWater: 50),
+                    RecipeStepEntity(id: 3, startTime: 90, massWater: 50),
+                    RecipeStepEntity(id: 4, startTime: 120, massWater: 50)
                     ]
                 )
         case 1:
@@ -48,12 +48,12 @@ class ApiRecipeGateway: RecipeGateway {
                 id: 1,
                 name: "Коста-Рика",
                 massCoffee: 25.5,
-                massWatter: 200,
+                massWater: 200,
                 temperature: 96,
                 duration: 10,
                 description: "Описание простого рецепта. Возможная дополнительная информация",
                 steps: [
-                    RecipeStepEntity(id: 0, startTime: 0, massWatter: 50)
+                    RecipeStepEntity(id: 0, startTime: 0, massWater: 50)
                 ]
             )
         case 2:
@@ -61,13 +61,13 @@ class ApiRecipeGateway: RecipeGateway {
                 id: 2,
                 name: "Бразилия",
                 massCoffee: 5,
-                massWatter: 10,
+                massWater: 10,
                 temperature: 96,
                 duration: 10,
                 description: "Описание простого рецепта. Возможная дополнительная информация",
                 steps: [
-                    RecipeStepEntity(id: 0, startTime: 0, massWatter: 50),
-                    RecipeStepEntity(id: 1, startTime: 5, massWatter: 50)
+                    RecipeStepEntity(id: 0, startTime: 0, massWater: 50),
+                    RecipeStepEntity(id: 1, startTime: 5, massWater: 50)
                 ]
             )
         case 3:
@@ -75,7 +75,7 @@ class ApiRecipeGateway: RecipeGateway {
                 id: 3,
                 name: "Кения",
                 massCoffee: 25.5,
-                massWatter: 0,
+                massWater: 0,
                 temperature: 91,
                 duration: 0,
                 description: "Описание простого рецепта. Возможная дополнительная информация",
@@ -86,16 +86,16 @@ class ApiRecipeGateway: RecipeGateway {
                 id: 4,
                 name: "Эфиопия",
                 massCoffee: 25.0,
-                massWatter: 50,
+                massWater: 50,
                 temperature: 96,
                 duration: 25,
                 description: "Описание простого рецепта. Возможная дополнительная информация",
                 steps: [
-                    RecipeStepEntity(id: 0, startTime: 0, massWatter: 10),
-                    RecipeStepEntity(id: 1, startTime: 5, massWatter: 10),
-                    RecipeStepEntity(id: 2, startTime: 10, massWatter: 10),
-                    RecipeStepEntity(id: 3, startTime: 15, massWatter: 10),
-                    RecipeStepEntity(id: 4, startTime: 20, massWatter: 10)
+                    RecipeStepEntity(id: 0, startTime: 0, massWater: 10),
+                    RecipeStepEntity(id: 1, startTime: 5, massWater: 10),
+                    RecipeStepEntity(id: 2, startTime: 10, massWater: 10),
+                    RecipeStepEntity(id: 3, startTime: 15, massWater: 10),
+                    RecipeStepEntity(id: 4, startTime: 20, massWater: 10)
                     ]
                 )
         default:
@@ -103,16 +103,16 @@ class ApiRecipeGateway: RecipeGateway {
                 id: id,
                 name: "--",
                 massCoffee: 25.0,
-                massWatter: 250,
+                massWater: 250,
                 temperature: 96,
                 duration: 150,
                 description: "-------",
                 steps: [
-                    RecipeStepEntity(id: 0, startTime: 0, massWatter: 50),
-                    RecipeStepEntity(id: 1, startTime: 30, massWatter: 50),
-                    RecipeStepEntity(id: 2, startTime: 60, massWatter: 50),
-                    RecipeStepEntity(id: 3, startTime: 90, massWatter: 50),
-                    RecipeStepEntity(id: 4, startTime: 120, massWatter: 50)
+                    RecipeStepEntity(id: 0, startTime: 0, massWater: 50),
+                    RecipeStepEntity(id: 1, startTime: 30, massWater: 50),
+                    RecipeStepEntity(id: 2, startTime: 60, massWater: 50),
+                    RecipeStepEntity(id: 3, startTime: 90, massWater: 50),
+                    RecipeStepEntity(id: 4, startTime: 120, massWater: 50)
                     ]
                 )
         }

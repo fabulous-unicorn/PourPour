@@ -25,7 +25,7 @@ struct EditingRecipeScene: View {
                     print("Новое описание: \(self.viewModel.description)")
                 })
                 RecipeSpecificationsList(massCoffee: self.$viewModel.massCoffee,
-                                         massWatter: self.$viewModel.massWatter,
+                                         massWater: self.$viewModel.massWater,
                                          temperature: self.$viewModel.temperature,
                                          duration: self.$viewModel.duration)
                 
@@ -50,16 +50,16 @@ struct EditingRecipeScene_Previews: PreviewProvider {
             id: 4,
             name: "Эфиопия",
             massCoffee: 25.0,
-            massWatter: 50,
+            massWater: 50,
             temperature: 96,
             duration: 25,
             description: "Описание простого рецепта. Возможная дополнительная информация",
             steps: [
-                RecipeStepEntity(id: 0, startTime: 0, massWatter: 10),
-                RecipeStepEntity(id: 1, startTime: 5, massWatter: 10),
-                RecipeStepEntity(id: 2, startTime: 10, massWatter: 10),
-                RecipeStepEntity(id: 3, startTime: 15, massWatter: 10),
-                RecipeStepEntity(id: 4, startTime: 20, massWatter: 10)
+                RecipeStepEntity(id: 0, startTime: 0, massWater: 10),
+                RecipeStepEntity(id: 1, startTime: 5, massWater: 10),
+                RecipeStepEntity(id: 2, startTime: 10, massWater: 10),
+                RecipeStepEntity(id: 3, startTime: 15, massWater: 10),
+                RecipeStepEntity(id: 4, startTime: 20, massWater: 10)
                 ]
             )))
     }

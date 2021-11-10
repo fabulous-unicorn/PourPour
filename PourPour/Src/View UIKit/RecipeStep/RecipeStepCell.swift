@@ -13,7 +13,7 @@ class RecipeStepCell: UITableViewCell {
     @IBOutlet weak var timeLabelContainer: UIView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var prefixLabel: UILabel!
-    @IBOutlet weak var massWatterLabel: UILabel!
+    @IBOutlet weak var massWaterLabel: UILabel!
     @IBOutlet weak var suffixLabel: UILabel!
     
     var entity: RecipeStepEntity!
@@ -24,7 +24,7 @@ class RecipeStepCell: UITableViewCell {
         
         self.entity = entity
         self.timeLabel.text = TimeFormater.formMinutesTimerString(from: self.entity.startTime)
-        self.massWatterLabel.text = "\(self.entity.massWatter)"
+        self.massWaterLabel.text = "\(self.entity.massWater)"
     }
     
     private func setDesignCell(inActive: Bool) {
@@ -42,6 +42,6 @@ class RecipeStepCell: UITableViewCell {
         self.suffixLabel.isHidden = true
         
         self.timeLabel.text = TimeFormater.formMinutesTimerString(from: time)
-        self.massWatterLabel.text = "Завершение"
+        self.massWaterLabel.text = "Завершение"
     }
 }

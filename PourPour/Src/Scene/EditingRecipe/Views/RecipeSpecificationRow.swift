@@ -83,7 +83,7 @@ struct RecipeSpecificationRow: View {
 #if DEBUG
 struct RecipeSpecificationRow_Preview_Container: View {
     @State private var coffee :String = "16"
-    @State private var watter :String = "320"
+    @State private var water :String = "320"
     @State private var temperature :String = "74"
     @State private var duration :String = "03:01"
     
@@ -91,8 +91,8 @@ struct RecipeSpecificationRow_Preview_Container: View {
         VStack(alignment: .leading) {
             RecipeSpecificationRow(entity: .coffee,
                                    value: self.$coffee)
-            RecipeSpecificationRow(entity: .watter,
-                                   value: self.$watter)
+            RecipeSpecificationRow(entity: .water,
+                                   value: self.$water)
             RecipeSpecificationRow(entity: .temperature,
                                    value: self.$temperature)
             RecipeSpecificationRow(entity: .duration,
@@ -101,7 +101,7 @@ struct RecipeSpecificationRow_Preview_Container: View {
             Text("""
                 Значения:
                     Кофе: \(coffee)
-                    Вода: \(watter)
+                    Вода: \(water)
                     Температура: \(temperature)
                     Общее время: \(duration)
                 """)

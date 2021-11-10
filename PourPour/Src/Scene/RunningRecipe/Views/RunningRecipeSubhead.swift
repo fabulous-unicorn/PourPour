@@ -24,30 +24,30 @@ fileprivate struct StyledText: View {
 
 struct RunningRecipeSubhead: View {
     let numberActiveStep: Int
-    let massWatter: Int
+    let massWater: Int
     let isCompleted: Bool
     
-    init(numberActiveStep: Int, massWatter: Int) {
+    init(numberActiveStep: Int, massWater: Int) {
         self.numberActiveStep = numberActiveStep
-        self.massWatter = massWatter
+        self.massWater = massWater
         self.isCompleted = false
     }
     
     init() {
         self.numberActiveStep = 0
-        self.massWatter = 0
+        self.massWater = 0
         self.isCompleted = true
     }
     
     var body: some View {
-        let text = isCompleted ? "Время насладиться кофе" : "\(self.numberActiveStep): Влейте \(self.massWatter) гр воды"
+        let text = isCompleted ? "Время насладиться кофе" : "\(self.numberActiveStep): Влейте \(self.massWater) гр воды"
         StyledText(text: text)
     }
 }
 
 struct RunningRecipeSubhead_Previews: PreviewProvider {
     static var previews: some View {
-        RunningRecipeSubhead(numberActiveStep: 2, massWatter: 50)
+        RunningRecipeSubhead(numberActiveStep: 2, massWater: 50)
             .previewLayout(.sizeThatFits)
         RunningRecipeSubhead()
             .previewLayout(.sizeThatFits)

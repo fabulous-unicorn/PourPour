@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecipeSpecificationsList: View {
     @Binding var massCoffee: String
-    @Binding var massWatter: String
+    @Binding var massWater: String
     @Binding var temperature: String
     @Binding var duration: String
     
@@ -20,8 +20,8 @@ struct RecipeSpecificationsList: View {
             VStack(alignment: .leading) {
                 RecipeSpecificationRow(entity: .coffee,
                                        value: self.$massCoffee)
-                RecipeSpecificationRow(entity: .watter,
-                                       value: self.$massWatter)
+                RecipeSpecificationRow(entity: .water,
+                                       value: self.$massWater)
                 RecipeSpecificationRow(entity: .temperature,
                                        value: self.$temperature)
                 RecipeSpecificationRow(entity: .duration,
@@ -34,13 +34,13 @@ struct RecipeSpecificationsList: View {
 #if DEBUG
 struct RecipeSpecificationsList_Previews: PreviewProvider {
     static var massCoffee: String = "17,5"
-    static var massWatter: String = "250"
+    static var massWater: String = "250"
     static var temperature: String = "64"
     static var duration: String = "03:01"
     
     static var previews: some View {
         RecipeSpecificationsList(massCoffee: .constant(self.massCoffee),
-                                 massWatter: .constant(self.massWatter),
+                                 massWater: .constant(self.massWater),
                                  temperature: .constant(self.temperature),
                                  duration: .constant(self.duration))
     }

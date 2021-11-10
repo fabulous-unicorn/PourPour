@@ -9,7 +9,7 @@ import Foundation
 
 enum RecipeSpecificationRowType {
     case coffee
-    case watter
+    case water
     case temperature
     case duration
     
@@ -18,8 +18,8 @@ enum RecipeSpecificationRowType {
             switch self {
             case .coffee:
                 return "coffee"
-            case .watter:
-                return "watter"
+            case .water:
+                return "water"
             case .temperature:
                 return "temperature"
             case .duration:
@@ -33,7 +33,7 @@ enum RecipeSpecificationRowType {
             switch self {
             case .coffee:
                 return "Кофе"
-            case .watter:
+            case .water:
                 return "Вода"
             case .temperature:
                 return "Температура"
@@ -48,7 +48,7 @@ enum RecipeSpecificationRowType {
             switch self {
             case .coffee:
                 return "гр"
-            case .watter:
+            case .water:
                 return "гр"
             case .temperature:
                 return "°C"
@@ -65,7 +65,7 @@ enum RecipeSpecificationRowType {
                 return .invalid(error: "??Ошибка")
             }
             return .valid
-        case .watter:
+        case .water:
             //TODO: Добавить валидацию
             return .valid
         case .temperature:

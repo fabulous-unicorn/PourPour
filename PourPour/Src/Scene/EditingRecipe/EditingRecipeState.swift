@@ -19,7 +19,7 @@ class RecipeEntityViewModel: ObservableObject {
     var id: Int
     @Published var name: String
     @Published var massCoffee: String
-    @Published var massWatter: String
+    @Published var massWater: String
     @Published var temperature: String
     @Published var duration: String
     @Published var description: String
@@ -30,7 +30,7 @@ class RecipeEntityViewModel: ObservableObject {
         self.id = recipe.id
         self.name = recipe.name
         self.massCoffee = "\(recipe.massCoffee)"
-        self.massWatter = "\(recipe.massWatter)"
+        self.massWater = "\(recipe.massWater)"
         self.temperature = "\(recipe.temperature)"
         self.duration = TimeFormater.formMinutesTimerString(from: recipe.duration)
         self.steps = recipe.steps

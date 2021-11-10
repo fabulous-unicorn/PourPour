@@ -10,7 +10,7 @@ import UIKit
 class RecipeController: UITableViewController{
     
     @IBOutlet weak var coffeePropertyView: RecipePropertyView!
-    @IBOutlet weak var watterPropertyView: RecipePropertyView!
+    @IBOutlet weak var waterPropertyView: RecipePropertyView!
     @IBOutlet weak var temperaturePropertyView: RecipePropertyView!
     @IBOutlet weak var timePropertyView: RecipePropertyView!
     @IBOutlet weak var descriptionView: UITextView!
@@ -68,7 +68,7 @@ extension RecipeController: RecipeView {
         self.descriptionView.text = recipe.description
         
         self.coffeePropertyView.valueLabel = NSNumber(value: recipe.massCoffee).stringValue
-        self.watterPropertyView.valueLabel = "\(recipe.massWatter)"
+        self.waterPropertyView.valueLabel = "\(recipe.massWater)"
         self.temperaturePropertyView.valueLabel = "\(recipe.temperature)"
         self.timePropertyView.valueLabel = TimeFormater.formMinutesTimerString(from: recipe.duration)
         self.tableView.reloadData()

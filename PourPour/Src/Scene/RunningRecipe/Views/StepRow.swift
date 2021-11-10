@@ -10,7 +10,7 @@ import SwiftUI
 
 struct StepRow: View {
     let startTime: Int
-    let massWatter: Int
+    let massWater: Int
     
     var body: some View {
         HStack(alignment: .center) {
@@ -33,11 +33,11 @@ struct StepRow: View {
                     .font(.body)
                     .foregroundColor(Color("text-basic"))
 
-                Image("watter")
+                Image("water")
                     .foregroundColor(Color("control-icon-bg"))
                     .frame(width: 24.0, height: 24.0)
 
-                Text("\(self.massWatter)")
+                Text("\(self.massWater)")
                     .font(.system(size: 20,
                                   weight: .bold)
                             .monospacedDigit())
@@ -57,7 +57,7 @@ struct StepRow: View {
 
 struct StepRow_Previews: PreviewProvider {
     static var previews: some View {
-        StepRow(startTime: 0, massWatter: 50)
+        StepRow(startTime: 0, massWater: 50)
             .previewLayout(.sizeThatFits)
     }
 }
