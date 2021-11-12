@@ -29,6 +29,17 @@ class RecipeEntityViewModel: ObservableObject {
         self.description = recipe.description
     }
     
+    init() {
+        self.id = 0
+        self.name = ""
+        self.massCoffee = ""
+        self.massWater = ""
+        self.temperature = ""
+        self.duration = ""
+        self.steps = []
+        self.description = ""
+    }
+    
 //    func createRecipeFullEntity() -> RecipeFullEntity {
 //
 //    }

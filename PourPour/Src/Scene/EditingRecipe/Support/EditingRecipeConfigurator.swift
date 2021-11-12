@@ -9,9 +9,11 @@ import UIKit
 import SwiftUI
 class EditingRecipeConfigurator {
 
-    func configure(view: EditingRecipeController, recipe: RecipeFullEntity) {
+    func configure(view: EditingRecipeController, recipe: RecipeFullEntity? = nil) {
 
-        let viewModel = RecipeEntityViewModel(recipe: recipe)
+        let viewModel = recipe != nil ? RecipeEntityViewModel(recipe: recipe!) : RecipeEntityViewModel()
+        
+        
         let swifyUIview = UIHostingController(rootView: EditingRecipeScene(viewModel))
         view.contentView = swifyUIview
         view.setTitle("Создание/Редактирование")
@@ -21,6 +23,12 @@ class EditingRecipeConfigurator {
 
         let view = R.storyboard.editingRecipe.editingRecipeVC()!
         EditingRecipeConfigurator().configure(view: view, recipe: recipe)
+        navigationController.pushViewController(view, animated: true)
+    }
+    
+    static func openForCreate(navigationController: UINavigationController) {
+        let view = R.storyboard.editingRecipe.editingRecipeVC()!
+        EditingRecipeConfigurator().configure(view: view)
         navigationController.pushViewController(view, animated: true)
     }
 }

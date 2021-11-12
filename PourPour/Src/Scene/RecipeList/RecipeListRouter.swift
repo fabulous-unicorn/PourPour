@@ -10,6 +10,7 @@ import Foundation
 protocol RecipeListRouter {
     func openRecipe(_ recipeId: Int)
     func openInfoSceen()
+    func openCreateSceen()
 }
 
 class RecipeListRouterImp: RecipeListRouter {
@@ -27,5 +28,9 @@ class RecipeListRouterImp: RecipeListRouter {
     func openInfoSceen() {
         let infoView = R.storyboard.info.infoVC()!
         self.view.navigationController?.pushViewController(infoView, animated: true)
+    }
+    
+    func openCreateSceen() {
+        EditingRecipeConfigurator.openForCreate(navigationController: self.view.navigationController!)
     }
 }

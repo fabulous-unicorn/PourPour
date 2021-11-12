@@ -46,13 +46,22 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Рецепты" id="lad-VG-MrD">
                         <barButtonItem key="backBarButtonItem" title=" " id="2iz-Pi-8br"/>
-                        <barButtonItem key="rightBarButtonItem" title="info" style="plain" id="NB4-fZ-QGW">
-                            <imageReference key="image" image="info.circle" catalog="system" symbolScale="medium" renderingMode="template"/>
-                            <color key="tintColor" name="control-icon-bg"/>
-                            <connections>
-                                <action selector="touchInfo:" destination="aW3-cV-RyB" id="qd2-xk-wJl"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" style="plain" id="t9e-Ie-ko2">
+                                <imageReference key="image" image="plus" catalog="system" symbolScale="medium" renderingMode="template"/>
+                                <color key="tintColor" name="control-icon-bg"/>
+                                <connections>
+                                    <action selector="touchCreate:" destination="aW3-cV-RyB" id="y5U-z7-9Lr"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="info" style="plain" id="NB4-fZ-QGW">
+                                <imageReference key="image" image="info.circle" catalog="system" symbolScale="medium" renderingMode="template"/>
+                                <color key="tintColor" name="control-icon-bg"/>
+                                <connections>
+                                    <action selector="touchInfo:" destination="aW3-cV-RyB" id="qd2-xk-wJl"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="M7t-xy-Zq6">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -88,6 +97,7 @@
     </scenes>
     <resources>
         <image name="info.circle" catalog="system" width="128" height="121"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="control-icon-bg">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
