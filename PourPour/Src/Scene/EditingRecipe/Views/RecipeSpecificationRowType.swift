@@ -62,21 +62,30 @@ enum RecipeSpecificationRowType {
         switch self {
         case .coffee:
             guard Double(newValue) != nil else {
-                return .invalid(error: "??Ошибка")
+                return .invalid(error: "Неверное значение для массы кофе")
             }
             return .valid
         case .water:
             guard Int(newValue) != nil else {
-                return .invalid(error: "??Ошибка")
+                return .invalid(error: "Неверное значение для массы воды")
             }
             return .valid
         case .temperature:
             guard Int(newValue) != nil else {
-                return .invalid(error: "??Ошибка")
+                return .invalid(error: "Неверное значение для температуры")
             }
             return .valid
         case .duration:
-            //TODO: Добавить валидацию
+            //TODO: Временное решение(т.к. timepicker отложен)
+
+            let duration = newValue.trimmingCharacters(in: CharacterSet.whitespaces)
+            let regex = "[0-9][0-9]\\:[0-5][0-9]$"
+            let predicate = NSPredicate(format:"SELF MATCHES %@",regex)
+            let result = predicate.evaluate(with: duration)
+            
+            guard result else {
+                return .invalid(error: "Неверное значение для продолжительности рецепта (общее количество секунд)")
+            }
             return .valid
         }
     }
@@ -87,5 +96,4 @@ enum ValidationStatus {
     case invalid(error: String)
 }
 
-//            let filtered = value.filter { "0123456789".contains($0) }
-//            guard filtered == value else { return .invalide(error "Невалидные символы")}
+

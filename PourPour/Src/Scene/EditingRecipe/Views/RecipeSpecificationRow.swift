@@ -30,44 +30,40 @@ fileprivate struct InputRow: View {
     
     var body: some View {
         HStack {
-            //TODO: Добавить отдальный инпут для общего времени
-            //TODO: Добавить отображение ошибочного ввода
             VStack(spacing: -1.0) {
-                TextField(
-                    "0",
-                    text: self.$value)
-                    .keyboardType(.numberPad)
-                    .foregroundColor(Color("text-basic"))
-                    .disableAutocorrection(true)
-                    .accentColor(Color("control-accent"))
-                    //TODO: Добавить валидацию //.onChange
-                    .onReceive(Just(value)) { newValue in
-                        if newValue == "" {
-                            if self.hasError != false {
-                                self.hasError = false
-                            }
-                        } else {
-                            let status = self.entity.validateValue(newValue)
-                            
-                            switch status {
-                            case .valid :
-                                print("v")
-                                if self.hasError != false {
-                                    self.hasError = false
-                                }
-                            case .invalid(let error) :
-                                print(error)
-                                if self.hasError != true {
-                                    self.hasError = true
-                                }
+                let placeholder = entity == .duration ? "00:00" : "0"
+//                switch self.entity {
+//                case .coffee, .water, .temperature:
+                    TextField(
+                        placeholder,
+                        text: self.$value)
+                        .keyboardType(.numberPad)
+                        .foregroundColor(Color("text-basic"))
+                        .disableAutocorrection(true)
+                        .accentColor(Color("control-accent"))
+                        .onReceive(Just(value)) { newValue in
+                            switch self.entity {
+                                case .coffee, .water, .temperature:
+                                    self.validateAndChangeStateIfNeeded(newValue: newValue)
+                                case .duration:
+                                    let formattedValue = self.formattedTimeValue(value: newValue)
+                                    if self.value != formattedValue {
+                                        self.value = formattedValue
+                                    }
+                                    self.validateAndChangeStateIfNeeded(newValue: formattedValue)
                             }
                         }
-                    }
-                    if self.hasError {
-                        Rectangle()
-                            .fill(Color.red)
-                            .frame(maxWidth: .infinity, maxHeight: 1.0)
-                    }
+                        .padding(.leading, 16.0)
+                        if self.hasError {
+                            Rectangle()
+                                .fill(Color.red)
+                                .padding(.leading, 16.0)
+                                .frame(maxWidth: .infinity, maxHeight: 1.0)
+                        }
+//                case .duration :
+//TODO: Добавить отдальный инпут для общего времени - datepicker отложен
+//                    Text("Timer")
+//                }
             }
             
             Text(self.entity.postfix)
@@ -88,6 +84,45 @@ fileprivate struct InputRow: View {
             }
         }
         
+    }
+    
+    func formattedTimeValue(value: String) -> String {
+        //Проверка на что что десяки секунд меньше 6, только в итоговой валидации
+        let mask = "##:##"
+        var result = ""
+        var index = value.startIndex
+        for ch in mask where index < value.endIndex {
+            if ch == "#" {
+                result.append(value[index])
+                index = value.index(after: index)
+            } else {
+                result.append(ch)
+                if value[index] == ":" {
+                    index = value.index(after: index)
+                }
+            }
+        }
+        return result
+    }
+    
+    func validateAndChangeStateIfNeeded(newValue: String) {
+        var hasError = false
+        
+        if newValue == "" {
+            hasError = false
+        } else {
+            let status = self.entity.validateValue(newValue)
+            switch status {
+            case .valid:
+                hasError = false
+            case .invalid:
+                hasError = true
+            }
+        }
+        
+        if self.hasError != hasError {
+            self.hasError = hasError
+        }
     }
 }
 

@@ -7,14 +7,6 @@
 
 import Foundation
 
-//class EditingRecipeState: ObservableObject {
-//    @Published var recipe: RecipeFullEntity
-//
-//    init(recipe: RecipeFullEntity) {
-//        self.recipe = recipe
-//    }
-//}
-
 class RecipeEntityViewModel: ObservableObject {
     var id: Int
     @Published var name: String
