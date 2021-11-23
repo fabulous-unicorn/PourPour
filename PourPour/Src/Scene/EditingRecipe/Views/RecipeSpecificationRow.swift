@@ -107,7 +107,7 @@ fileprivate struct InputRow: View {
     
     func validateAndChangeStateIfNeeded(newValue: String) {
         var hasError = false
-        
+        //FIXME: убрать сравнения при присваивании
         if newValue == "" {
             hasError = false
         } else {
